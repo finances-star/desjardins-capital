@@ -1326,41 +1326,46 @@ body {
       <div class="pad" style="flex:1;display:flex;flex-direction:column;justify-content:center;">
         <div class="section-tag" style="color:var(--blue);">Préparation</div>
         <h2 class="slide-title">On doit évaluer l'impact et pivoter</h2>
-        <hr class="rule" style="width:60px;margin-bottom:24px;">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;flex:1;align-content:center;">
+        <hr class="rule" style="width:60px;margin-bottom:18px;">
+        <div style="display:flex;gap:20px;flex:1;min-height:0;align-items:stretch;">
 
-          <!-- 01 Transport & hébergement -->
-          <div style="background:var(--blue);border-radius:14px;padding:24px 26px;">
-            <div style="font-size:11px;font-weight:700;letter-spacing:.16em;color:rgba(255,255,255,.65);text-transform:uppercase;margin-bottom:10px;">01 — Transport &amp; hébergement</div>
-            <div style="font-size:19px;font-weight:700;color:white;margin-bottom:8px;">Location VR</div>
-            <div style="font-size:15px;color:rgba(255,255,255,.8);padding-left:12px;">· Location du véhicule récréatif</div>
-            <div style="font-size:15px;color:rgba(255,255,255,.8);padding-left:12px;margin-top:4px;">· Sites de camping sur la route</div>
+          <!-- Vidéo gauche -->
+          <div style="flex:1;border-radius:14px;overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center;min-height:0;">
+            <video src="PIVOTAGE.mp4" controls playsinline style="width:100%;height:100%;object-fit:cover;display:block;border-radius:14px;"></video>
           </div>
 
-          <!-- 02 Soutien logistique -->
-          <div style="background:var(--blue-lt);border:2px solid var(--blue);border-radius:14px;padding:24px 26px;">
-            <div style="font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--blue);text-transform:uppercase;margin-bottom:10px;">02 — Soutien logistique</div>
-            <div style="font-size:19px;font-weight:700;color:var(--ink);margin-bottom:8px;">Conducteur accompagnateur</div>
-            <div style="font-size:15px;color:var(--ink-3);padding-left:12px;">· Cours de mécanique vélo</div>
-            <div style="font-size:15px;color:var(--ink-3);padding-left:12px;margin-top:4px;">· Gestion du véhicule au quotidien</div>
-          </div>
+          <!-- 4 tuiles verticales droite -->
+          <div style="flex:1;display:flex;flex-direction:column;gap:10px;justify-content:stretch;">
 
-          <!-- 03 Encadrement -->
-          <div style="background:var(--blue-lt);border:2px solid var(--blue);border-radius:14px;padding:24px 26px;">
-            <div style="font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--blue);text-transform:uppercase;margin-bottom:10px;">03 — Encadrement</div>
-            <div style="font-size:19px;font-weight:700;color:var(--ink);margin-bottom:8px;">Sécurité</div>
-            <div style="font-size:15px;color:var(--ink-3);padding-left:12px;">· Protocoles route et météo</div>
-            <div style="font-size:15px;color:var(--ink-3);padding-left:12px;margin-top:4px;">· Communication quotidienne</div>
-          </div>
+            <!-- 01 Transport & hébergement -->
+            <div style="background:var(--blue);border-radius:12px;padding:16px 20px;flex:1;display:flex;flex-direction:column;justify-content:center;">
+              <div style="font-size:10px;font-weight:700;letter-spacing:.16em;color:rgba(255,255,255,.65);text-transform:uppercase;margin-bottom:6px;">01 — Transport &amp; hébergement</div>
+              <div style="font-size:17px;font-weight:700;color:white;margin-bottom:4px;">Location VR</div>
+              <div style="font-size:13px;color:rgba(255,255,255,.8);">· Location du véhicule récréatif &nbsp;· Sites de camping sur la route</div>
+            </div>
 
-          <!-- 04 Ajustement à la préparation -->
-          <div style="background:var(--blue);border-radius:14px;padding:24px 26px;">
-            <div style="font-size:11px;font-weight:700;letter-spacing:.16em;color:rgba(255,255,255,.65);text-transform:uppercase;margin-bottom:10px;">04 — Ajustement préparation</div>
-            <div style="font-size:19px;font-weight:700;color:white;margin-bottom:8px;">Physique &amp; mental</div>
-            <div style="font-size:15px;color:rgba(255,255,255,.8);padding-left:12px;">· Rouler seul vs en groupe</div>
-            <div style="font-size:15px;color:rgba(255,255,255,.8);padding-left:12px;margin-top:4px;">· Préparation mentale solo</div>
-          </div>
+            <!-- 02 Soutien logistique -->
+            <div style="background:var(--blue-lt);border:2px solid var(--blue);border-radius:12px;padding:16px 20px;flex:1;display:flex;flex-direction:column;justify-content:center;">
+              <div style="font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--blue);text-transform:uppercase;margin-bottom:6px;">02 — Soutien logistique</div>
+              <div style="font-size:17px;font-weight:700;color:var(--ink);margin-bottom:4px;">Conducteur accompagnateur</div>
+              <div style="font-size:13px;color:var(--ink-3);">· Cours de mécanique vélo &nbsp;· Gestion du véhicule au quotidien</div>
+            </div>
 
+            <!-- 03 Encadrement -->
+            <div style="background:var(--blue-lt);border:2px solid var(--blue);border-radius:12px;padding:16px 20px;flex:1;display:flex;flex-direction:column;justify-content:center;">
+              <div style="font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--blue);text-transform:uppercase;margin-bottom:6px;">03 — Encadrement</div>
+              <div style="font-size:17px;font-weight:700;color:var(--ink);margin-bottom:4px;">Sécurité</div>
+              <div style="font-size:13px;color:var(--ink-3);">· Protocoles route et météo &nbsp;· Communication quotidienne</div>
+            </div>
+
+            <!-- 04 Ajustement préparation -->
+            <div style="background:var(--blue);border-radius:12px;padding:16px 20px;flex:1;display:flex;flex-direction:column;justify-content:center;">
+              <div style="font-size:10px;font-weight:700;letter-spacing:.16em;color:rgba(255,255,255,.65);text-transform:uppercase;margin-bottom:6px;">04 — Ajustement préparation</div>
+              <div style="font-size:17px;font-weight:700;color:white;margin-bottom:4px;">Physique &amp; mental</div>
+              <div style="font-size:13px;color:rgba(255,255,255,.8);">· Rouler seul vs en groupe &nbsp;· Préparation mentale solo</div>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
@@ -2879,9 +2884,10 @@ window.addEventListener('load', scale);
 
 
 <!-- VERSION BADGE -->
-<div id="ver-badge" style="position:fixed;bottom:14px;left:16px;z-index:9999;font-family:monospace;font-size:10px;color:rgba(120,120,140,.7);background:rgba(255,255,255,.08);border:1px solid rgba(120,120,140,.2);border-radius:6px;padding:4px 8px;cursor:pointer;user-select:none;" onclick="document.getElementById('changelog-panel').style.display=document.getElementById('changelog-panel').style.display==='none'?'block':'none'">v3.53 &nbsp;&#9432;</div>
+<div id="ver-badge" style="position:fixed;bottom:14px;left:16px;z-index:9999;font-family:monospace;font-size:10px;color:rgba(120,120,140,.7);background:rgba(255,255,255,.08);border:1px solid rgba(120,120,140,.2);border-radius:6px;padding:4px 8px;cursor:pointer;user-select:none;" onclick="document.getElementById('changelog-panel').style.display=document.getElementById('changelog-panel').style.display==='none'?'block':'none'">v3.54 &nbsp;&#9432;</div>
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.54</span> <span style="color:rgba(200,200,216,.5);">2026-10-26</span> — s17 vidéo gauche + 4 tuiles verticales droite (PIVOTAGE.mp4)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.49</span> <span style="color:rgba(200,200,216,.5);">2026-10-26</span> — s11 badges min plus gros (15px), s14 tuile 380 sessions → dark-tile</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.48</span> <span style="color:rgba(200,200,216,.5);">2026-10-26</span> — fix s3 tuile Boston 2010 invisible (index JS, color:white)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.47</span> <span style="color:rgba(200,200,216,.5);">2026-10-26</span> — s3 photo Ironman ×2, s3 ordre Boston↔Courage</div>
