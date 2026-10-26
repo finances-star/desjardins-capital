@@ -2111,7 +2111,7 @@ function s5Init() {
           var vol = 100;
           var fadeInt = setInterval(function() {
             vol -= 10;
-            if (vol <= 0) { e.target.setVolume(0); clearInterval(fadeInt); }
+            if (vol <= 5) { e.target.setVolume(5); clearInterval(fadeInt); }
             else { e.target.setVolume(vol); }
           }, 1000);
         }, 18000);
@@ -2992,8 +2992,9 @@ document.addEventListener('click', function(e){
 (function(){
   var STOP_IDS = ['click-prev','ver-badge','changelog-panel',
                   'modal-nutri','modal-nutri-close',
-                     'counter','nav','slide-picker','picker-grid'];
-  var STOP_TAGS = ['BUTTON','A','INPUT','SELECT','TEXTAREA'];
+                     'counter','nav','slide-picker','picker-grid',
+                  's5-yt-wrap','s5-yt-player'];
+  var STOP_TAGS = ['BUTTON','A','INPUT','SELECT','TEXTAREA','IFRAME'];
   document.addEventListener('click', function(e){
     if (window._modalJustClosed || document.getElementById('video-modal').classList.contains('open') || document.getElementById('ironman-modal').style.display !== 'none' || document.getElementById('modal-nutri').style.display !== 'none') return;
     var el = e.target;
