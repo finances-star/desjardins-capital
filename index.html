@@ -30,6 +30,7 @@ body {
   width: 100%; height: 100%;
   background: #0F172A;
   font-family: var(--font);
+  overflow: hidden;
 }
 
 /* ─── CONTAINER ─────────────────────────────────────── */
@@ -37,6 +38,7 @@ body {
   width: 100vw; height: 100vh;
   position: relative;
   display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
 }
 
 .slide-wrap {
@@ -2477,9 +2479,9 @@ document.addEventListener('keydown', e => {
 // Scale to window
 function scale() {
   const wrap = document.querySelector('.slide-wrap');
-  const scaleX = window.innerWidth  / 1280;
-  const scaleY = window.innerHeight / 720;
-  const s = Math.min(scaleX, scaleY);
+  const vw = document.documentElement.clientWidth  || window.innerWidth;
+  const vh = document.documentElement.clientHeight || window.innerHeight;
+  const s = Math.min(vw / 1280, vh / 720);
   wrap.style.transform = 'scale(' + s + ')';
   wrap.style.transformOrigin = 'center center';
 }
