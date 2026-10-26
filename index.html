@@ -2127,18 +2127,7 @@ function s5Stop() {
   if (s5Player) { s5Player.destroy(); s5Player = null; }
 }
 
-  
-  function fitSlides() {
-    if (!wrap) return;
-    var sx = window.innerWidth  / 1280;
-    var sy = window.innerHeight / 720;
-    var s  = Math.min(sx, sy);
-    wrap.style.transform = 'scale(' + s + ')';
-    wrap.style.transformOrigin = 'center center';
-  }
-  window.addEventListener('resize', fitSlides);
-  fitSlides();
-})();
+
 
 window.onYouTubeIframeAPIReady = function() {
   // Ironman player créé à la demande (openIronmanModal)
