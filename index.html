@@ -2035,7 +2035,7 @@ const notes = [
   '',  // s29
   '',  // s30
   '',  // s31 J32
-  'VERSION: v3.37'  // s32 Leçons
+  'VERSION: v3.38'  // s32 Leçons
 ];
 
 // ─── Slide indices (0-based) ────────────────────────────────
@@ -2489,7 +2489,7 @@ document.addEventListener('keydown', e => {
 // Scale to window — absolute centré par marges, scale depuis le centre
 function scale() {
   const wrap = document.querySelector('.slide-wrap');
-  const s = Math.max(window.innerWidth / 1280, window.innerHeight / 720);
+  const s = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
   wrap.style.transform = 'scale(' + s + ')';
 }
 show(0);
@@ -2858,11 +2858,13 @@ window.addEventListener('load', scale);
 
 
 <!-- VERSION BADGE -->
-<div id="ver-badge" style="position:fixed;bottom:14px;left:16px;z-index:9999;font-family:monospace;font-size:10px;color:rgba(120,120,140,.7);background:rgba(255,255,255,.08);border:1px solid rgba(120,120,140,.2);border-radius:6px;padding:4px 8px;cursor:pointer;user-select:none;" onclick="document.getElementById('changelog-panel').style.display=document.getElementById('changelog-panel').style.display==='none'?'block':'none'">v3.37 &nbsp;&#9432;</div>
+<div id="ver-badge" style="position:fixed;bottom:14px;left:16px;z-index:9999;font-family:monospace;font-size:10px;color:rgba(120,120,140,.7);background:rgba(255,255,255,.08);border:1px solid rgba(120,120,140,.2);border-radius:6px;padding:4px 8px;cursor:pointer;user-select:none;" onclick="document.getElementById('changelog-panel').style.display=document.getElementById('changelog-panel').style.display==='none'?'block':'none'">v3.38 &nbsp;&#9432;</div>
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.38</span> <span style="color:rgba(200,200,216,.5);">2026-10-26</span>
+    <div style="color:rgba(200,200,216,.8);font-size:11px;line-height:1.5;">Math.max → Math.min : mode contain (slide entier visible, pas de coupure).</div></div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.37</span> <span style="color:rgba(200,200,216,.5);">2026-10-26</span>
-    <div style="color:rgba(200,200,216,.8);font-size:11px;line-height:1.5;">Responsive : position:absolute + margin centering (remplace flexbox) → scale() fiable sur tous viewports. Badge version visible sur toutes les slides. Changelog scrollable (max-height 55vh).</div></div>
+    <div style="color:rgba(200,200,216,.8);font-size:11px;line-height:1.5;">Position:absolute + margin centering. Badge toujours visible. Changelog scrollable.</div></div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.36</span> <span style="color:rgba(200,200,216,.5);">2026-10-26</span>
     <div style="color:rgba(200,200,216,.8);font-size:11px;line-height:1.5;">Badge et notes[31] mis à jour v3.33→v3.36.</div></div>
   <div style="margin-bottom:6px;"><div style="margin-bottom:6px;"><div style="margin-bottom:6px;"><div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.30</span> Background full-bleed sur html + body (s2 noir pleine largeur)</div>
