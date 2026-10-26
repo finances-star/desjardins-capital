@@ -37,14 +37,13 @@ body {
 #deck {
   width: 100vw; height: 100vh;
   position: relative;
+  display: flex; align-items: center; justify-content: center;
   overflow: hidden;
 }
 
 .slide-wrap {
   width: 1280px; height: 720px;
-  position: absolute;
-  top: 0; left: 0;
-  transform-origin: 0 0;
+  position: relative;
   overflow: hidden;
 }
 
@@ -2483,15 +2482,12 @@ document.addEventListener('keydown', e => {
   }
 });
 
-// Scale to window — translate explicite depuis top-left, aucune dépendance flexbox
+// Scale to window — flexbox centres, transform scales
 function scale() {
   const wrap = document.querySelector('.slide-wrap');
-  const vw = window.innerWidth;
-  const vh = window.innerHeight;
-  const s = Math.min(vw / 1280, vh / 720);
-  const tx = (vw - 1280 * s) / 2;
-  const ty = (vh - 720 * s) / 2;
-  wrap.style.transform = 'translate(' + tx + 'px, ' + ty + 'px) scale(' + s + ')';
+  const s = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+  wrap.style.transformOrigin = 'center center';
+  wrap.style.transform = 'scale(' + s + ')';
 }
 show(0);
 scale();
