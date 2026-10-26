@@ -2096,10 +2096,13 @@ var s5Player = null;
 function s5Init() {
   var wrap = document.getElementById('s5-yt-wrap');
   if (!wrap || s5Player) return;
-  var div = document.createElement('div');
-  div.id = 's5-yt-player';
-  div.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;';
-  wrap.appendChild(div);
+  // Créer le div cible seulement s'il n'existe pas déjà
+  if (!document.getElementById('s5-yt-player')) {
+    var div = document.createElement('div');
+    div.id = 's5-yt-player';
+    div.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;';
+    wrap.appendChild(div);
+  }
   s5Player = new YT.Player('s5-yt-player', {
     videoId: '5qAfa7tkmIo',
     playerVars: { rel: 0, modestbranding: 1, cc_load_policy: 1, cc_lang_pref: 'fr', autoplay: 1 },
@@ -2124,36 +2127,7 @@ function s5Stop() {
   if (s5Player) { s5Player.destroy(); s5Player = null; }
 }
 
-  // ─── Slide 10 : Spotify background music (15s max) ─────────────────
-  function s10Init() {
-    if (document.getElementById('s10-audio')) return;
-    var aud = document.createElement('audio');
-    aud.id = 's10-audio';
-    aud.src = 'Mission Impossible - Main Theme.mp3';
-    aud.loop = false;
-    aud.volume = 0.10;
-    document.body.appendChild(aud);
-    aud.play().catch(function(){});
-    setTimeout(function() {
-      var steps = 40, stepMs = 250, startVol = 0.10, n = 0;
-      var fade = setInterval(function() {
-        n++;
-        var a = document.getElementById('s10-audio');
-        if (!a) { clearInterval(fade); return; }
-        a.volume = Math.max(0, startVol * (1 - n / steps));
-        if (n >= steps) { clearInterval(fade); s10Stop(); }
-      }, stepMs);
-    }, 5000);
-  }
-  function s10Stop() {
-    var aud = document.getElementById('s10-audio');
-    if (aud) { aud.pause(); aud.currentTime = 0; aud.remove(); }
-  }
-
-
-// ─── Scale to fit viewport ───────────────────────────────────────────
-(function() {
-  var wrap = document.querySelector('.slide-wrap');
+  
   function fitSlides() {
     if (!wrap) return;
     var sx = window.innerWidth  / 1280;
@@ -2398,7 +2372,6 @@ function s2Init() {
 function show(n) {
   if (cur === S2_IDX)  s2Stop();
   if (cur === S5_IDX)  s5Stop();
-  if (cur === S10_IDX) s10Stop();
   slides[cur].classList.remove('active');
   cur = Math.max(0, Math.min(n, slides.length - 1));
   slides[cur].classList.add('active');
@@ -2443,7 +2416,6 @@ function show(n) {
   if (cur === S2_IDX)  s2Init();
   if (cur === S4_IDX)  s4Init();
   if (cur === S5_IDX)  s5Init();
-  if (cur === S10_IDX) s10Init();
   if (cur === S12_IDX) clkInit();
   if (cur === SPLAN_IDX) splanInit();
 }
