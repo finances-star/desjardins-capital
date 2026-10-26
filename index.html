@@ -2485,7 +2485,7 @@ document.addEventListener('keydown', e => {
 // Scale to window — flexbox centres, transform scales
 function scale() {
   const wrap = document.querySelector('.slide-wrap');
-  const s = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+  const s = Math.max(window.innerWidth / 1280, window.innerHeight / 720);
   wrap.style.transformOrigin = 'center center';
   wrap.style.transform = 'scale(' + s + ')';
 }
