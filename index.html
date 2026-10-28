@@ -1453,19 +1453,15 @@ body {
         <h2 class="slide-title">Colombie-Britannique — 4 jours</h2>
         <hr class="rule" style="width:60px;margin-bottom:24px;">
         <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;">
-          <div style="display:flex;flex-direction:column;gap:12px;background:var(--ink);border-radius:14px;padding:28px 24px;align-items:center;justify-content:center;text-align:center;border:1px solid rgba(255,255,255,.1);">
+          <div style="display:flex;flex-direction:column;gap:12px;background:var(--ink);border-radius:14px;padding:20px 20px;align-items:center;justify-content:center;text-align:center;border:1px solid rgba(255,255,255,.1);">
             <div style="font-size:13px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;">J3</div>
             <div style="font-size:20px;font-weight:700;color:rgba(255,255,255,.9);line-height:1.3;">Lendemain d'une journée difficile</div>
-            <div style="margin-top:16px;width:56px;height:56px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:.85;">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-            </div>
+            <video id="vid-j3" src="J3.mp4" preload="metadata" controls style="margin-top:12px;width:100%;border-radius:10px;background:#000;display:block;max-height:180px;"></video>
           </div>
-          <div style="display:flex;flex-direction:column;gap:12px;background:var(--ink);border-radius:14px;padding:28px 24px;align-items:center;justify-content:center;text-align:center;border:1px solid rgba(255,255,255,.1);">
+          <div style="display:flex;flex-direction:column;gap:12px;background:var(--ink);border-radius:14px;padding:20px 20px;align-items:center;justify-content:center;text-align:center;border:1px solid rgba(255,255,255,.1);">
             <div style="font-size:13px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;">J4</div>
             <div style="font-size:20px;font-weight:700;color:rgba(255,255,255,.9);line-height:1.3;">Quand je termine</div>
-            <div style="margin-top:16px;width:56px;height:56px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:.85;">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-            </div>
+            <video id="vid-j4" src="J4.mov" preload="metadata" controls style="margin-top:12px;width:100%;border-radius:10px;background:#000;display:block;max-height:180px;"></video>
           </div>
         </div>
       </div>
@@ -2871,9 +2867,10 @@ window.addEventListener('load', scale);
 
 
 <!-- VERSION BADGE -->
-<div id="ver-badge" style="position:fixed;bottom:14px;left:16px;z-index:9999;font-family:monospace;font-size:10px;color:rgba(120,120,140,.7);background:rgba(255,255,255,.08);border:1px solid rgba(120,120,140,.2);border-radius:6px;padding:4px 8px;cursor:pointer;user-select:none;" onclick="document.getElementById('changelog-panel').style.display=document.getElementById('changelog-panel').style.display==='none'?'block':'none'">v3.79 &nbsp;&#9432;</div>
+<div id="ver-badge" style="position:fixed;bottom:14px;left:16px;z-index:9999;font-family:monospace;font-size:10px;color:rgba(120,120,140,.7);background:rgba(255,255,255,.08);border:1px solid rgba(120,120,140,.2);border-radius:6px;padding:4px 8px;cursor:pointer;user-select:none;" onclick="document.getElementById('changelog-panel').style.display=document.getElementById('changelog-panel').style.display==='none'?'block':'none'">v3.80 &nbsp;&#9432;</div>
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.80</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — Slide 19: vidéos J3.mp4 et J4.mov, click-to-play, son 100%</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.79</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — Slide 1 anim: formule passe en blanc (#fff) au premier plan, retour gris à la réversion</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.78</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — Slide 1 anim: titre reste en place (scale only), formule monte au titre en bold</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.77</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — Slide 1: animation boucle titre ↔ formule, cycle 10s, clic 1 stoppe, clic 2 avance</div>
@@ -3004,13 +3001,21 @@ document.addEventListener('click', function(e){
 
 
 <script>
+/* Vidéos slide 19 — volume à 100% */
+document.addEventListener('DOMContentLoaded',function(){
+  ['vid-j3','vid-j4'].forEach(function(id){
+    var v=document.getElementById(id);
+    if(v){v.volume=1.0;}
+  });
+});
+
 /* Navigation : clic partout sur la slide pour avancer, sauf éléments interactifs */
 (function(){
   var STOP_IDS = ['click-prev','ver-badge','changelog-panel',
                   'modal-nutri','modal-nutri-close',
                      'counter','nav','slide-picker','picker-grid',
                   's5-yt-wrap','s5-yt-player'];
-  var STOP_TAGS = ['BUTTON','A','INPUT','SELECT','TEXTAREA','IFRAME'];
+  var STOP_TAGS = ['BUTTON','A','INPUT','SELECT','TEXTAREA','IFRAME','VIDEO'];
   document.addEventListener('click', function(e){
     if (window._modalJustClosed || document.getElementById('video-modal').classList.contains('open') || document.getElementById('ironman-modal').style.display !== 'none' || document.getElementById('modal-nutri').style.display !== 'none') return;
     var el = e.target;
