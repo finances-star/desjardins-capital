@@ -3059,7 +3059,7 @@ document.addEventListener('click', function(e){
     var ts  = fFs / tFs;
     var fs  = tFs / fFs;
     title.style.setProperty('--s1ts', ts);
-    title.style.setProperty('--s1tdy', (dist / ts) + 'px');
+    /* titre reste en place — pas de translateY */
     formula.style.setProperty('--s1fs', fs);
     formula.style.setProperty('--s1fdy', (-dist / fs) + 'px');
   }
@@ -3069,16 +3069,20 @@ document.addEventListener('click', function(e){
     title.style.opacity     = '';
     formula.style.transform = '';
     formula.style.opacity   = '';
+    formula.style.fontWeight = '';
   }
 
   function doSwap() {
     if (!loopOn) return;
     calcT();
     phase = 'in';
-    title.style.transform   = 'scale(var(--s1ts)) translateY(var(--s1tdy))';
-    title.style.opacity     = '0.35';
+    /* titre : rapetisse sur place, ne descend pas */
+    title.style.transform   = 'scale(var(--s1ts))';
+    title.style.opacity     = '0.15';
+    /* formule : monte à la position du titre, passe en bold */
     formula.style.transform = 'scale(var(--s1fs)) translateY(var(--s1fdy))';
     formula.style.opacity   = '1';
+    formula.style.fontWeight = '900';
     timers.push(setTimeout(function(){
       phase = 'hold';
       timers.push(setTimeout(function(){
