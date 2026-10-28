@@ -2112,21 +2112,27 @@ function s5Init() {
     div.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;';
     wrap.appendChild(div);
   }
+  var s5FadeStarted = false;
   s5Player = new YT.Player('s5-yt-player', {
     videoId: '5qAfa7tkmIo',
-    playerVars: { rel: 0, modestbranding: 1, cc_load_policy: 1, cc_lang_pref: 'fr', autoplay: 1 },
+    playerVars: { rel: 0, modestbranding: 1, cc_load_policy: 1, cc_lang_pref: 'fr', autoplay: 0, controls: 1 },
     events: {
       onReady: function(e) {
         e.target.setVolume(100);
-        // Fade vers 0 à 18s, sur 10s (−10 vol/s)
-        setTimeout(function() {
-          var vol = 100;
-          var fadeInt = setInterval(function() {
-            vol -= 10;
-            if (vol <= 5) { e.target.setVolume(5); clearInterval(fadeInt); }
-            else { e.target.setVolume(vol); }
-          }, 1000);
-        }, 18000);
+      },
+      onStateChange: function(e) {
+        // Fade vers 5 à 18s après que LP clique play — déclenché une seule fois
+        if (e.data === YT.PlayerState.PLAYING && !s5FadeStarted) {
+          s5FadeStarted = true;
+          setTimeout(function() {
+            var vol = 100;
+            var fadeInt = setInterval(function() {
+              vol -= 10;
+              if (vol <= 5) { e.target.setVolume(5); clearInterval(fadeInt); }
+              else { e.target.setVolume(vol); }
+            }, 1000);
+          }, 18000);
+        }
       }
     }
   });
@@ -2865,10 +2871,11 @@ window.addEventListener('load', scale);
 
 
 <!-- VERSION BADGE -->
-<div id="ver-badge" style="position:fixed;bottom:14px;left:16px;z-index:9999;font-family:monospace;font-size:10px;color:rgba(120,120,140,.7);background:rgba(255,255,255,.08);border:1px solid rgba(120,120,140,.2);border-radius:6px;padding:4px 8px;cursor:pointer;user-select:none;" onclick="document.getElementById('changelog-panel').style.display=document.getElementById('changelog-panel').style.display==='none'?'block':'none'">v3.73 &nbsp;&#9432;</div>
+<div id="ver-badge" style="position:fixed;bottom:14px;left:16px;z-index:9999;font-family:monospace;font-size:10px;color:rgba(120,120,140,.7);background:rgba(255,255,255,.08);border:1px solid rgba(120,120,140,.2);border-radius:6px;padding:4px 8px;cursor:pointer;user-select:none;" onclick="document.getElementById('changelog-panel').style.display=document.getElementById('changelog-panel').style.display==='none'?'block':'none'">v3.74 &nbsp;&#9432;</div>
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
-  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.73</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — Arizona: volume 5→100 à t=120→5 à t=132; photo: bouton ✕ + clic pour fermer</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.74</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — Norseman: pas d'autoplay, démarre sur clic play; fade 18s après le clic</div>
+          <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.73</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — Arizona: volume 5→100 à t=120→5 à t=132; photo: bouton ✕ + clic pour fermer</div>
           <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.72</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — s10 titres alignés même hauteur sur les 3 tuiles</div>
           <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.71</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — sprep tuiles bleu foncé + pastilles + texte gauche</div>
           <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.70</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — s9 tuiles flex:1 même hauteur que s10</div>
