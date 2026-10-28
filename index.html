@@ -441,8 +441,8 @@ body {
     <div class="slide dark active" id="s1" >
       <div style="position:relative;z-index:1;text-align:center;padding:0 80px;">
         <div style="font-size:11px;font-weight:700;letter-spacing:.15em;color:#60A5FA;text-transform:uppercase;margin-bottom:28px;">Desjardins Capital · 26 novembre 2026</div>
-        <h1 style="font-size:120px;font-weight:900;line-height:1.0;letter-spacing:-.03em;color:white;">Tout se joue<br>avant le départ</h1>
-        <p style="font-size:20px;font-weight:400;color:rgba(255,255,255,.6);margin-top:20px;">4P + 2E = R</p>
+        <h1 id="s1-title" style="font-size:120px;font-weight:900;line-height:1.0;letter-spacing:-.03em;color:white;transform-origin:center center;transition:transform .75s cubic-bezier(.65,0,.35,1),opacity .6s ease;will-change:transform,opacity;">Tout se joue<br>avant le départ</h1>
+        <p id="s1-formula" style="font-size:20px;font-weight:400;color:rgba(255,255,255,.6);margin-top:20px;transform-origin:center center;transition:transform .75s cubic-bezier(.65,0,.35,1),opacity .6s ease;will-change:transform,opacity;">4P + 2E = R</p>
         <div class="s1-accent"></div>
         <p class="s1-meta">Laurent Proulx, PDG — PROCURE</p>
       </div>
@@ -3018,6 +3018,127 @@ document.addEventListener('click', function(e){
     }
     go(1);
   });
+})();
+</script>
+
+<script>
+/* ── Slide 1 : animation boucle titre ↔ formule ─────────────────────── */
+(function(){
+  var S1_IDX  = 0;
+  var CYCLE   = 10000;
+  var HOLD    = 2000;
+  var T_IN    = 750;
+  var T_OUT   = 750;
+
+  var title   = document.getElementById('s1-title');
+  var formula = document.getElementById('s1-formula');
+  if (!title || !formula) return;
+
+  var s1el    = document.getElementById('s1');
+  var loopOn  = true;
+  var phase   = 'idle'; // idle|in|hold|out
+  var raf     = null;
+  var timers  = [];
+  var cdStart = null;
+
+  function clearAll() {
+    timers.forEach(clearTimeout);
+    timers = [];
+    cancelAnimationFrame(raf);
+    raf = null;
+  }
+
+  function calcT() {
+    var tR  = title.getBoundingClientRect();
+    var fR  = formula.getBoundingClientRect();
+    var tCy = tR.top  + tR.height  / 2;
+    var fCy = fR.top  + fR.height  / 2;
+    var dist = fCy - tCy;
+    var tFs = parseFloat(getComputedStyle(title).fontSize);
+    var fFs = parseFloat(getComputedStyle(formula).fontSize);
+    var ts  = fFs / tFs;
+    var fs  = tFs / fFs;
+    title.style.setProperty('--s1ts', ts);
+    title.style.setProperty('--s1tdy', (dist / ts) + 'px');
+    formula.style.setProperty('--s1fs', fs);
+    formula.style.setProperty('--s1fdy', (-dist / fs) + 'px');
+  }
+
+  function revert() {
+    title.style.transform   = '';
+    title.style.opacity     = '';
+    formula.style.transform = '';
+    formula.style.opacity   = '';
+  }
+
+  function doSwap() {
+    if (!loopOn) return;
+    calcT();
+    phase = 'in';
+    title.style.transform   = 'scale(var(--s1ts)) translateY(var(--s1tdy))';
+    title.style.opacity     = '0.35';
+    formula.style.transform = 'scale(var(--s1fs)) translateY(var(--s1fdy))';
+    formula.style.opacity   = '1';
+    timers.push(setTimeout(function(){
+      phase = 'hold';
+      timers.push(setTimeout(function(){
+        if (!loopOn) return;
+        phase = 'out';
+        revert();
+        timers.push(setTimeout(function(){
+          phase = 'idle';
+          if (loopOn) startCD();
+        }, T_OUT));
+      }, HOLD));
+    }, T_IN));
+  }
+
+  function startCD() {
+    if (!loopOn) return;
+    cdStart = performance.now();
+    function tick(now) {
+      if (!loopOn) return;
+      var pct = Math.min(1, (now - cdStart) / CYCLE);
+      if (pct < 1) { raf = requestAnimationFrame(tick); }
+      else { doSwap(); }
+    }
+    raf = requestAnimationFrame(tick);
+  }
+
+  // Intercept clicks on slide 1 only
+  // 1st click → stop loop (stopPropagation prevents go(1))
+  // 2nd click → let bubble → global handler calls go(1)
+  s1el.addEventListener('click', function(e) {
+    // Only intercept when we're on slide 1 AND loop is still active
+    if (typeof cur !== 'undefined' && cur !== S1_IDX) return;
+    if (!loopOn) return; // animation already stopped → let bubble
+
+    // 1st click: stop animation
+    e.stopPropagation();
+    loopOn = false;
+    clearAll();
+    phase = 'idle';
+    revert();
+  });
+
+  // Start when on slide 1; stop when leaving
+  var _origShow = window.show;
+  window.show = function(n) {
+    _origShow(n);
+    if (n === S1_IDX) {
+      loopOn = true;
+      phase  = 'idle';
+      clearAll();
+      startCD();
+    } else {
+      loopOn = false;
+      clearAll();
+      revert();
+    }
+  };
+
+  // Boot
+  startCD();
 })();
 </script>
 </body>
