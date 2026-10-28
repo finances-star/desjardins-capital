@@ -1453,15 +1453,13 @@ body {
         <h2 class="slide-title">Colombie-Britannique — 4 jours</h2>
         <hr class="rule" style="width:60px;margin-bottom:24px;">
         <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center;">
-          <div style="display:flex;flex-direction:column;gap:12px;background:var(--ink);border-radius:14px;padding:20px 20px;align-items:center;justify-content:center;text-align:center;border:1px solid rgba(255,255,255,.1);">
-            <div style="font-size:13px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;">J3</div>
-            <div style="font-size:20px;font-weight:700;color:rgba(255,255,255,.9);line-height:1.3;">Lendemain d'une journée difficile</div>
-            <video id="vid-j3" src="J3.mp4" preload="metadata" controls style="margin-top:12px;width:100%;border-radius:10px;background:#000;display:block;max-height:180px;"></video>
+          <div style="position:relative;aspect-ratio:9/16;background:#000;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);">
+            <video id="vid-j3" src="J3.mp4" preload="metadata" controls style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;"></video>
+            <div style="position:absolute;top:12px;left:12px;font-size:12px;font-weight:700;color:#fff;background:rgba(0,0,0,.55);padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.08em;pointer-events:none;">J3</div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:12px;background:var(--ink);border-radius:14px;padding:20px 20px;align-items:center;justify-content:center;text-align:center;border:1px solid rgba(255,255,255,.1);">
-            <div style="font-size:13px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;">J4</div>
-            <div style="font-size:20px;font-weight:700;color:rgba(255,255,255,.9);line-height:1.3;">Quand je termine</div>
-            <video id="vid-j4" src="J4.mov" preload="metadata" controls style="margin-top:12px;width:100%;border-radius:10px;background:#000;display:block;max-height:180px;"></video>
+          <div style="position:relative;aspect-ratio:9/16;background:#000;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);">
+            <video id="vid-j4" src="J4.mov" preload="metadata" controls style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;"></video>
+            <div style="position:absolute;top:12px;left:12px;font-size:12px;font-weight:700;color:#fff;background:rgba(0,0,0,.55);padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.08em;pointer-events:none;">J4</div>
           </div>
         </div>
       </div>
@@ -2867,10 +2865,11 @@ window.addEventListener('load', scale);
 
 
 <!-- VERSION BADGE -->
-<div id="ver-badge" style="position:fixed;bottom:14px;left:16px;z-index:9999;font-family:monospace;font-size:10px;color:rgba(120,120,140,.7);background:rgba(255,255,255,.08);border:1px solid rgba(120,120,140,.2);border-radius:6px;padding:4px 8px;cursor:pointer;user-select:none;" onclick="document.getElementById('changelog-panel').style.display=document.getElementById('changelog-panel').style.display==='none'?'block':'none'">v3.80 &nbsp;&#9432;</div>
+<div id="ver-badge" style="position:fixed;bottom:14px;left:16px;z-index:9999;font-family:monospace;font-size:10px;color:rgba(120,120,140,.7);background:rgba(255,255,255,.08);border:1px solid rgba(120,120,140,.2);border-radius:6px;padding:4px 8px;cursor:pointer;user-select:none;" onclick="document.getElementById('changelog-panel').style.display=document.getElementById('changelog-panel').style.display==='none'?'block':'none'">v3.81 &nbsp;&#9432;</div>
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
-  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.80</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — Slide 19: vidéos J3.mp4 et J4.mov, click-to-play, son 100%</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.81</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — Slide 19: tuiles 9:16, vidéos plein format</div>
+          <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.80</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — Slide 19: vidéos J3.mp4 et J4.mov, click-to-play, son 100%</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.79</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — Slide 1 anim: formule passe en blanc (#fff) au premier plan, retour gris à la réversion</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.78</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — Slide 1 anim: titre reste en place (scale only), formule monte au titre en bold</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.77</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — Slide 1: animation boucle titre ↔ formule, cycle 10s, clic 1 stoppe, clic 2 avance</div>
