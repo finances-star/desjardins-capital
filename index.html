@@ -1215,18 +1215,18 @@ body {
         <div class="section-tag">Préparation</div>
         <h2 class="slide-title">12 mois de préparation — juin 2024 à juin 2025</h2>
         <hr class="rule" style="width:60px;margin-bottom:20px;">
-        <div class="grid-stat" style="flex:1;gap:20px;align-content:stretch;grid-auto-rows:1fr;">
-          <div class="stat-tile dark-tile">
-            <div class="stat-label">Distance cumulée</div>
-            <div class="stat-num" style="font-size:48px;color:rgba(255,255,255,.9)">17 456 km</div>
+        <div style="flex:1;display:flex;gap:20px;min-height:0;">
+          <div style="flex:1;background:var(--ink);border-radius:12px;padding:20px 16px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
+            <div style="font-size:16px;font-weight:500;color:rgba(255,255,255,.6);margin-bottom:10px;">Distance cumulée</div>
+            <div style="font-size:48px;font-weight:800;letter-spacing:-.02em;color:rgba(255,255,255,.9);line-height:1;">17 456 km</div>
           </div>
-          <div class="stat-tile dark-tile">
-            <div class="stat-label">153 ext. · 227 Zwift</div>
-            <div class="stat-num" style="font-size:48px;color:rgba(255,255,255,.9)">380 sessions</div>
+          <div style="flex:1;background:var(--ink);border-radius:12px;padding:20px 16px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
+            <div style="font-size:16px;font-weight:500;color:rgba(255,255,255,.6);margin-bottom:10px;">153 ext. · 227 Zwift</div>
+            <div style="font-size:48px;font-weight:800;letter-spacing:-.02em;color:rgba(255,255,255,.9);line-height:1;">380 sessions</div>
           </div>
-          <div class="stat-tile dark-tile">
-            <div class="stat-label">Dénivelé positif</div>
-            <div class="stat-num" style="font-size:48px;color:rgba(255,255,255,.9)">102 593 m</div>
+          <div style="flex:1;background:var(--ink);border-radius:12px;padding:20px 16px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;">
+            <div style="font-size:16px;font-weight:500;color:rgba(255,255,255,.6);margin-bottom:10px;">Dénivelé positif</div>
+            <div style="font-size:48px;font-weight:800;letter-spacing:-.02em;color:rgba(255,255,255,.9);line-height:1;">102 593 m</div>
           </div>
         </div>
       </div>
@@ -2851,10 +2851,11 @@ window.addEventListener('load', scale);
 
 
 <!-- VERSION BADGE -->
-<div id="ver-badge" style="position:fixed;bottom:14px;left:16px;z-index:9999;font-family:monospace;font-size:10px;color:rgba(120,120,140,.7);background:rgba(255,255,255,.08);border:1px solid rgba(120,120,140,.2);border-radius:6px;padding:4px 8px;cursor:pointer;user-select:none;" onclick="document.getElementById('changelog-panel').style.display=document.getElementById('changelog-panel').style.display==='none'?'block':'none'">v3.69 &nbsp;&#9432;</div>
+<div id="ver-badge" style="position:fixed;bottom:14px;left:16px;z-index:9999;font-family:monospace;font-size:10px;color:rgba(120,120,140,.7);background:rgba(255,255,255,.08);border:1px solid rgba(120,120,140,.2);border-radius:6px;padding:4px 8px;cursor:pointer;user-select:none;" onclick="document.getElementById('changelog-panel').style.display=document.getElementById('changelog-panel').style.display==='none'?'block':'none'">v3.70 &nbsp;&#9432;</div>
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
-  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.69</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — s17 tuiles bleu foncé + pastilles numérotées + texte blanc</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.70</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — s9 tuiles flex:1 même hauteur que s10</div>
+          <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.69</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — s17 tuiles bleu foncé + pastilles numérotées + texte blanc</div>
           <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.68</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — s10 titres en flux (pas absolus) · s9 tuiles hauteur stretch</div>
           <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.67</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — s10 headers flux+blanc · s14 tuiles hauteur stretch · scanada dénivelé blanc 18px</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.66</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — s15 entêtes+valeurs alignés horizontalement · s18 Flash Info 16px</div>
