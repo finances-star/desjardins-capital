@@ -490,7 +490,7 @@ body {
             <div style="font-size:13px;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.75);text-transform:uppercase;margin-bottom:10px;">Consultant</div>
             <p style="font-size:19px;font-weight:800;margin-bottom:4px;">Groupe LPC</p>
             <p style="font-size:14px;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:12px;">2008 – 2013</p>
-            <p style="font-size:14px;color:rgba(255,255,255,.8);line-height:1.65;margin-top:auto;">Mentorat et consultation stratégique<br>Bénévole et membre du CA de PROCURE<br>Concepteur du Tour du Courage PROCURE</p>
+            <p style="font-size:14px;color:rgba(255,255,255,.8);line-height:1.65;margin-top:auto;">Mentorat et consultation stratégique<br>Bénévole et membre du CA de PROCURE<br>Personnalité de la semaine La Presse - juin 2010</p>
           </div>
 
           <!-- PROCURE -->
@@ -1846,7 +1846,7 @@ function s4Init() {
     t.classList.remove('s4-show', 's4-hl', 's4-white', 's4-blue');
     t.style.opacity = '';
     t.style.transform = '';
-    if (i !== 1 && i !== 3) t.classList.add('s4-white'); // toutes blanches sauf cancer (rouge) et Tour du courage (bleu)
+    if (i !== 1 && i !== 3 && S4_HIGHLIGHT.indexOf(i) === -1) t.classList.add('s4-white'); // blanches sauf cancer, Tour du courage, et les 4 tuiles sport (Boston, Ironman, Chicago, Norseman)
   }
   // Tuile 0 visible dès l'entrée
   const t0 = document.getElementById('s4t0');
@@ -1867,7 +1867,10 @@ function s4Tick() {
   if (s4Step < groups.length) {
     groups[s4Step].forEach(function(idx) {
       const t = document.getElementById('s4t' + idx);
-      if (t) t.classList.add('s4-show');
+      if (t) {
+        t.classList.add('s4-show');
+        if (S4_HIGHLIGHT.indexOf(idx) !== -1) t.classList.add('s4-blue');
+      }
     });
     s4Step++;
     return false;
@@ -2659,9 +2662,10 @@ window.addEventListener('load', scale);
 
 
 <!-- VERSION BADGE -->
-<div id="ver-badge" style="position:fixed;bottom:14px;left:16px;z-index:9999;font-family:monospace;font-size:10px;color:rgba(120,120,140,.7);background:rgba(255,255,255,.08);border:1px solid rgba(120,120,140,.2);border-radius:6px;padding:4px 8px;cursor:pointer;user-select:none;" onclick="document.getElementById('changelog-panel').style.display=document.getElementById('changelog-panel').style.display==='none'?'block':'none'">v3.84 &nbsp;&#9432;</div>
+<div id="ver-badge" style="position:fixed;bottom:14px;left:16px;z-index:9999;font-family:monospace;font-size:10px;color:rgba(120,120,140,.7);background:rgba(255,255,255,.08);border:1px solid rgba(120,120,140,.2);border-radius:6px;padding:4px 8px;cursor:pointer;user-select:none;" onclick="document.getElementById('changelog-panel').style.display=document.getElementById('changelog-panel').style.display==='none'?'block':'none'">v3.85 &nbsp;&#9432;</div>
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.85</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — Slide 3: Personnalité La Presse; Slide 4: tuiles sport bleues dès révélation</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.84</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — Suppression slides 23, 25-29 (J2, J16, 8h route, La face, Clément, Josée)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.82</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — Fix: animation slide 1 centrée en responsive (offsetTop); slide CB vidéos 9:16 non-coupées (grid hauteur)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.81</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — Slide 19: tuiles 9:16, vidéos plein format</div>
