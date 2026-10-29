@@ -1654,6 +1654,22 @@ body {
       </div>
     </div>
     <!-- notes: Ontario. 10 jours, segment le plus long. Wawa.mov (gauche), Ontario_route.mp4 (centre), texte (droite). -->
+    <!-- SLIDE QUÉBEC -->
+    <div class="slide light" id="squebec">
+      <div class="top-bar"></div>
+      <div class="pad" style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <div class="section-tag" style="color:var(--blue);">Traversée du Canada</div>
+        <h2 class="slide-title">Québec — 4 jours — 713 km — (+2 530 m)</h2>
+        <hr class="rule" style="width:60px;margin-bottom:24px;">
+        <div style="flex:1;display:flex;align-items:center;justify-content:center;min-height:0;">
+          <div style="position:relative;aspect-ratio:9/16;height:100%;background:#000;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);">
+            <video id="vid-quebec" src="Quebec.mp4" preload="none" poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGNgYGAAAAAEAAH2FzhVAAAAAElFTkSuQmCC" controls style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;"></video>
+            <div style="position:absolute;top:12px;left:12px;font-size:12px;font-weight:700;color:#fff;background:rgba(0,0,0,.55);padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.08em;pointer-events:none;">Québec</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- notes: Québec. 4 jours, 713 km. Vidéo unique centré. Quebec.mp4 à ajouter sur GitHub. -->
 ══════ -->
     <div class="slide light" id="s15">
       <div class="top-bar"></div>
@@ -1967,6 +1983,7 @@ const S12_IDX = 11;
 const SCB_IDX = 18;
 const SPRAIRIES_IDX = 19;
 const SONTARIO_IDX  = 20;
+const SQUEBEC_IDX   = 21;
   let s11PhotoShown = false;
 
 // ─── S4: Tile reveal + highlight ────────────────────────────
@@ -2329,12 +2346,18 @@ function sontarioStop() {
   if (vo) { vo.pause(); }
 }
 
+function sQuebecStop() {
+  var vq = document.getElementById('vid-quebec');
+  if (vq) { vq.pause(); }
+}
+
 function show(n) {
   if (cur === S2_IDX)         s2Stop();
   if (cur === S5_IDX)         s5Stop();
   if (cur === SCB_IDX)        scbStop();
   if (cur === SPRAIRIES_IDX)  sprairiesStop();
   if (cur === SONTARIO_IDX)   sontarioStop();
+  if (cur === SQUEBEC_IDX)    sQuebecStop();
   slides[cur].classList.remove('active');
   cur = Math.max(0, Math.min(n, slides.length - 1));
   slides[cur].classList.add('active');
@@ -2497,7 +2520,7 @@ window.addEventListener('load', scale);
     'Manifeste','Naturel','STF','Plan','Équipe',
     'Semaine','Sous-sol','Estomac','12 mois','Corps',
     '17 mars','Pivot','Canada','C.-B.','Prairies',
-    'Ontario','Journées','Chiffres','15 min','Citation','J16',
+    'Ontario','Québec','Journées','Chiffres','15 min','Citation','J16',
     '8h seul','Équipe 2','Clément','Josée VR',
     'J32','Leçons'
   ];
@@ -2835,6 +2858,7 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.18</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 22 Québec insérée (4 jours, 713 km, +2 530 m) : vidéo unique centré, même layout que slides 19-21; Quebec.mp4 à ajouter</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.17</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slides 20 et 21 : vidéos pausées automatiquement au changement de slide</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.16</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Quinn modal : ajouté à STOP_IDS + guard dans handler global click → plus de changement de slide à l'ouverture/fermeture</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.15</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 21 : fermeture photo Quinn bloque navigation (stopPropagation + guard clavier + Escape)</div>
