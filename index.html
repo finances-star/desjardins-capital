@@ -1594,28 +1594,29 @@ body {
         <div class="section-tag" style="color:var(--blue);">Traversée du Canada</div>
         <h2 class="slide-title">Ontario — 10 jours — 2 096 km — (+13 745 m)</h2>
         <hr class="rule" style="width:60px;margin-bottom:24px;">
-        <div style="flex:1;display:grid;grid-template-columns:auto 1fr auto;grid-template-rows:1fr;align-items:stretch;gap:24px;min-height:0;">
-          <!-- Vidéo gauche -->
-          <div style="position:relative;aspect-ratio:9/16;height:100%;background:#000;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);">
-            <video id="vid-ont-a" src="" preload="none" poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGNgYGAAAAAEAAH2FzhVAAAAAElFTkSuQmCC" controls style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;"></video>
-            <div style="position:absolute;top:12px;left:12px;font-size:12px;font-weight:700;color:#fff;background:rgba(0,0,0,.55);padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.08em;pointer-events:none;">Ont-A</div>
+        <!-- Grille responsive : 3 colonnes sur large, 1 colonne sur mobile -->
+        <div style="flex:1;display:grid;grid-template-columns:auto auto 1fr;grid-template-rows:1fr;align-items:stretch;gap:24px;min-height:0;">
+          <!-- Wawa (gauche) -->
+          <div style="position:relative;aspect-ratio:9/16;height:100%;max-height:100%;background:#000;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);">
+            <video id="vid-wawa" src="Wawa.mov" preload="none" poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGNgYGAAAAAEAAH2FzhVAAAAAElFTkSuQmCC" controls style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;"></video>
+            <div style="position:absolute;top:12px;left:12px;font-size:12px;font-weight:700;color:#fff;background:rgba(0,0,0,.55);padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.08em;pointer-events:none;">Wawa</div>
           </div>
-          <!-- Tuile centrale -->
-          <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(145deg,#1e3a8a 0%,#1d4ed8 60%,#2563eb 100%);border-radius:14px;padding:32px 24px;text-align:center;position:relative;overflow:hidden;">
+          <!-- Ontario Route (centre) -->
+          <div style="position:relative;aspect-ratio:9/16;height:100%;max-height:100%;background:#000;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);">
+            <video id="vid-ont-route" src="Ontario_route.mp4" preload="none" poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGNgYGAAAAAEAAH2FzhVAAAAAElFTkSuQmCC" controls style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;"></video>
+            <div style="position:absolute;top:12px;left:12px;font-size:12px;font-weight:700;color:#fff;background:rgba(0,0,0,.55);padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.08em;pointer-events:none;">Ontario</div>
+          </div>
+          <!-- Tuile texte (droite) -->
+          <div style="display:flex;flex-direction:column;justify-content:center;background:linear-gradient(145deg,#1e3a8a 0%,#1d4ed8 60%,#2563eb 100%);border-radius:14px;padding:32px 28px;position:relative;overflow:hidden;">
             <div style="position:absolute;top:-10px;left:14px;font-size:110px;font-weight:900;color:rgba(255,255,255,.07);line-height:1;pointer-events:none;font-family:Georgia,serif;">&#8220;</div>
             <div style="font-size:21px;font-weight:400;color:rgba(255,255,255,.97);line-height:1.6;font-style:italic;margin-bottom:22px;">[ Contenu à venir ]</div>
-            <div style="width:40px;height:2px;background:rgba(255,255,255,.35);margin:0 auto 18px;"></div>
+            <div style="width:40px;height:2px;background:rgba(255,255,255,.35);margin:0 0 18px;"></div>
             <div style="font-size:13px;font-weight:600;color:rgba(255,255,255,.7);letter-spacing:.08em;text-transform:uppercase;">Ontario</div>
-          </div>
-          <!-- Vidéo droite -->
-          <div style="position:relative;aspect-ratio:9/16;height:100%;background:#000;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);">
-            <video id="vid-ont-b" src="" preload="none" poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGNgYGAAAAAEAAH2FzhVAAAAAElFTkSuQmCC" controls style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;"></video>
-            <div style="position:absolute;top:12px;left:12px;font-size:12px;font-weight:700;color:#fff;background:rgba(0,0,0,.55);padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.08em;pointer-events:none;">Ont-B</div>
           </div>
         </div>
       </div>
     </div>
-    <!-- notes: Ontario. 10 jours, segment le plus long. Vidéos à ajouter. -->
+    <!-- notes: Ontario. 10 jours, segment le plus long. Wawa.mov (gauche), Ontario_route.mp4 (centre), texte (droite). -->
 ══════ -->
     <div class="slide light" id="s15">
       <div class="top-bar"></div>
