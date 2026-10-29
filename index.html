@@ -1618,7 +1618,7 @@ body {
               </div>
               <div>
                 <div style="font-size:23px;font-weight:700;color:var(--ink);line-height:1.35;">Première interaction cycliste en 18 jours et 3 633 km en solo</div>
-                <div style="font-size:16px;color:var(--ink-3);margin-top:4px;line-height:1.5;"><span onclick="document.getElementById('quinn-modal').style.display='flex'" style="color:var(--blue);text-decoration:underline;font-weight:600;cursor:pointer;">Quinn Foster</span> offre 3 km de drafting — un moment humain dans un effort solitaire.</div>
+                <div style="font-size:16px;color:var(--ink-3);margin-top:4px;line-height:1.5;"><span onclick="event.stopPropagation();document.getElementById('quinn-modal').style.display='flex'" style="color:var(--blue);text-decoration:underline;font-weight:600;cursor:pointer;">Quinn Foster</span> offre 3 km de drafting — un moment humain dans un effort solitaire.</div>
               </div>
             </div>
             <!-- Point 3 -->
@@ -2819,6 +2819,7 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.16</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Quinn modal : ajouté à STOP_IDS + guard dans handler global click → plus de changement de slide à l'ouverture/fermeture</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.15</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 21 : fermeture photo Quinn bloque navigation (stopPropagation + guard clavier + Escape)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.14</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 21 : fontes alignées avec slide 20 (23px/16px, pastilles 34px)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.13</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 21 : Quinn Foster → lightbox intégré (clic nom → photo en overlay, X pour fermer)</div>
@@ -2979,10 +2980,11 @@ document.addEventListener('DOMContentLoaded',function(){
   var STOP_IDS = ['click-prev','ver-badge','changelog-panel',
                   'modal-nutri','modal-nutri-close',
                      'counter','nav','slide-picker','picker-grid',
-                  's5-yt-wrap','s5-yt-player'];
+                  's5-yt-wrap','s5-yt-player','quinn-modal'];
   var STOP_TAGS = ['BUTTON','A','INPUT','SELECT','TEXTAREA','IFRAME','VIDEO'];
   document.addEventListener('click', function(e){
-    if (window._modalJustClosed || document.getElementById('video-modal').classList.contains('open') || document.getElementById('ironman-modal').style.display !== 'none' || document.getElementById('modal-nutri').style.display !== 'none') return;
+    var qm = document.getElementById('quinn-modal');
+    if (window._modalJustClosed || document.getElementById('video-modal').classList.contains('open') || document.getElementById('ironman-modal').style.display !== 'none' || document.getElementById('modal-nutri').style.display !== 'none' || (qm && qm.style.display === 'flex')) return;
     var el = e.target;
     while (el && el !== document.body) {
       if (STOP_TAGS.indexOf((el.tagName||'').toUpperCase()) !== -1) return;
