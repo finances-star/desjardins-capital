@@ -1965,6 +1965,8 @@ const S11_IDX = 12;
 const S12_IDX = 11;
   const SPLAN_IDX = 8;
 const SCB_IDX = 18;
+const SPRAIRIES_IDX = 19;
+const SONTARIO_IDX  = 20;
   let s11PhotoShown = false;
 
 // ─── S4: Tile reveal + highlight ────────────────────────────
@@ -2315,10 +2317,24 @@ function s2Init() {
   if (v) v.src = 'https://drive.google.com/file/d/1RMJhyueRaSfRCTchVIPjpOKoYe-n7v7U/preview?autoplay=1';
 }
 
+function sprairiesStop() {
+  var vp = document.getElementById('vid-prairies');
+  if (vp) { vp.pause(); }
+}
+
+function sontarioStop() {
+  var vw = document.getElementById('vid-wawa');
+  var vo = document.getElementById('vid-ont-route');
+  if (vw) { vw.pause(); }
+  if (vo) { vo.pause(); }
+}
+
 function show(n) {
-  if (cur === S2_IDX)  s2Stop();
-  if (cur === S5_IDX)  s5Stop();
-  if (cur === SCB_IDX) scbStop();
+  if (cur === S2_IDX)         s2Stop();
+  if (cur === S5_IDX)         s5Stop();
+  if (cur === SCB_IDX)        scbStop();
+  if (cur === SPRAIRIES_IDX)  sprairiesStop();
+  if (cur === SONTARIO_IDX)   sontarioStop();
   slides[cur].classList.remove('active');
   cur = Math.max(0, Math.min(n, slides.length - 1));
   slides[cur].classList.add('active');
@@ -2819,6 +2835,7 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.17</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slides 20 et 21 : vidéos pausées automatiquement au changement de slide</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.16</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Quinn modal : ajouté à STOP_IDS + guard dans handler global click → plus de changement de slide à l'ouverture/fermeture</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.15</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 21 : fermeture photo Quinn bloque navigation (stopPropagation + guard clavier + Escape)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.14</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 21 : fontes alignées avec slide 20 (23px/16px, pastilles 34px)</div>
