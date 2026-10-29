@@ -1618,7 +1618,7 @@ body {
               </div>
               <div>
                 <div style="font-size:20px;font-weight:700;color:var(--ink);line-height:1.35;">Première interaction cycliste en 18 jours et 3 633 km en solo</div>
-                <div style="font-size:14px;color:var(--ink-2);margin-top:6px;line-height:1.5;"><a href="https://raw.githubusercontent.com/finances-star/desjardins-capital/main/QUINN_FOSTER.jpeg" target="_blank" style="color:var(--blue);text-decoration:underline;font-weight:600;">Quinn Foster</a> offre 3 km de drafting — un moment humain dans un effort solitaire.</div>
+                <div style="font-size:14px;color:var(--ink-2);margin-top:6px;line-height:1.5;"><span onclick="document.getElementById('quinn-modal').style.display='flex'" style="color:var(--blue);text-decoration:underline;font-weight:600;cursor:pointer;">Quinn Foster</span> offre 3 km de drafting — un moment humain dans un effort solitaire.</div>
               </div>
             </div>
             <!-- Point 3 -->
@@ -1643,6 +1643,14 @@ body {
             <div style="position:absolute;top:12px;left:12px;font-size:12px;font-weight:700;color:#fff;background:rgba(0,0,0,.55);padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.08em;pointer-events:none;">Wawa</div>
           </div>
         </div>
+      </div>
+    </div>
+    <!-- Modal Quinn Foster -->
+    <div id="quinn-modal" onclick="this.style.display='none'" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.82);align-items:center;justify-content:center;">
+      <div style="position:relative;max-width:480px;max-height:80vh;" onclick="event.stopPropagation()">
+        <img src="QUINN_FOSTER.jpeg" style="max-width:100%;max-height:78vh;border-radius:12px;display:block;box-shadow:0 8px 40px rgba(0,0,0,.6);">
+        <div style="position:absolute;top:10px;right:10px;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:white;font-weight:700;line-height:1;" onclick="document.getElementById('quinn-modal').style.display='none'">×</div>
+        <div style="text-align:center;margin-top:10px;font-size:13px;font-weight:600;color:rgba(255,255,255,.8);letter-spacing:.05em;">Quinn Foster · J18 · Sault-Sainte-Marie</div>
       </div>
     </div>
     <!-- notes: Ontario. 10 jours, segment le plus long. Wawa.mov (gauche), Ontario_route.mp4 (centre), texte (droite). -->
@@ -2806,6 +2814,7 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.13</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 21 : Quinn Foster → lightbox intégré (clic nom → photo en overlay, X pour fermer)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.12</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 21 : Ontario_route centre, Wawa droite</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.11</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 20 : point 5 ajouté (capitaine J11); slide 21 Ontario : tuile texte complète (3 points, Quinn Foster lié, 3633 km); QUINN_FOSTER.jpeg sur GitHub</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.10b</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Wawa converti H.264/AAC; slide 21 texte→gauche; QUINN_FOSTER.jpeg ajoutée</div>
