@@ -632,7 +632,7 @@ body {
     <!-- ═══ MANIFESTE ══════════════════════════════════════ -->
     <div class="slide dark" id="s6m">
       <div class="pad" style="flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;padding:20px 72px 20px;">
-        <p style="color:rgba(255,255,255,.92);font-size:18px;font-weight:600;line-height:1.7;text-align:center;padding:0 40px 14px;margin:0;">Entraînement physique solide.&nbsp; Recommandation nutritionnelle — 80&nbsp;g/h.<br>Mon estomac a refusé dès le vélo.&nbsp; On ne peut pas forcer l'adaptation.</p>
+        <p style="color:rgba(255,255,255,.60);font-size:14px;font-weight:400;font-style:italic;line-height:1.6;text-align:center;padding:0 60px 10px;margin:0;letter-spacing:.01em;">Entraînement physique solide.&nbsp; Recommandation nutritionnelle — 80&nbsp;g/h.<br>Mon estomac a refusé dès le vélo.&nbsp; On ne peut pas forcer l'adaptation.</p>
         <div class="grid-2" style="flex:1;min-height:0;gap:48px;align-items:stretch;">
                     <!-- ELEVATION BLOCKS -->
           <div style="display:flex;flex-direction:column;gap:16px;height:100%;justify-content:center;">
@@ -2193,8 +2193,7 @@ function show(n) {
   document.getElementById('deck').style.background = _bg;
   slides[0].style.background = (cur === 0) ? 'transparent' : '';
     var _bannerMap = {
-    's6m': { bg: 'var(--blue)', text: "Entra\u00eenement physique solide. Recommandation nutritionnelle \u2014 80\u00a0g/h. Mon estomac a refus\u00e9 d\u00e8s le v\u00e9lo. On ne peut pas forcer l'adaptation." },
-    'sequipe_tf': { bg: 'var(--ink)', text: "« Je suis la face qui roule. L\'équipe est la raison pour laquelle j\'arrive. »" },
+        'sequipe_tf': { bg: 'var(--ink)', text: "« Je suis la face qui roule. L\'équipe est la raison pour laquelle j\'arrive. »" },
     's16': { bg: 'var(--blue)', text: "J3 — Summerland → Revelstoke. 240 km. 1 600 m D+. Vent de face sur 19 km. &nbsp;BONNE JOURNÉE." },
     's21': { bg: 'var(--blue)', text: "Un cofondateur, ça ne dure pas toujours jusqu\'à la fin. Son rôle peut être de lancer le projet dans les bonnes conditions." },
     's22': { bg: 'var(--blue)', text: "J13 — 261 km (plus longue étape) · Coup de chaleur au km 140 · L\'abandon envisagé · Refusé · L\'équipe terrain a géré." },
@@ -2662,9 +2661,10 @@ window.addEventListener('load', scale);
 
 
 <!-- VERSION BADGE -->
-<div id="ver-badge" style="position:fixed;bottom:14px;left:16px;z-index:9999;font-family:monospace;font-size:10px;color:rgba(120,120,140,.7);background:rgba(255,255,255,.08);border:1px solid rgba(120,120,140,.2);border-radius:6px;padding:4px 8px;cursor:pointer;user-select:none;" onclick="document.getElementById('changelog-panel').style.display=document.getElementById('changelog-panel').style.display==='none'?'block':'none'">v3.87 &nbsp;&#9432;</div>
+<div id="ver-badge" style="position:fixed;bottom:14px;left:16px;z-index:9999;font-family:monospace;font-size:10px;color:rgba(120,120,140,.7);background:rgba(255,255,255,.08);border:1px solid rgba(120,120,140,.2);border-radius:6px;padding:4px 8px;cursor:pointer;user-select:none;" onclick="document.getElementById('changelog-panel').style.display=document.getElementById('changelog-panel').style.display==='none'?'block':'none'">v3.92 &nbsp;&#9432;</div>
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.92</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 6m: bandeau bleu bas supprimé; mention haut allégée (14px italic); badge version corrigé v3.87→v3.92</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.91</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 3: fontes agrandies; Slide 5: tuile gauche fontes agrandies projection</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.86</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 1: flip toutes les 5s; Slide 3: 3 tuiles bleues; Slide 4: tuiles sport bleues immédiat</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.85</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — Slide 3: Personnalité La Presse; Slide 4: tuiles sport bleues dès révélation</div>
