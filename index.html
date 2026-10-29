@@ -1646,10 +1646,10 @@ body {
       </div>
     </div>
     <!-- Modal Quinn Foster -->
-    <div id="quinn-modal" onclick="this.style.display='none'" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.82);align-items:center;justify-content:center;">
+    <div id="quinn-modal" onclick="event.stopPropagation();this.style.display='none'" style="display:none;position:fixed;inset:0;z-index:99999;background:rgba(0,0,0,.82);align-items:center;justify-content:center;">
       <div style="position:relative;max-width:480px;max-height:80vh;" onclick="event.stopPropagation()">
         <img src="QUINN_FOSTER.jpeg" style="max-width:100%;max-height:78vh;border-radius:12px;display:block;box-shadow:0 8px 40px rgba(0,0,0,.6);">
-        <div style="position:absolute;top:10px;right:10px;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:white;font-weight:700;line-height:1;" onclick="document.getElementById('quinn-modal').style.display='none'">×</div>
+        <div style="position:absolute;top:10px;right:10px;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.65);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:white;font-weight:700;line-height:1;" onclick="event.stopPropagation();document.getElementById('quinn-modal').style.display='none'">×</div>
         <div style="text-align:center;margin-top:10px;font-size:13px;font-weight:600;color:rgba(255,255,255,.8);letter-spacing:.05em;">Quinn Foster · J18 · Sault-Sainte-Marie</div>
       </div>
     </div>
@@ -2428,6 +2428,11 @@ function toggleNotes() {
 }
 
 document.addEventListener('keydown', e => {
+  var qm = document.getElementById('quinn-modal');
+  if (qm && qm.style.display !== 'none' && qm.style.display !== '') {
+    if (e.key === 'Escape') { e.preventDefault(); qm.style.display = 'none'; }
+    return;
+  }
   if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); go(1); }
   if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')  { e.preventDefault(); go(-1); }
   if (e.key === 'n' || e.key === 'N') toggleNotes();
@@ -2814,6 +2819,7 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.15</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 21 : fermeture photo Quinn bloque navigation (stopPropagation + guard clavier + Escape)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.14</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 21 : fontes alignées avec slide 20 (23px/16px, pastilles 34px)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.13</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 21 : Quinn Foster → lightbox intégré (clic nom → photo en overlay, X pour fermer)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.12</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 21 : Ontario_route centre, Wawa droite</div>
