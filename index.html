@@ -1534,7 +1534,7 @@ body {
               </div>
             </div>
             <!-- Point 4 -->
-            <div style="display:flex;align-items:flex-start;gap:16px;padding:16px 0;">
+            <div style="display:flex;align-items:flex-start;gap:16px;padding:16px 0;border-bottom:1px solid rgba(0,0,0,.07);">
               <div style="min-width:34px;height:34px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
                 <span style="color:white;font-size:14px;font-weight:900;">4</span>
               </div>
@@ -1542,6 +1542,13 @@ body {
                 <div style="font-size:23px;font-weight:700;color:var(--ink);line-height:1.35;">Medicine Hat → Swift Current</div>
                 <div style="font-size:16px;color:var(--ink-3);margin-top:4px;">Score météo : top 5 des pires journées</div>
               </div>
+            </div>
+            <!-- Point 5 -->
+            <div style="display:flex;align-items:flex-start;gap:16px;padding:16px 0;">
+              <div style="min-width:34px;height:34px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
+                <span style="color:white;font-size:14px;font-weight:900;">5</span>
+              </div>
+              <div style="font-size:23px;font-weight:700;color:var(--ink);line-height:1.35;">Changement capitaine après 11 jours</div>
             </div>
           </div>
           <!-- Tuile vidéo (même format que slide 19 / J4) -->
@@ -1596,8 +1603,34 @@ body {
         <hr class="rule" style="width:60px;margin-bottom:24px;">
         <div style="flex:1;display:grid;grid-template-columns:1fr auto auto;grid-template-rows:1fr;align-items:stretch;gap:24px;min-height:0;">
           <!-- Tuile texte (gauche) — même style que slide 20 -->
-          <div style="background:white;border:1px solid rgba(0,0,0,.09);border-radius:14px;padding:28px 26px;display:flex;flex-direction:column;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.05);">
-            <div style="font-size:21px;font-weight:400;color:var(--ink);line-height:1.6;margin-bottom:22px;">[ Contenu à venir ]</div>
+          <div style="background:white;border:1px solid rgba(0,0,0,.09);border-radius:14px;padding:24px 22px;display:flex;flex-direction:column;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.05);">
+            <!-- Point 1 -->
+            <div style="display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.07);">
+              <div style="min-width:30px;height:30px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
+                <span style="color:white;font-size:13px;font-weight:900;">1</span>
+              </div>
+              <div style="font-size:20px;font-weight:700;color:var(--ink);line-height:1.35;">Ontario est plus difficile que prévu</div>
+            </div>
+            <!-- Point 2 -->
+            <div style="display:flex;align-items:flex-start;gap:14px;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.07);">
+              <div style="min-width:30px;height:30px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
+                <span style="color:white;font-size:13px;font-weight:900;">2</span>
+              </div>
+              <div>
+                <div style="font-size:20px;font-weight:700;color:var(--ink);line-height:1.35;">Première interaction cycliste en 18 jours et 3 633 km en solo</div>
+                <div style="font-size:14px;color:var(--ink-2);margin-top:6px;line-height:1.5;"><a href="https://raw.githubusercontent.com/finances-star/desjardins-capital/main/QUINN_FOSTER.jpeg" target="_blank" style="color:var(--blue);text-decoration:underline;font-weight:600;">Quinn Foster</a> offre 3 km de drafting — un moment humain dans un effort solitaire.</div>
+              </div>
+            </div>
+            <!-- Point 3 -->
+            <div style="display:flex;align-items:flex-start;gap:14px;padding:12px 0;">
+              <div style="min-width:30px;height:30px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">
+                <span style="color:white;font-size:13px;font-weight:900;">3</span>
+              </div>
+              <div>
+                <div style="font-size:20px;font-weight:700;color:var(--ink);line-height:1.35;">État des routes et accotement très limité</div>
+                <div style="font-size:14px;color:var(--ink-2);margin-top:6px;line-height:1.5;">Wawa — pluie, accotement et gestion de risques</div>
+              </div>
+            </div>
           </div>
           <!-- Wawa (centre) -->
           <div style="position:relative;aspect-ratio:9/16;height:100%;background:#000;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);">
@@ -2773,6 +2806,8 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.11</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 20 : point 5 ajouté (capitaine J11); slide 21 Ontario : tuile texte complète (3 points, Quinn Foster lié, 3633 km); QUINN_FOSTER.jpeg sur GitHub</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.10b</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Wawa converti H.264/AAC; slide 21 texte→gauche; QUINN_FOSTER.jpeg ajoutée</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.09</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 21 Ontario insérée : texte (gauche) | Wawa.mov (centre) | Ontario_route.mp4 (droite); titre slide 5 traversier 5h→4h45; titre slide 20 fonte normalisée</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.08</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 20 : volume ↓50% encore à 26s; slide 19 : J4 volume ↓50% absolu à 4s</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.07</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 24 (Federer) supprimée; slide 20 : pastilles bleues uniformes, fontes grossies, vidéo LESPRAIRIES sur GitHub, tuile noire, volume ↓35% à 10s; slide 19 : citation Federer 3 lignes, J4 volume ↓35% à 4s</div>
