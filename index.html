@@ -1447,8 +1447,10 @@ body {
             <div style="position:absolute;top:-10px;left:14px;font-size:110px;font-weight:900;color:rgba(255,255,255,.07);line-height:1;pointer-events:none;font-family:Georgia,serif;">&#8220;</div>
             <!-- Citation cachée -->
             <div id="federer-quote" style="opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;pointer-events:none;">
-              <div style="font-size:17px;font-weight:400;color:rgba(255,255,255,.95);line-height:1.65;font-style:italic;margin-bottom:24px;">Quand tu joues un point, ça doit être la chose la plus importante du monde.<br><br>Mais quand il est derrière toi,<br>il est derrière toi.</div>
-              <div style="width:40px;height:2px;background:rgba(255,255,255,.35);margin:0 auto 20px;"></div>
+              <div style="font-size:21px;font-weight:400;color:rgba(255,255,255,.97);line-height:1.6;font-style:italic;margin-bottom:22px;">Quand tu joues un point, ça doit être la chose la plus importante du monde.<br><br>Mais quand il est derrière toi,<br>il est derrière toi.</div>
+              <div style="width:40px;height:2px;background:rgba(255,255,255,.35);margin:0 auto 18px;"></div>
+              <div style="font-size:13px;font-weight:600;color:rgba(255,255,255,.7);letter-spacing:.08em;text-transform:uppercase;">Roger Federer</div>
+              <div style="font-size:11px;font-weight:400;color:rgba(255,255,255,.45);letter-spacing:.05em;margin-top:4px;">Dartmouth · 9 juin 2024</div>
             </div>
             <!-- Bouton reveal -->
             <button id="federer-btn" onclick="event.stopPropagation();revealFederer()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:30px;padding:12px 20px;cursor:pointer;transition:all .3s ease;color:white;text-align:center;">
@@ -2169,13 +2171,15 @@ function s2Play() {
 function scbStop() {
   var vj3 = document.getElementById('vid-j3');
   var vj4 = document.getElementById('vid-j4');
-  if (vj3) { vj3.pause(); }
-  if (vj4) { vj4.pause(); }
+  // Reset J3: pause + retour début
+  if (vj3) { vj3.pause(); vj3.currentTime = 0; }
+  // Reset J4: retour état initial noir (preload:none)
+  if (vj4) { vj4.pause(); vj4.currentTime = 0; vj4.load(); }
   // Reset Federer citation tile to initial state
   var q = document.getElementById('federer-quote');
   var b = document.getElementById('federer-btn');
-  if (q) { q.style.opacity='0'; q.style.transform='translateY(18px)'; q.style.pointerEvents='none'; }
-  if (b) { b.style.display=''; b.style.opacity='1'; b.style.transform=''; }
+  if (q) { q.style.opacity='0'; q.style.transform='translateY(18px)'; q.style.pointerEvents='none'; q.style.transition='none'; setTimeout(function(){if(q)q.style.transition='opacity .7s ease,transform .7s ease';},50); }
+  if (b) { b.style.display=''; b.style.opacity='1'; b.style.transform=''; b.style.transition=''; }
 }
 
 function s2Stop() {
@@ -2687,7 +2691,7 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
-  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.03</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 6m: bandeau bleu bas supprimé; mention haut allégée (14px italic); badge version corrigé v3.87→v3.92</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.04</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 6m: bandeau bleu bas supprimé; mention haut allégée (14px italic); badge version corrigé v3.87→v3.92</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.91</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 3: fontes agrandies; Slide 5: tuile gauche fontes agrandies projection</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.86</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 1: flip toutes les 5s; Slide 3: 3 tuiles bleues; Slide 4: tuiles sport bleues immédiat</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.85</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — Slide 3: Personnalité La Presse; Slide 4: tuiles sport bleues dès révélation</div>
