@@ -1442,10 +1442,31 @@ body {
             <div style="position:absolute;top:12px;left:12px;font-size:12px;font-weight:700;color:#fff;background:rgba(0,0,0,.55);padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.08em;pointer-events:none;">J3</div>
           </div>
           <!-- Citation Federer -->
-          <div style="display:flex;flex-direction:column;justify-content:center;align-items:center;background:white;border-radius:14px;padding:32px 28px;text-align:center;">
-            <div style="font-size:18px;font-weight:500;color:#0f172a;line-height:1.55;font-style:italic;margin-bottom:28px;">&#171;&nbsp;Quand tu joues un point, ça doit être la chose la plus importante du monde.<br><br>Mais quand il est derrière toi, il est derrière toi.&nbsp;&#187;</div>
-            <div style="font-size:13px;font-weight:700;color:rgba(0,0,0,.45);text-transform:uppercase;letter-spacing:.12em;">— Roger Federer</div>
+          <div id="cite-tile" style="display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(145deg,#1e3a8a 0%,#1d4ed8 60%,#2563eb 100%);border-radius:14px;padding:32px 24px;text-align:center;position:relative;overflow:hidden;cursor:pointer;" onclick="revealFederer()">
+            <!-- Guillemets déco -->
+            <div style="position:absolute;top:-10px;left:14px;font-size:110px;font-weight:900;color:rgba(255,255,255,.07);line-height:1;pointer-events:none;font-family:Georgia,serif;">&#8220;</div>
+            <!-- Citation cachée -->
+            <div id="federer-quote" style="opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;pointer-events:none;">
+              <div style="font-size:17px;font-weight:400;color:rgba(255,255,255,.95);line-height:1.65;font-style:italic;margin-bottom:24px;">Quand tu joues un point, ça doit être la chose la plus importante du monde.<br><br>Mais quand il est derrière toi,<br>il est derrière toi.</div>
+              <div style="width:40px;height:2px;background:rgba(255,255,255,.35);margin:0 auto 20px;"></div>
+            </div>
+            <!-- Bouton reveal -->
+            <button id="federer-btn" onclick="event.stopPropagation();revealFederer()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:30px;padding:12px 20px;cursor:pointer;transition:all .3s ease;color:white;text-align:center;">
+              <div style="font-size:13px;font-weight:700;color:white;letter-spacing:.03em;line-height:1.4;">Roger Federer</div>
+              <div style="font-size:11px;color:rgba(255,255,255,.6);letter-spacing:.05em;margin-top:3px;">Dartmouth · 9 juin 2024</div>
+            </button>
           </div>
+          <script>
+          function revealFederer(){
+            var q=document.getElementById('federer-quote');
+            var b=document.getElementById('federer-btn');
+            if(q.style.opacity==='0'||q.style.opacity===''){
+              q.style.opacity='1';q.style.transform='translateY(0)';q.style.pointerEvents='auto';
+              b.style.opacity='0';b.style.transform='translateY(8px)';b.style.transition='all .4s ease';
+              setTimeout(function(){b.style.display='none';},400);
+            }
+          }
+          </script>
           <!-- J4 -->
           <div style="position:relative;aspect-ratio:9/16;height:100%;background:#000;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);">
             <video id="vid-j4" src="J4.mov" preload="none" controls style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;"></video>
@@ -2652,7 +2673,7 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
-  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.00</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 6m: bandeau bleu bas supprimé; mention haut allégée (14px italic); badge version corrigé v3.87→v3.92</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.01</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 6m: bandeau bleu bas supprimé; mention haut allégée (14px italic); badge version corrigé v3.87→v3.92</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.91</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 3: fontes agrandies; Slide 5: tuile gauche fontes agrandies projection</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.86</span> <span style="color:rgba(200,200,216,.5);">2026-10-29</span> — Slide 1: flip toutes les 5s; Slide 3: 3 tuiles bleues; Slide 4: tuiles sport bleues immédiat</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v3.85</span> <span style="color:rgba(200,200,216,.5);">2026-10-28</span> — Slide 3: Personnalité La Presse; Slide 4: tuiles sport bleues dès révélation</div>
