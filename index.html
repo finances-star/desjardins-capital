@@ -1522,11 +1522,33 @@ body {
               </div>
             </div>
           </div>
-          <!-- Tuile vidéo (même format que slide 19) -->
+          <!-- Tuile vidéo (même format que slide 19 / J4) -->
           <div style="position:relative;aspect-ratio:9/16;height:100%;background:#000;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1);">
-            <video id="vid-prairies" src="LESPRAIRIES.mp4" preload="metadata" controls style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;"></video>
+            <video id="vid-prairies" src="LESPRAIRIES.mp4" preload="none" poster="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVR4nGNgYGAAAAAEAAH2FzhVAAAAAElFTkSuQmCC" controls style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;"></video>
             <div style="position:absolute;top:12px;left:12px;font-size:12px;font-weight:700;color:#fff;background:rgba(0,0,0,.55);padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.08em;pointer-events:none;">Prairies</div>
           </div>
+          <script>
+          (function(){
+            var vp = document.getElementById('vid-prairies');
+            var _faded = false;
+            vp.addEventListener('timeupdate', function(){
+              if (!_faded && vp.currentTime >= 10) {
+                _faded = true;
+                var start = vp.volume;
+                var target = Math.max(0, start * 0.65); // baisse ~35%
+                var steps = 20, i = 0;
+                var iv = setInterval(function(){
+                  i++;
+                  vp.volume = start + (target - start) * (i / steps);
+                  if (i >= steps) clearInterval(iv);
+                }, 50);
+              }
+            });
+            vp.addEventListener('seeked', function(){
+              if (vp.currentTime < 10) { _faded = false; vp.volume = 1; }
+            });
+          })();
+          </script>
         </div>
       </div>
     </div>
