@@ -1,4 +1,4 @@
-<!-- VERSION: 4.40 -->
+<!-- VERSION: 4.41 -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -2115,10 +2115,15 @@ body {
 
     <!-- ═══ S27 — TRAVERSÉE EN IMAGES ══════════════════════════ -->
     <div class="slide dark" id="s27">
-      <div style="height:5px;background:var(--blue);"></div>
-      <div style="flex:1;position:relative;overflow:hidden;">
-        <iframe id="s27-vid" src="" allow="autoplay; fullscreen" allowfullscreen
-          style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>
+      <div class="top-bar"></div>
+      <div class="pad" style="flex:1;display:flex;flex-direction:column;min-height:0;padding-bottom:0;">
+        <div class="section-tag">Traversée du Canada</div>
+        <h2 class="slide-title">Revivons la traversée</h2>
+        <hr class="rule" style="width:60px;margin-bottom:12px;">
+        <div style="flex:1;position:relative;overflow:hidden;border-radius:8px;">
+          <iframe id="s27-vid" src="" allow="autoplay; fullscreen" allowfullscreen
+            style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>
+        </div>
       </div>
     </div>
     <!-- notes: Laisser la vidéo tourner. Pas de narration. -->
@@ -3134,6 +3139,7 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.41</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 27 : titre « Revivons la traversée » ajouté</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.40</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 26 (4P+2E=R) : bande bleue supprimée, titre ajouté, texte agrandi ; slide « Trois leçons » supprimée ; légende pyramide fixe</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.39</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 27 : vidéo FINALE2.mp4 plein écran (Google Drive)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.38</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 26 : 3e clic → mot unique RÉTABLISSEMENT (urologues)</div>
