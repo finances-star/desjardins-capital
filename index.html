@@ -1779,6 +1779,123 @@ body {
     </div>
     <!-- notes: Maritimes. N.-B., N.-É., T.-N. 4 points à remplir. MARITIMES.mp4 à ajouter sur GitHub. -->
 ══════ -->
+
+    <!-- ═══ SEQUIPE_ENTOURAGE — ÉQUIPE & ENTOURAGE (CIBLES) ═════════════════ -->
+    <div class="slide dark" id="sequipe_entourage">
+      <div class="top-bar"></div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:8px 24px 12px;overflow:hidden;gap:6px;">
+        <div style="text-align:center;flex-shrink:0;">
+          <div style="font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#60a5fa;font-weight:700;margin-bottom:2px;">La traversée du Canada</div>
+          <h2 style="font-size:clamp(18px,2.6vw,28px);font-weight:800;color:#f1f5f9;margin:0 0 2px;">Équipe &amp; entourage</h2>
+        </div>
+        <div style="flex:1;min-height:0;width:100%;display:flex;align-items:center;justify-content:center;">
+          <svg id="seq-svg" viewBox="-250 -230 750 460" preserveAspectRatio="xMidYMid meet"
+               style="width:100%;max-height:100%;overflow:visible;">
+            <style>
+              .sq-ring{fill:none;stroke-linecap:round;transform-origin:0px 0px;transform:rotate(-90deg);
+                       stroke-dashoffset:var(--circ,1200);stroke-dasharray:var(--circ,1200) 9999;opacity:0;}
+              .sq-ring.sq-go{animation:sqDraw .95s cubic-bezier(.25,.46,.45,.94) var(--del,0s) forwards;}
+              @keyframes sqDraw{
+                0%  {opacity:.2;stroke-dashoffset:var(--circ,1200);}
+                8%  {opacity:1;}
+                100%{opacity:1;stroke-dashoffset:0;}
+              }
+              .sq-lbl{opacity:0;}
+              .sq-lbl.sq-go{animation:sqFade .4s ease var(--del,0s) forwards;}
+              #sq-center{opacity:0;}
+              #sq-center.sq-go{animation:sqFade .35s ease .1s forwards;}
+              @keyframes sqFade{from{opacity:0;}to{opacity:1;}}
+            </style>
+
+            <!-- Center: LP -->
+            <g id="sq-center">
+              <circle cx="0" cy="0" r="20" fill="white"/>
+              <text x="0" y="0" text-anchor="middle" dominant-baseline="middle"
+                    font-size="9" font-weight="800" fill="#1e3a8a"
+                    font-family="Inter,system-ui,sans-serif" letter-spacing=".05em">LP</text>
+              <text x="0" y="11" text-anchor="middle" dominant-baseline="middle"
+                    font-size="6" fill="#1e3a8a" font-family="Inter,system-ui,sans-serif">l'idée</text>
+            </g>
+
+            <!-- Ring 1: Josée (r=40, circ≈251) -->
+            <circle class="sq-ring" cx="0" cy="0" r="40"
+                    style="--circ:251;--del:.45s;stroke:#60a5fa;stroke-width:16;"/>
+
+            <!-- Ring 2: Clément·Chantal·Anne·Réal (r=66, circ≈415) -->
+            <circle class="sq-ring" cx="0" cy="0" r="66"
+                    style="--circ:415;--del:.9s;stroke:#3b82f6;stroke-width:18;"/>
+
+            <!-- Ring 3: Experts UdeM (r=96, circ≈603) -->
+            <circle class="sq-ring" cx="0" cy="0" r="96"
+                    style="--circ:603;--del:1.35s;stroke:#2563eb;stroke-width:18;"/>
+
+            <!-- Ring 4: 32 hommes honorés (r=126, circ≈792) -->
+            <circle class="sq-ring" cx="0" cy="0" r="126"
+                    style="--circ:792;--del:1.8s;stroke:#1d4ed8;stroke-width:18;"/>
+
+            <!-- Ring 5: Donateurs (r=156, circ≈980) -->
+            <circle class="sq-ring" cx="0" cy="0" r="156"
+                    style="--circ:980;--del:2.25s;stroke:#1e40af;stroke-width:18;"/>
+
+            <!-- Ring 6: Communauté FB/IG (r=188, circ≈1181) -->
+            <circle class="sq-ring" cx="0" cy="0" r="188"
+                    style="--circ:1181;--del:2.7s;stroke:#1e3a8a;stroke-width:20;"/>
+
+            <!-- Leader lines (subtle) -->
+            <line class="sq-lbl" x1="48" y1="0" x2="228" y2="-152" stroke="rgba(255,255,255,.18)" stroke-width=".8" style="--del:.65s;"/>
+            <line class="sq-lbl" x1="75" y1="0" x2="228" y2="-96" stroke="rgba(255,255,255,.18)" stroke-width=".8" style="--del:1.1s;"/>
+            <line class="sq-lbl" x1="105" y1="0" x2="228" y2="-40" stroke="rgba(255,255,255,.18)" stroke-width=".8" style="--del:1.55s;"/>
+            <line class="sq-lbl" x1="135" y1="0" x2="228" y2="18" stroke="rgba(255,255,255,.18)" stroke-width=".8" style="--del:2.0s;"/>
+            <line class="sq-lbl" x1="165" y1="0" x2="228" y2="74" stroke="rgba(255,255,255,.18)" stroke-width=".8" style="--del:2.45s;"/>
+            <line class="sq-lbl" x1="198" y1="0" x2="228" y2="130" stroke="rgba(255,255,255,.18)" stroke-width=".8" style="--del:2.9s;"/>
+
+            <!-- Label: Josée -->
+            <g class="sq-lbl" style="--del:.65s;">
+              <circle cx="231" cy="-152" r="5" fill="#60a5fa"/>
+              <text x="240" y="-147" font-size="12" font-weight="700" fill="#bfdbfe" font-family="Inter,system-ui,sans-serif">Josée</text>
+              <text x="240" y="-133" font-size="9.5" fill="rgba(255,255,255,.6)" font-family="Inter,system-ui,sans-serif">Gestionnaire du défi · Là chaque jour</text>
+            </g>
+
+            <!-- Label: Clément · Chantal · Anne · Réal -->
+            <g class="sq-lbl" style="--del:1.1s;">
+              <circle cx="231" cy="-96" r="5" fill="#3b82f6"/>
+              <text x="240" y="-91" font-size="12" font-weight="700" fill="#bfdbfe" font-family="Inter,system-ui,sans-serif">Clément · Chantal · Anne · Réal</text>
+              <text x="240" y="-77" font-size="9.5" fill="rgba(255,255,255,.6)" font-family="Inter,system-ui,sans-serif">Logistique · Hébergement · Soutien familial</text>
+            </g>
+
+            <!-- Label: Experts UdeM -->
+            <g class="sq-lbl" style="--del:1.55s;">
+              <circle cx="231" cy="-40" r="5" fill="#2563eb"/>
+              <text x="240" y="-35" font-size="12" font-weight="700" fill="#bfdbfe" font-family="Inter,system-ui,sans-serif">Experts — Université de Montréal</text>
+              <text x="240" y="-21" font-size="9.5" fill="rgba(255,255,255,.6)" font-family="Inter,system-ui,sans-serif">Sciences du sport · Suivi de performance</text>
+            </g>
+
+            <!-- Label: 32 hommes honorés -->
+            <g class="sq-lbl" style="--del:2.0s;">
+              <circle cx="231" cy="18" r="5" fill="#1d4ed8"/>
+              <text x="240" y="23" font-size="12" font-weight="700" fill="#bfdbfe" font-family="Inter,system-ui,sans-serif">32 hommes honorés</text>
+              <text x="240" y="37" font-size="9.5" fill="rgba(255,255,255,.6)" font-family="Inter,system-ui,sans-serif">1 étape · 1 homme · 1 histoire · chaque matin</text>
+            </g>
+
+            <!-- Label: Donateurs -->
+            <g class="sq-lbl" style="--del:2.45s;">
+              <circle cx="231" cy="74" r="5" fill="#1e40af"/>
+              <text x="240" y="79" font-size="12" font-weight="700" fill="#bfdbfe" font-family="Inter,system-ui,sans-serif">Donateurs</text>
+              <text x="240" y="93" font-size="9.5" fill="rgba(255,255,255,.6)" font-family="Inter,system-ui,sans-serif">Financement · Confiance · Mission PROCURE</text>
+            </g>
+
+            <!-- Label: Communauté FB/IG -->
+            <g class="sq-lbl" style="--del:2.9s;">
+              <circle cx="231" cy="130" r="5" fill="#1e3a8a"/>
+              <text x="240" y="135" font-size="12" font-weight="700" fill="#bfdbfe" font-family="Inter,system-ui,sans-serif">Communauté FB/IG</text>
+              <text x="240" y="149" font-size="9.5" fill="rgba(255,255,255,.6)" font-family="Inter,system-ui,sans-serif">47 000 abonnés · Appels 15 min · Posts &amp; réactions</text>
+            </g>
+
+          </svg>
+        </div>
+      </div>
+    </div>
+    <!-- notes: La traversée n'est jamais solo. L'énergie collective amplifie chaque coup de pédale. -->
     <div class="slide light" id="s15">
       <div class="top-bar"></div>
       <div class="pad" style="flex:1;display:flex;flex-direction:column;justify-content:center;">
@@ -2093,6 +2210,7 @@ const SPRAIRIES_IDX = 19;
 const SONTARIO_IDX  = 20;
 const SQUEBEC_IDX   = 21;
 const SMARITIMES_IDX = 22;
+  const SEQUIPE_IDX    = 23;
   let s11PhotoShown = false;
 
 // ─── S4: Tile reveal + highlight ────────────────────────────
@@ -2473,6 +2591,7 @@ function show(n) {
   if (cur === SONTARIO_IDX)    sontarioStop();
   if (cur === SQUEBEC_IDX)     sQuebecStop();
   if (cur === SMARITIMES_IDX)  sMaritimesStop();
+  if (cur === SEQUIPE_IDX)     seqStop();
   slides[cur].classList.remove('active');
   cur = Math.max(0, Math.min(n, slides.length - 1));
   slides[cur].classList.add('active');
@@ -2518,8 +2637,27 @@ function show(n) {
   if (cur === S5_IDX)  s5Init();
   if (cur === S12_IDX) clkInit();
   if (cur === SPLAN_IDX) splanInit();
+  if (cur === SEQUIPE_IDX)     seqPlay();
 }
 
+
+
+  // ─── seqEntourage: cibles concentriques ─────────────────────────────────
+  function seqPlay() {
+    var svg = document.getElementById('seq-svg');
+    if (!svg) return;
+    var els = svg.querySelectorAll('.sq-ring,.sq-lbl,#sq-center');
+    els.forEach(function(el){ el.classList.remove('sq-go'); });
+    void svg.getBoundingClientRect();   // force reflow so animations restart
+    els.forEach(function(el){ el.classList.add('sq-go'); });
+  }
+  function seqStop() {
+    var svg = document.getElementById('seq-svg');
+    if (!svg) return;
+    svg.querySelectorAll('.sq-ring,.sq-lbl,#sq-center').forEach(function(el){
+      el.classList.remove('sq-go');
+    });
+  }
 
   // ─── splan: tuile reveal ────────────────────────────────────────────────
   function splanInit() {
