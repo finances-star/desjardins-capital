@@ -2707,10 +2707,26 @@ function show(n) {
   function seqPlay() {
     var svg = document.getElementById('seq-svg');
     if (!svg) return;
+    // Wire click handler once (DOMContentLoaded déjà passé, on branche ici)
+    if (!svg._clickBound) {
+      svg._clickBound = true;
+      svg.addEventListener('click', function() {
+        if (!svg._pyramidReady) return;
+        if (svg.classList.contains('seq-pyramid-mode')) {
+          svg.classList.remove('seq-pyramid-mode');
+          seqPlay();
+        } else {
+          svg.classList.add('seq-pyramid-mode');
+          var h = document.getElementById('seq-click-hint');
+          if (h) h.style.opacity = '0';
+        }
+      });
+    }
     // Reset pyramid mode
     svg.classList.remove('seq-pyramid-mode');
+    svg._pyramidReady = false;
     var hint = document.getElementById('seq-click-hint');
-    if (hint) hint.style.animation = 'none';
+    if (hint) { hint.style.opacity = '0'; hint.style.animation = 'none'; }
     var els = svg.querySelectorAll('.sq-ring,.sq-lbl,#sq-center');
     els.forEach(function(el){ el.classList.remove('sq-go'); });
     void svg.getBoundingClientRect();   // force reflow so animations restart
@@ -2718,25 +2734,10 @@ function show(n) {
     // After animation completes (~4.5s), enable click-to-pyramid
     if (svg._pyramidTimeout) clearTimeout(svg._pyramidTimeout);
     svg._pyramidTimeout = setTimeout(function() {
-      if (hint) { hint.style.animation = ''; void hint.getBoundingClientRect(); hint.style.animation = 'hintPulse 2s ease 0s 3 forwards'; }
       svg._pyramidReady = true;
+      if (hint) { hint.style.opacity = ''; hint.style.animation = ''; void hint.getBoundingClientRect(); hint.style.animation = 'hintPulse 2s ease 0s 3 forwards'; }
     }, 4500);
   }
-  document.addEventListener('DOMContentLoaded', function() {
-    var svg = document.getElementById('seq-svg');
-    if (!svg) return;
-    svg.addEventListener('click', function() {
-      if (!svg._pyramidReady) return;
-      if (svg.classList.contains('seq-pyramid-mode')) {
-        svg.classList.remove('seq-pyramid-mode');
-        seqPlay();
-      } else {
-        svg.classList.add('seq-pyramid-mode');
-        var hint = document.getElementById('seq-click-hint');
-        if (hint) hint.style.opacity = '0';
-      }
-    });
-  });
   function seqStop() {
     var svg = document.getElementById('seq-svg');
     if (!svg) return;
