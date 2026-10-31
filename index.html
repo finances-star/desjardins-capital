@@ -1789,7 +1789,8 @@ body {
         <hr class="rule" style="width:60px;margin-bottom:12px;">
         <div style="flex:1;min-height:0;width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;">
           <svg id="seq-svg" viewBox="-250 -240 750 480" preserveAspectRatio="xMidYMid meet"
-               style="width:100%;max-height:100%;overflow:visible;">
+               style="width:100%;max-height:100%;overflow:visible;cursor:pointer;"
+               title="Cliquez pour voir la pyramide">
             <style>
               .sq-ring{fill:none;stroke-linecap:round;transform-origin:0px 0px;transform:rotate(-90deg);
                        stroke-dashoffset:var(--circ,1200);stroke-dasharray:var(--circ,1200) 9999;opacity:0;}
@@ -1804,7 +1805,44 @@ body {
               #sq-center{opacity:0;}
               #sq-center.sq-go{animation:sqFade .35s ease .1s forwards;}
               @keyframes sqFade{from{opacity:0;}to{opacity:1;}}
+
+              /* Pyramid transition styles */
+              .sq-ring { transition: opacity 1.2s ease, transform 1.2s ease; }
+              .sq-lbl  { transition: opacity 0.8s ease, transform 1.2s ease; }
+              #sq-center { transition: opacity 0.8s ease, transform 1.2s ease; }
+              .seq-pyramid-mode .sq-ring { opacity:0 !important; stroke-dashoffset:0; }
+              .seq-pyramid-mode #sq-center { transform: translate(0px,-175px) !important; }
+              .seq-pyramid-mode #sq-lbl-r1 { transform: translate(-105px, -105px) !important; opacity:1; }
+              .seq-pyramid-mode #sq-lbl-r2 { transform: translate(-220px, -35px) !important; opacity:1; }
+              .seq-pyramid-mode #sq-lbl-r3 { transform: translate(10px, -35px) !important; opacity:1; }
+              .seq-pyramid-mode #sq-lbl-r4 { transform: translate(-240px, 45px) !important; opacity:1; }
+              .seq-pyramid-mode #sq-lbl-r5 { transform: translate(-100px, 45px) !important; opacity:1; }
+              .seq-pyramid-mode #sq-lbl-r6 { transform: translate(40px, 45px) !important; opacity:1; }
+              .seq-pyramid-mode #sq-lbl-r7 { transform: translate(-180px, 125px) !important; opacity:1; }
+              .seq-pyramid-mode #sq-lbl-r8 { transform: translate(-20px, 125px) !important; opacity:1; }
+              .seq-pyramid-mode .sq-line-hint { opacity:1 !important; }
+              /* Pyramid connector lines */
+              .sq-line-hint { opacity:0; transition: opacity 1s ease 0.6s; }
+              /* Click hint pulse */
+              #seq-click-hint { animation: hintPulse 2s ease 4.5s 3 forwards; opacity:0; }
+              @keyframes hintPulse {
+                0%{opacity:0;} 30%{opacity:.7;} 70%{opacity:.7;} 100%{opacity:0;}
+              }
             </style>
+
+            <!-- Click hint -->
+            <text id="seq-click-hint" x="250" y="230" font-size="9" fill="rgba(255,255,255,.5)"
+                  font-family="Inter,system-ui,sans-serif" text-anchor="middle">▲ cliquez pour la pyramide</text>
+
+            <!-- Pyramid connector lines (hidden until pyramid) -->
+            <g class="sq-line-hint" style="pointer-events:none;">
+              <line x1="-95" y1="-155" x2="-85" y2="-120" stroke="rgba(255,255,255,.2)" stroke-width=".8"/>
+              <line x1="-95" y1="-155" x2="-195" y2="-55" stroke="rgba(255,255,255,.2)" stroke-width=".8"/>
+              <line x1="-95" y1="-155" x2="-65" y2="-55" stroke="rgba(255,255,255,.2)" stroke-width=".8"/>
+              <line x1="-195" y1="-55" x2="-215" y2="25" stroke="rgba(255,255,255,.2)" stroke-width=".8"/>
+              <line x1="-65" y1="-55" x2="-75" y2="25" stroke="rgba(255,255,255,.2)" stroke-width=".8"/>
+              <line x1="-65" y1="-55" x2="65" y2="25" stroke="rgba(255,255,255,.2)" stroke-width=".8"/>
+            </g>
 
             <!-- Center: LP -->
             <g id="sq-center">
@@ -1813,17 +1851,17 @@ body {
                     font-size="9" font-weight="800" fill="#1e3a8a"
                     font-family="Inter,system-ui,sans-serif" letter-spacing=".05em">LP</text>
               <text x="0" y="11" text-anchor="middle" dominant-baseline="middle"
-                    font-size="5.5" fill="#1e3a8a" font-family="Inter,system-ui,sans-serif">l'idée</text>
+                    font-size="5.5" fill="#1e3a8a" font-family="Inter,system-ui,sans-serif">défi PDG</text>
             </g>
 
             <!-- ÉQUIPE R1–R3 : bleu foncé ─────────────────────────────── -->
             <!-- R1 Josée r=38 circ≈239 -->
             <circle class="sq-ring" cx="0" cy="0" r="38"
                     style="--circ:239;--del:.45s;stroke:#1e3a8a;stroke-width:14;"/>
-            <!-- R2 Clément+enfants r=57 circ≈358 -->
+            <!-- R2 Experts UdeM r=57 circ≈358 (swapped: was Clément) -->
             <circle class="sq-ring" cx="0" cy="0" r="57"
                     style="--circ:358;--del:.9s;stroke:#1e40af;stroke-width:14;"/>
-            <!-- R3 Experts UdeM r=76 circ≈478 -->
+            <!-- R3 Clément famille r=76 circ≈478 (swapped: was Experts) -->
             <circle class="sq-ring" cx="0" cy="0" r="76"
                     style="--circ:478;--del:1.35s;stroke:#1d4ed8;stroke-width:13;"/>
 
@@ -1844,67 +1882,67 @@ body {
             <circle class="sq-ring" cx="0" cy="0" r="173"
                     style="--circ:1087;--del:3.6s;stroke:#bfdbfe;stroke-width:16;"/>
 
-            <!-- Leader lines -->
-            <line class="sq-lbl" x1="45" y1="0" x2="228" y2="-178" stroke="rgba(255,255,255,.18)" stroke-width=".7" style="--del:.65s;"/>
-            <line class="sq-lbl" x1="64" y1="0" x2="228" y2="-130" stroke="rgba(255,255,255,.18)" stroke-width=".7" style="--del:1.1s;"/>
-            <line class="sq-lbl" x1="83" y1="0" x2="228" y2="-82"  stroke="rgba(255,255,255,.18)" stroke-width=".7" style="--del:1.55s;"/>
-            <line class="sq-lbl" x1="102" y1="0" x2="228" y2="-34" stroke="rgba(255,255,255,.18)" stroke-width=".7" style="--del:2.0s;"/>
-            <line class="sq-lbl" x1="121" y1="0" x2="228" y2="14"  stroke="rgba(255,255,255,.18)" stroke-width=".7" style="--del:2.45s;"/>
-            <line class="sq-lbl" x1="140" y1="0" x2="228" y2="62"  stroke="rgba(255,255,255,.18)" stroke-width=".7" style="--del:2.9s;"/>
-            <line class="sq-lbl" x1="159" y1="0" x2="228" y2="110" stroke="rgba(255,255,255,.18)" stroke-width=".7" style="--del:3.35s;"/>
-            <line class="sq-lbl" x1="181" y1="0" x2="228" y2="158" stroke="rgba(255,255,255,.18)" stroke-width=".7" style="--del:3.8s;"/>
+            <!-- Leader lines — partent de la périphérie de chaque anneau vers son label (sans croisement) -->
+            <line class="sq-lbl" x1="30"   y1="-23"  x2="228" y2="-178" stroke="rgba(255,255,255,.18)" stroke-width=".7" style="--del:.65s;"/>
+            <line class="sq-lbl" x1="49.5" y1="-28"  x2="228" y2="-130" stroke="rgba(255,255,255,.18)" stroke-width=".7" style="--del:1.1s;"/>
+            <line class="sq-lbl" x1="71.5" y1="-26"  x2="228" y2="-82"  stroke="rgba(255,255,255,.18)" stroke-width=".7" style="--del:1.55s;"/>
+            <line class="sq-lbl" x1="94"   y1="-14"  x2="228" y2="-34"  stroke="rgba(255,255,255,.18)" stroke-width=".7" style="--del:2.0s;"/>
+            <line class="sq-lbl" x1="113.8" y1="7"   x2="228" y2="14"   stroke="rgba(255,255,255,.18)" stroke-width=".7" style="--del:2.45s;"/>
+            <line class="sq-lbl" x1="128"  y1="35"   x2="228" y2="62"   stroke="rgba(255,255,255,.18)" stroke-width=".7" style="--del:2.9s;"/>
+            <line class="sq-lbl" x1="137"  y1="66"   x2="228" y2="110"  stroke="rgba(255,255,255,.18)" stroke-width=".7" style="--del:3.35s;"/>
+            <line class="sq-lbl" x1="142"  y1="98.5" x2="228" y2="158"  stroke="rgba(255,255,255,.18)" stroke-width=".7" style="--del:3.8s;"/>
 
             <!-- Label R1: Josée -->
-            <g class="sq-lbl" style="--del:.65s;">
+            <g id="sq-lbl-r1" class="sq-lbl" style="--del:.65s;">
               <circle cx="231" cy="-178" r="5" fill="#1e3a8a"/>
               <text x="240" y="-173" font-size="11.5" font-weight="700" fill="#bfdbfe" font-family="Inter,system-ui,sans-serif">Josée</text>
               <text x="240" y="-159" font-size="9" fill="rgba(255,255,255,.6)" font-family="Inter,system-ui,sans-serif">Gestionnaire du défi · Là chaque jour</text>
             </g>
 
-            <!-- Label R2: Clément + famille -->
-            <g class="sq-lbl" style="--del:1.1s;">
+            <!-- Label R2: Experts UdeM (swapped — was Clément) -->
+            <g id="sq-lbl-r2" class="sq-lbl" style="--del:1.1s;">
               <circle cx="231" cy="-130" r="5" fill="#1e40af"/>
-              <text x="240" y="-125" font-size="11.5" font-weight="700" fill="#bfdbfe" font-family="Inter,system-ui,sans-serif">Clément · Chantal · Anne · Réal</text>
-              <text x="240" y="-111" font-size="9" fill="rgba(255,255,255,.6)" font-family="Inter,system-ui,sans-serif">et mes enfants · Logistique · Hébergement</text>
+              <text x="240" y="-125" font-size="11.5" font-weight="700" fill="#bfdbfe" font-family="Inter,system-ui,sans-serif">Experts — Université de Montréal</text>
+              <text x="240" y="-111" font-size="9" fill="rgba(255,255,255,.6)" font-family="Inter,system-ui,sans-serif">Sciences du sport · Suivi de performance</text>
             </g>
 
-            <!-- Label R3: Experts UdeM -->
-            <g class="sq-lbl" style="--del:1.55s;">
+            <!-- Label R3: Clément famille (swapped — was Experts) -->
+            <g id="sq-lbl-r3" class="sq-lbl" style="--del:1.55s;">
               <circle cx="231" cy="-82" r="5" fill="#1d4ed8"/>
-              <text x="240" y="-77" font-size="11.5" font-weight="700" fill="#bfdbfe" font-family="Inter,system-ui,sans-serif">Experts — Université de Montréal</text>
-              <text x="240" y="-63" font-size="9" fill="rgba(255,255,255,.6)" font-family="Inter,system-ui,sans-serif">Sciences du sport · Suivi de performance</text>
+              <text x="240" y="-77" font-size="11.5" font-weight="700" fill="#bfdbfe" font-family="Inter,system-ui,sans-serif">Clément · Chantal · Anne · Réal et mes enfants</text>
+              <text x="240" y="-63" font-size="9" fill="rgba(255,255,255,.6)" font-family="Inter,system-ui,sans-serif">Logistique · Hébergement</text>
             </g>
 
             <!-- Label R4: Amis cyclistes -->
-            <g class="sq-lbl" style="--del:2.0s;">
+            <g id="sq-lbl-r4" class="sq-lbl" style="--del:2.0s;">
               <circle cx="231" cy="-34" r="5" fill="#2563eb"/>
               <text x="240" y="-29" font-size="11.5" font-weight="700" fill="#dbeafe" font-family="Inter,system-ui,sans-serif">Amis cyclistes — ACPP et CCC</text>
               <text x="240" y="-15" font-size="9" fill="rgba(255,255,255,.6)" font-family="Inter,system-ui,sans-serif">Solidarité · Camaraderie sur le terrain</text>
             </g>
 
             <!-- Label R5: Appels de 15 min -->
-            <g class="sq-lbl" style="--del:2.45s;">
+            <g id="sq-lbl-r5" class="sq-lbl" style="--del:2.45s;">
               <circle cx="231" cy="14" r="5" fill="#3b82f6"/>
               <text x="240" y="19" font-size="11.5" font-weight="700" fill="#dbeafe" font-family="Inter,system-ui,sans-serif">Appels de 15 min</text>
               <text x="240" y="33" font-size="9" fill="rgba(255,255,255,.6)" font-family="Inter,system-ui,sans-serif">Connexion directe · Encouragement quotidien</text>
             </g>
 
             <!-- Label R6: 32 hommes honorés -->
-            <g class="sq-lbl" style="--del:2.9s;">
+            <g id="sq-lbl-r6" class="sq-lbl" style="--del:2.9s;">
               <circle cx="231" cy="62" r="5" fill="#60a5fa"/>
               <text x="240" y="67" font-size="11.5" font-weight="700" fill="#dbeafe" font-family="Inter,system-ui,sans-serif">32 hommes honorés</text>
               <text x="240" y="81" font-size="9" fill="rgba(255,255,255,.6)" font-family="Inter,system-ui,sans-serif">1 étape · 1 homme · 1 histoire · chaque matin</text>
             </g>
 
             <!-- Label R7: Donateurs -->
-            <g class="sq-lbl" style="--del:3.35s;">
+            <g id="sq-lbl-r7" class="sq-lbl" style="--del:3.35s;">
               <circle cx="231" cy="110" r="5" fill="#93c5fd"/>
               <text x="240" y="115" font-size="11.5" font-weight="700" fill="#dbeafe" font-family="Inter,system-ui,sans-serif">Donateurs</text>
               <text x="240" y="129" font-size="9" fill="rgba(255,255,255,.6)" font-family="Inter,system-ui,sans-serif">Financement · Confiance · Mission PROCURE</text>
             </g>
 
             <!-- Label R8: Communauté FB/IG -->
-            <g class="sq-lbl" style="--del:3.8s;">
+            <g id="sq-lbl-r8" class="sq-lbl" style="--del:3.8s;">
               <circle cx="231" cy="158" r="5" fill="#bfdbfe"/>
               <text x="240" y="163" font-size="11.5" font-weight="700" fill="#dbeafe" font-family="Inter,system-ui,sans-serif">Communauté FB/IG</text>
               <text x="240" y="177" font-size="9" fill="rgba(255,255,255,.6)" font-family="Inter,system-ui,sans-serif">Posts &amp; réactions · Engagement quotidien</text>
@@ -1915,6 +1953,7 @@ body {
       </div><!-- /pad -->
     </div>
     <!-- notes: La traversée n'est jamais solo. L'énergie collective amplifie chaque coup de pédale. -->
+
 
 
 
@@ -2668,11 +2707,36 @@ function show(n) {
   function seqPlay() {
     var svg = document.getElementById('seq-svg');
     if (!svg) return;
+    // Reset pyramid mode
+    svg.classList.remove('seq-pyramid-mode');
+    var hint = document.getElementById('seq-click-hint');
+    if (hint) hint.style.animation = 'none';
     var els = svg.querySelectorAll('.sq-ring,.sq-lbl,#sq-center');
     els.forEach(function(el){ el.classList.remove('sq-go'); });
     void svg.getBoundingClientRect();   // force reflow so animations restart
     els.forEach(function(el){ el.classList.add('sq-go'); });
+    // After animation completes (~4.5s), enable click-to-pyramid
+    if (svg._pyramidTimeout) clearTimeout(svg._pyramidTimeout);
+    svg._pyramidTimeout = setTimeout(function() {
+      if (hint) { hint.style.animation = ''; void hint.getBoundingClientRect(); hint.style.animation = 'hintPulse 2s ease 0s 3 forwards'; }
+      svg._pyramidReady = true;
+    }, 4500);
   }
+  document.addEventListener('DOMContentLoaded', function() {
+    var svg = document.getElementById('seq-svg');
+    if (!svg) return;
+    svg.addEventListener('click', function() {
+      if (!svg._pyramidReady) return;
+      if (svg.classList.contains('seq-pyramid-mode')) {
+        svg.classList.remove('seq-pyramid-mode');
+        seqPlay();
+      } else {
+        svg.classList.add('seq-pyramid-mode');
+        var hint = document.getElementById('seq-click-hint');
+        if (hint) hint.style.opacity = '0';
+      }
+    });
+  });
   function seqStop() {
     var svg = document.getElementById('seq-svg');
     if (!svg) return;
