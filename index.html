@@ -1,4 +1,4 @@
-<!-- VERSION: 4.41 -->
+<!-- VERSION: 4.42 -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -1889,10 +1889,9 @@ body {
               .seq-pyramid-mode #sq-b6{transition-delay:.42s;} .seq-pyramid-mode #sq-b5{transition-delay:.48s;}
               .seq-pyramid-mode #sq-b4{transition-delay:.54s;} .seq-pyramid-mode #sq-b3{transition-delay:.60s;}
               .seq-pyramid-mode #sq-b2{transition-delay:.66s;} .seq-pyramid-mode #sq-b1{transition-delay:.72s;}
-              #sq-peg-shape { opacity:0; transition:opacity .4s ease .85s; }
-              #sq-base-rect { opacity:0; transition:opacity .4s ease .90s; }
-              .seq-pyramid-mode #sq-peg-shape { opacity:1; }
-              .seq-pyramid-mode #sq-base-rect { opacity:1; }
+              #sq-peg-shape { display:none; }
+              #sq-base-rect { display:none; }
+              .seq-pyramid-mode #sq-center .sq-defi { display:none; }
               /* Pyramid connector lines */
               .sq-line-hint { opacity:0; transition: opacity 1s ease 0.6s; }
               /* Click hint pulse */
@@ -1918,11 +1917,11 @@ body {
 
             <!-- Center: LP -->
             <g id="sq-center">
-              <circle cx="0" cy="0" r="20" fill="white"/>
+              <rect x="-20" y="-14" width="40" height="28" rx="14" fill="white"/>
               <text x="0" y="0" text-anchor="middle" dominant-baseline="middle"
                     font-size="9" font-weight="800" fill="#1e3a8a"
                     font-family="Inter,system-ui,sans-serif" letter-spacing=".05em">LP</text>
-              <text x="0" y="11" text-anchor="middle" dominant-baseline="middle"
+              <text class="sq-defi" x="0" y="11" text-anchor="middle" dominant-baseline="middle"
                     font-size="5.5" fill="#1e3a8a" font-family="Inter,system-ui,sans-serif">défi PDG</text>
             </g>
 
@@ -2044,16 +2043,14 @@ body {
               </linearGradient>
             </defs>
             <!-- b8 = bas (plus grand), b1 = sommet (plus petit) — ordre SVG: bas en premier -->
-            <ellipse id="sq-b8" class="sq-beignet" cx="0" cy="68"   rx="108" ry="13" fill="#bfdbfe"/>
-            <ellipse id="sq-b7" class="sq-beignet" cx="0" cy="38"   rx="97"  ry="12" fill="#93c5fd"/>
-            <ellipse id="sq-b6" class="sq-beignet" cx="0" cy="9"    rx="86"  ry="12" fill="#60a5fa"/>
-            <ellipse id="sq-b5" class="sq-beignet" cx="0" cy="-19"  rx="75"  ry="11" fill="#3b82f6"/>
-            <ellipse id="sq-b4" class="sq-beignet" cx="0" cy="-46"  rx="64"  ry="11" fill="#2563eb"/>
-            <ellipse id="sq-b3" class="sq-beignet" cx="0" cy="-72"  rx="53"  ry="10" fill="#1d4ed8"/>
-            <ellipse id="sq-b2" class="sq-beignet" cx="0" cy="-97"  rx="42"  ry="10" fill="#1e40af"/>
-            <ellipse id="sq-b1" class="sq-beignet" cx="0" cy="-120" rx="30"  ry="9"  fill="#1e3a8a"/>
-            <rect id="sq-peg-shape" x="-3.5" y="-140" width="7" height="220" rx="3.5" fill="url(#sq-peg-grad)"/>
-            <rect id="sq-base-rect" x="-120" y="80" width="240" height="13" rx="6.5" fill="url(#sq-base-grad)"/>
+            <rect id="sq-b8" class="sq-beignet" x="-108" y="54"   width="216" height="28" rx="14" fill="#bfdbfe"/>
+            <rect id="sq-b7" class="sq-beignet" x="-97"  y="24"   width="194" height="28" rx="14" fill="#93c5fd"/>
+            <rect id="sq-b6" class="sq-beignet" x="-86"  y="-5"   width="172" height="28" rx="14" fill="#60a5fa"/>
+            <rect id="sq-b5" class="sq-beignet" x="-75"  y="-33"  width="150" height="28" rx="14" fill="#3b82f6"/>
+            <rect id="sq-b4" class="sq-beignet" x="-64"  y="-60"  width="128" height="28" rx="14" fill="#2563eb"/>
+            <rect id="sq-b3" class="sq-beignet" x="-53"  y="-86"  width="106" height="28" rx="14" fill="#1d4ed8"/>
+            <rect id="sq-b2" class="sq-beignet" x="-42"  y="-111" width="84"  height="28" rx="14" fill="#1e40af"/>
+            <rect id="sq-b1" class="sq-beignet" x="-30"  y="-134" width="60"  height="28" rx="14" fill="#1e3a8a"/>
           </g>
 
           </svg>
@@ -3139,6 +3136,7 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.42</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Pyramide séquipe : beignets arrondis (pill/rect), tige et base supprimées, LP aussi en beigne</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.41</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 27 : titre « Revivons la traversée » ajouté</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.40</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 26 (4P+2E=R) : bande bleue supprimée, titre ajouté, texte agrandi ; slide « Trois leçons » supprimée ; légende pyramide fixe</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.39</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 27 : vidéo FINALE2.mp4 plein écran (Google Drive)</div>
