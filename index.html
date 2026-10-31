@@ -1,4 +1,4 @@
-<!-- VERSION: 4.38 -->
+<!-- VERSION: 4.39 -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -2190,17 +2190,9 @@ body {
     <!-- ═══ S27 — TRAVERSÉE EN IMAGES ══════════════════════════ -->
     <div class="slide dark" id="s27">
       <div style="height:5px;background:var(--blue);"></div>
-      <div class="pad" style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:24px;">
-        <div>
-          <div style="font-size:9px;font-weight:800;letter-spacing:.15em;color:#60A5FA;text-transform:uppercase;margin-bottom:10px;">Traversée du Canada</div>
-          <h2 style="font-size:30px;font-weight:900;color:white;margin:0;letter-spacing:-.01em;">Revivons la traversée en images</h2>
-        </div>
-        <div style="width:64px;height:64px;border-radius:50%;background:rgba(37,99,235,.2);border:1px solid rgba(96,165,250,.4);display:flex;align-items:center;justify-content:center;">
-          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>
-        </div>
-        <p style="font-size:13px;color:rgba(255,255,255,.45);letter-spacing:.04em;margin:0;">6 172 km · 31 jours · 1 mission</p>
+      <div style="flex:1;position:relative;overflow:hidden;">
+        <iframe id="s27-vid" src="" allow="autoplay; fullscreen" allowfullscreen
+          style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>
       </div>
     </div>
     <!-- notes: Laisser la vidéo tourner. Pas de narration. -->
@@ -2276,6 +2268,7 @@ const SQUEBEC_IDX   = 21;
 const SMARITIMES_IDX = 22;
   const SEQUIPE_IDX    = 24;
   const S26_IDX        = 26;
+  const S27_IDX        = 27;
   let s11PhotoShown = false;
 
 // ─── S4: Tile reveal + highlight ────────────────────────────
@@ -2626,6 +2619,16 @@ function s2Init() {
   if (v) v.src = 'https://drive.google.com/file/d/1RMJhyueRaSfRCTchVIPjpOKoYe-n7v7U/preview?autoplay=1';
 }
 
+function s27Stop() {
+  const v = document.getElementById('s27-vid');
+  if (v) v.src = '';
+}
+
+function s27Init() {
+  const v = document.getElementById('s27-vid');
+  if (v) v.src = 'https://drive.google.com/file/d/175AOi9ALq_9YMpzHRjVodHkssrcyYp2B/preview?autoplay=1';
+}
+
 function sprairiesStop() {
   var vp = document.getElementById('vid-prairies');
   if (vp) { vp.pause(); }
@@ -2657,6 +2660,7 @@ function show(n) {
   if (cur === SQUEBEC_IDX)     sQuebecStop();
   if (cur === SMARITIMES_IDX)  sMaritimesStop();
   if (cur === SEQUIPE_IDX)     seqStop();
+  if (cur === S27_IDX)         s27Stop();
   slides[cur].classList.remove('active');
   cur = Math.max(0, Math.min(n, slides.length - 1));
   slides[cur].classList.add('active');
@@ -2704,6 +2708,7 @@ function show(n) {
   if (cur === SPLAN_IDX) splanInit();
   if (cur === SEQUIPE_IDX)     seqPlay();
   if (cur === S26_IDX)         s26Init();
+  if (cur === S27_IDX)         s27Init();
 }
 
 
@@ -3223,6 +3228,7 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.39</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 27 : vidéo FINALE2.mp4 plein écran (Google Drive)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.38</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 26 : 3e clic → mot unique RÉTABLISSEMENT (urologues)</div>
     <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.37</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 26 : formule 4P+2E=R (3 clics) ; slide 27 : Revivons la traversée ; points d'ancrage sur cible ; animation pyramide beignets</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.36</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 24 : tuile « 8h / jour / en mouvement » (ex 231 heures) ; slide 25 section-tag « Traversée du Canada »</div>

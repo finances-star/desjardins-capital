@@ -1,5 +1,8 @@
 # Changelog — Présentation Desjardins Capital
 
+## v4.39 — 2026-10-31
+- Slide 27 : vidéo FINALE2.mp4 plein écran via Google Drive (iframe lazy-load)
+
 ## v4.38 — 2026-10-31
 - Slide 26 : 3e clic → mot unique RÉTABLISSEMENT (conférence urologues)
 
