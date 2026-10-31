@@ -1,5 +1,8 @@
 # Changelog — Présentation Desjardins Capital
 
+## v4.38 — 2026-10-31
+- Slide 26 : 3e clic → mot unique RÉTABLISSEMENT (conférence urologues)
+
 ## v4.37 — 2026-10-31
 - Slide 26 : formule 4P + 2E = R avec révélation en 3 clics (4P → 2E → R)
 - Slide 27 : placeholder vidéo « Revivons la traversée en images »
