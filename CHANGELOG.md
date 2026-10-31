@@ -1,3 +1,5 @@
+## v4.40 — 2026-10-31 — Slide 26 (4P+2E=R) : suppression bande bleue + titre ; slide 25 (Trois leçons) supprimée ; légende pyramide fixe
+
 # Changelog — Présentation Desjardins Capital
 
 ## v4.39 — 2026-10-31

@@ -1,4 +1,4 @@
-<!-- VERSION: 4.39 -->
+<!-- VERSION: 4.40 -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -1869,14 +1869,14 @@ body {
               #sq-center { transition: opacity 0.8s ease, transform 1.2s ease; }
               .seq-pyramid-mode .sq-ring { opacity:0 !important; stroke-dashoffset:0; }
               .seq-pyramid-mode #sq-center  { transform: translate(0px,-155px)   !important; }
-              .seq-pyramid-mode #sq-lbl-r1  { transform: translate(-111px, 98px) !important; opacity:1; }
-              .seq-pyramid-mode #sq-lbl-r2  { transform: translate(-321px,120px) !important; opacity:1; }
-              .seq-pyramid-mode #sq-lbl-r3  { transform: translate(-61px,  72px) !important; opacity:1; }
-              .seq-pyramid-mode #sq-lbl-r4  { transform: translate(-376px, 94px) !important; opacity:1; }
-              .seq-pyramid-mode #sq-lbl-r5  { transform: translate(-206px, 46px) !important; opacity:1; }
-              .seq-pyramid-mode #sq-lbl-r6  { transform: translate(-51px,  -2px) !important; opacity:1; }
-              .seq-pyramid-mode #sq-lbl-r7  { transform: translate(-281px, 20px) !important; opacity:1; }
-              .seq-pyramid-mode #sq-lbl-r8  { transform: translate(-81px, -28px) !important; opacity:1; }
+              .seq-pyramid-mode #sq-lbl-r1,
+              .seq-pyramid-mode #sq-lbl-r2,
+              .seq-pyramid-mode #sq-lbl-r3,
+              .seq-pyramid-mode #sq-lbl-r4,
+              .seq-pyramid-mode #sq-lbl-r5,
+              .seq-pyramid-mode #sq-lbl-r6,
+              .seq-pyramid-mode #sq-lbl-r7,
+              .seq-pyramid-mode #sq-lbl-r8  { opacity:1; }
               .seq-pyramid-mode .sq-line-hint { opacity:0 !important; }
               /* Ring anchor dots (cible mode only) — apparaissent avec sq-lbl.sq-go (sqFade), disparaissent en pyramide */
               .seq-pyramid-mode .sq-ring-dot { opacity:0 !important; }
@@ -2066,126 +2066,52 @@ body {
 
 
 
-    <!-- ═══ S25 — TROIS LEÇONS ══════════════════════════ -->
-    <div class="slide dark" id="s25">
-      <div style="height:5px;background:var(--blue);"></div>
-      <div class="pad" style="flex:1;display:flex;flex-direction:column;justify-content:center;">
-        <h2 style="font-size:26px;font-weight:800;color:white;margin-bottom:20px;text-align:center;letter-spacing:-.01em;">Trois leçons sur 6 172 km</h2>
-        <div class="grid-3" style="flex:1;gap:14px;">
-          <!-- PRÉPARER -->
-          <div style="border:1px solid rgba(37,99,235,.4);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
-            <div style="background:var(--blue);padding:14px;text-align:center;">
-              <div style="font-size:18px;font-weight:900;color:white;letter-spacing:.05em;" style="font-size:13px;font-weight:900;color:white;letter-spacing:.05em;">PLANIFICATION · PRÉPARATION</div>
-            </div>
-            <div style="padding:16px;flex:1;display:flex;flex-direction:column;gap:10px;background:rgba(255,255,255,.04);">
-              <p style="font-size:12px;font-style:italic;color:#60A5FA;text-align:center;">comme si c'était ton travail</p>
-              <div style="height:1px;background:rgba(37,99,235,.3);"></div>
-              <p style="font-size:13px;color:rgba(255,255,255,.85);line-height:1.6;">Le talent ouvre une porte. La <span style="color:var(--blue);">planification</span> et la <span style="color:var(--blue);">préparation</span> décident si tu passes dedans.</p>
-            </div>
-          </div>
-          <!-- ENTOURER -->
-          <div style="border:1px solid rgba(37,99,235,.6);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 0 0 1px var(--blue);">
-            <div style="background:var(--blue);padding:14px;text-align:center;">
-              <div style="font-size:18px;font-weight:900;color:white;letter-spacing:.05em;" style="font-size:13px;font-weight:900;color:white;letter-spacing:.05em;">ÉQUIPE · ENTOURAGE</div>
-            </div>
-            <div style="padding:16px;flex:1;display:flex;flex-direction:column;gap:10px;background:rgba(37,99,235,.1);">
-              <p style="font-size:12px;font-style:italic;color:#60A5FA;text-align:center;">les bonnes personnes, au bon endroit</p>
-              <div style="height:1px;background:rgba(37,99,235,.4);"></div>
-              <p style="font-size:13px;color:rgba(255,255,255,.85);line-height:1.6;">L'équipe n'est pas un accessoire de la performance. C'est sa condition.</p>
-            </div>
-          </div>
-          <!-- PERSÉVÉRER -->
-          <div style="border:1px solid rgba(37,99,235,.4);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
-            <div style="background:var(--blue);padding:14px;text-align:center;">
-              <div style="font-size:18px;font-weight:900;color:white;letter-spacing:.05em;" style="font-size:13px;font-weight:900;color:white;letter-spacing:.05em;">PIVOT · PERSÉVÉRANCE</div>
-            </div>
-            <div style="padding:16px;flex:1;display:flex;flex-direction:column;gap:10px;background:rgba(255,255,255,.04);">
-              <p style="font-size:12px;font-style:italic;color:#60A5FA;text-align:center;">avec intelligence</p>
-              <div style="height:1px;background:rgba(37,99,235,.3);"></div>
-              <p style="font-size:13px;color:rgba(255,255,255,.85);line-height:1.6;">Savoir s'arrêter, ce n'est pas abandonner. C'est protéger la suite.</p>
-            </div>
-          </div>
-        </div>
-        <!-- Formula reveal -->
-        <div style="margin-top:14px;padding:10px 20px;background:rgba(37,99,235,.12);border:1px solid rgba(37,99,235,.3);border-radius:10px;text-align:center;">
-          <div style="font-size:9px;font-weight:800;letter-spacing:.15em;color:#60A5FA;text-transform:uppercase;margin-bottom:8px;">La formule</div>
-          <div style="display:flex;align-items:flex-start;justify-content:center;gap:8px;">
-            <div style="text-align:center;">
-              <div style="font-size:28px;font-weight:900;color:white;line-height:1;">4P</div>
-              <div style="font-size:8px;color:#93C5FD;letter-spacing:.05em;margin-top:4px;line-height:1.6;">Planification<br>Préparation<br>Persévérance</div>
-            </div>
-            <div style="font-size:22px;color:rgba(255,255,255,.25);margin-top:2px;">+</div>
-            <div style="text-align:center;">
-              <div style="font-size:28px;font-weight:900;color:white;line-height:1;">2E</div>
-              <div style="font-size:8px;color:#93C5FD;letter-spacing:.05em;margin-top:4px;line-height:1.6;">Équipe<br>Entourage</div>
-            </div>
-            <div style="font-size:22px;color:rgba(255,255,255,.25);margin-top:2px;">=</div>
-            <div style="text-align:center;">
-              <div style="font-size:28px;font-weight:900;color:#60A5FA;line-height:1;">R</div>
-              <div style="font-size:8px;color:#93C5FD;letter-spacing:.05em;margin-top:4px;line-height:1.6;">Réussite</div>
-            </div>
-          </div>
-        </div>
-                <!-- Closing quote -->
-        <div style="margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.1);text-align:center;">
-          <p style="font-size:15px;font-style:italic;color:rgba(255,255,255,.8);">« Vous faites ça tous les jours dans vos dossiers.</p>
-          <p style="font-size:15px;font-weight:700;font-style:italic;color:#60A5FA;">Sur la route, j'ai juste appris à le reconnaître. »</p>
-        </div>
-      </div>
-    </div>
-    <!-- notes: Pause. Regarder la salle. « Questions? » -->
-
-    <!-- ═══ S26 — FORMULE 4P + 2E = R ══════════════════════════ -->
+    <!-- ═══ S26 — ÉQUATION DE LA RÉUSSITE ══════════════════════════ -->
     <div class="slide dark" id="s26">
-      <div style="height:5px;background:var(--blue);"></div>
-      <div class="pad" style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:22px;">
-        <div style="text-align:center;">
-          <div style="font-size:9px;font-weight:800;letter-spacing:.15em;color:#60A5FA;text-transform:uppercase;margin-bottom:6px;">Équation de la réussite</div>
-          <h2 style="font-size:32px;font-weight:900;color:white;margin:0;letter-spacing:-.01em;">4P + 2E = R</h2>
-        </div>
-        <div style="display:flex;align-items:stretch;justify-content:center;gap:0;">
+      <div class="top-bar"></div>
+      <div class="pad" style="flex:1;display:flex;flex-direction:column;min-height:0;padding-bottom:20px;">
+        <div class="section-tag">Traversée du Canada</div>
+        <h2 class="slide-title" style="color:white;">4P + 2E = R</h2>
+        <hr class="rule" style="width:60px;margin-bottom:16px;">
+        <div style="flex:1;min-height:0;display:flex;align-items:stretch;justify-content:center;gap:0;">
           <!-- 4P -->
           <div style="flex:1;background:rgba(30,58,138,.5);border:1px solid rgba(37,99,235,.5);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
             <div style="background:#1e3a8a;padding:18px;text-align:center;">
-              <div style="font-size:40px;font-weight:900;color:white;letter-spacing:.05em;line-height:1;">4P</div>
+              <div style="font-size:48px;font-weight:900;color:white;letter-spacing:.05em;line-height:1;">4P</div>
             </div>
-            <div id="s26-c1" style="padding:16px;flex:1;opacity:0;max-height:0;overflow:hidden;transition:opacity .45s ease, max-height .5s ease;">
-              <div style="display:flex;flex-direction:column;gap:9px;">
-                <div style="font-size:13px;font-weight:700;color:#93C5FD;border-left:3px solid #1d4ed8;padding-left:8px;">Planification</div>
-                <div style="font-size:13px;font-weight:700;color:#93C5FD;border-left:3px solid #1d4ed8;padding-left:8px;">Préparation</div>
-                <div style="font-size:13px;font-weight:700;color:#93C5FD;border-left:3px solid #1d4ed8;padding-left:8px;">Persévérance</div>
-                <div style="font-size:13px;font-weight:700;color:#93C5FD;border-left:3px solid #1d4ed8;padding-left:8px;">Pivotage</div>
-              </div>
+            <div style="padding:18px;flex:1;display:flex;flex-direction:column;gap:12px;justify-content:center;">
+              <div style="font-size:16px;font-weight:700;color:#93C5FD;border-left:3px solid #1d4ed8;padding-left:10px;">Planification</div>
+              <div style="font-size:16px;font-weight:700;color:#93C5FD;border-left:3px solid #1d4ed8;padding-left:10px;">Préparation</div>
+              <div style="font-size:16px;font-weight:700;color:#93C5FD;border-left:3px solid #1d4ed8;padding-left:10px;">Persévérance</div>
+              <div style="font-size:16px;font-weight:700;color:#93C5FD;border-left:3px solid #1d4ed8;padding-left:10px;">Pivotage</div>
             </div>
           </div>
-          <div style="display:flex;align-items:center;padding:0 14px;font-size:32px;font-weight:300;color:rgba(255,255,255,.3);">+</div>
+          <div style="display:flex;align-items:center;padding:0 16px;font-size:36px;font-weight:300;color:rgba(255,255,255,.3);">+</div>
           <!-- 2E -->
           <div style="flex:1;background:rgba(30,58,138,.5);border:1px solid rgba(37,99,235,.5);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
             <div style="background:#1e40af;padding:18px;text-align:center;">
-              <div style="font-size:40px;font-weight:900;color:white;letter-spacing:.05em;line-height:1;">2E</div>
+              <div style="font-size:48px;font-weight:900;color:white;letter-spacing:.05em;line-height:1;">2E</div>
             </div>
-            <div id="s26-c2" style="padding:16px;flex:1;opacity:0;max-height:0;overflow:hidden;transition:opacity .45s ease, max-height .5s ease;">
-              <div style="display:flex;flex-direction:column;gap:9px;">
-                <div style="font-size:13px;font-weight:700;color:#93C5FD;border-left:3px solid #2563eb;padding-left:8px;">Équipe</div>
-                <div style="font-size:13px;font-weight:700;color:#93C5FD;border-left:3px solid #2563eb;padding-left:8px;">Entourage</div>
-              </div>
+            <div style="padding:18px;flex:1;display:flex;flex-direction:column;gap:12px;justify-content:center;">
+              <div style="font-size:16px;font-weight:700;color:#93C5FD;border-left:3px solid #2563eb;padding-left:10px;">Équipe</div>
+              <div style="font-size:16px;font-weight:700;color:#93C5FD;border-left:3px solid #2563eb;padding-left:10px;">Entourage</div>
             </div>
           </div>
-          <div style="display:flex;align-items:center;padding:0 14px;font-size:32px;font-weight:300;color:rgba(255,255,255,.3);">=</div>
+          <div style="display:flex;align-items:center;padding:0 16px;font-size:36px;font-weight:300;color:rgba(255,255,255,.3);">=</div>
           <!-- R -->
           <div style="flex:1;background:rgba(30,58,138,.5);border:1px solid rgba(96,165,250,.4);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
             <div style="background:linear-gradient(135deg,#1d4ed8,#2563eb);padding:18px;text-align:center;">
-              <div style="font-size:40px;font-weight:900;color:#60A5FA;letter-spacing:.05em;line-height:1;">R</div>
+              <div style="font-size:48px;font-weight:900;color:#60A5FA;letter-spacing:.05em;line-height:1;">R</div>
             </div>
-            <div id="s26-c3" style="padding:16px;flex:1;opacity:0;max-height:0;overflow:hidden;transition:opacity .45s ease, max-height .5s ease;">
-              <div style="text-align:center;font-size:20px;font-weight:900;color:#93C5FD;letter-spacing:.04em;padding:8px 0;">RÉTABLISSEMENT</div>
+            <div style="padding:18px;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;">
+              <div style="font-size:80px;font-weight:900;color:rgba(96,165,250,.15);line-height:1;letter-spacing:-.02em;">R</div>
+              <div style="font-size:16px;font-weight:900;color:#93C5FD;letter-spacing:.06em;margin-top:-20px;">RÉTABLISSEMENT</div>
             </div>
           </div>
         </div>
-        <div id="s26-hint" style="text-align:center;font-size:11px;color:rgba(255,255,255,.35);letter-spacing:.05em;">clic pour révéler →</div>
       </div>
     </div>
-    <!-- notes: 4P+2E=R. Trois clics pour révéler. Silence entre chaque concept. -->
+    <!-- notes: 4P+2E=R. La formule de la traversée — et de chaque projet de transformation. -->
 
     <!-- ═══ S27 — TRAVERSÉE EN IMAGES ══════════════════════════ -->
     <div class="slide dark" id="s27">
@@ -2196,6 +2122,7 @@ body {
       </div>
     </div>
     <!-- notes: Laisser la vidéo tourner. Pas de narration. -->
+
 
   </div><!-- /slide-wrap -->
 
@@ -2245,8 +2172,7 @@ const notes = [
   "La logistique invisible. Tout le monde voit le cycliste. Personne ne voit le VR garée au soleil 2 heures à l'avance pour préparer la nutrition du km 120.",
   "Un appel de 15 min peut changer une journée entière. Ce principe, je l'ai appliqué dans les deux sens.",
   "J'avais mentionné à Chantal que je n'avais pas reçu beaucoup de soutien de la famille pendant ma réhabilitation de 2009. Elle avait retenu ça.",
-  "Pause. Regarder la salle. « Questions? »",
-  '4P+2E=R. Trois clics pour révéler. Silence entre chaque concept.',  // s26
+  '4P + 2E = R. Planification, Préparation, Persévérance, Pivotage. Équipe, Entourage. Rétablissement.',  // s26
   'Revivons la traversée. Laisser la vidéo tourner.',  // s27
   '',  // s30
   '',  // s31 J32
@@ -2267,7 +2193,6 @@ const SONTARIO_IDX  = 20;
 const SQUEBEC_IDX   = 21;
 const SMARITIMES_IDX = 22;
   const SEQUIPE_IDX    = 24;
-  const S26_IDX        = 26;
   const S27_IDX        = 27;
   let s11PhotoShown = false;
 
@@ -2707,7 +2632,6 @@ function show(n) {
   if (cur === S12_IDX) clkInit();
   if (cur === SPLAN_IDX) splanInit();
   if (cur === SEQUIPE_IDX)     seqPlay();
-  if (cur === S26_IDX)         s26Init();
   if (cur === S27_IDX)         s27Init();
 }
 
@@ -2765,24 +2689,6 @@ function show(n) {
     if (t2) { t2.style.opacity = '0'; t2.style.transform = 'translateY(18px)'; }
     if (t3) { t3.style.opacity = '0'; t3.style.transform = 'translateY(18px)'; }
   }
-  // ─── S26 : Formule 4P + 2E = R ────────────────────────────
-  var s26Step = 0;
-  function s26Init() {
-    s26Step = 0;
-    for (var i = 1; i <= 3; i++) {
-      var el = document.getElementById('s26-c' + i);
-      if (el) { el.style.opacity = '0'; el.style.maxHeight = '0'; }
-    }
-    var h = document.getElementById('s26-hint');
-    if (h) h.style.opacity = '1';
-  }
-  function s26Reveal(n) {
-    s26Step = n;
-    var el = document.getElementById('s26-c' + n);
-    if (el) { el.style.opacity = '1'; el.style.maxHeight = '200px'; }
-    if (n >= 3) { var h = document.getElementById('s26-hint'); if (h) h.style.opacity = '0'; }
-  }
-
   function splanReveal(n) {
     splanStep = n;
     if (n >= 1) {
@@ -2800,7 +2706,7 @@ function show(n) {
   if (dir > 0) {
     if (cur === S4_IDX  && !s4Tick())  return;
     if (cur === SPLAN_IDX && splanStep < 2) { splanReveal(splanStep + 1); return; }
-    if (cur === S26_IDX   && s26Step   < 3) { s26Reveal(s26Step + 1);    return; }
+
     if (cur === S12_IDX) {
       var ov12 = document.getElementById('s12-stats');
       if (!ov12.classList.contains('dismissed')) { ov12.classList.add('dismissed'); return; }
@@ -3228,6 +3134,7 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.40</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 26 (4P+2E=R) : bande bleue supprimée, titre ajouté, texte agrandi ; slide « Trois leçons » supprimée ; légende pyramide fixe</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.39</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 27 : vidéo FINALE2.mp4 plein écran (Google Drive)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.38</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 26 : 3e clic → mot unique RÉTABLISSEMENT (urologues)</div>
     <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.37</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 26 : formule 4P+2E=R (3 clics) ; slide 27 : Revivons la traversée ; points d'ancrage sur cible ; animation pyramide beignets</div>
