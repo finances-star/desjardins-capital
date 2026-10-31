@@ -1,26 +1,42 @@
 # Changelog — Présentation Desjardins Capital
 
-## v1.5 — 2026-10-31
-- Slide 24 (Les chiffres) : tuile « 231 heures / Temps en mouvement » → « 8h / jour / en mouvement »
-- Slide 25 (Équipe & entourage) : section-tag « La traversée du Canada » → « Traversée du Canada »
-- Ajout du système de versioning (VERSION + CHANGELOG + `<!-- VERSION: x.x -->` dans l'HTML)
+## v4.37 — 2026-10-31
+- Slide 26 : formule 4P + 2E = R avec révélation en 3 clics (4P → 2E → R)
+- Slide 27 : placeholder vidéo « Revivons la traversée en images »
+- SVG cible : points d'ancrage noirs (sq-ring-dot) aux (x1,y1) de chaque ligne de repère R1–R8
+- SVG pyramide : animation beignets (sq-beignet) + peg + base rect avec transitions décalées
+- Versioning HTML + VERSION + CHANGELOG alignés sur v4.37
 
-## v1.4 — 2026-10-30
-- Slide 24 : couleurs de tuiles uniformes par rangée (R1=bleu foncé, R2=bleu moyen, R3=bleu pâle)
-- Slide 24 : ajout de la tuile manquante « 0 accident »
-- Slide 24 : suppression de la sous-phrase « 17 jours de vent de face sur 31 · 14 jours de pluie · 0 jour de repos prévu dans le plan »
+## v4.36 — 2026-10-31
+- Slide 24 (Les chiffres) : tuile « 8h / jour / en mouvement » (ex « 231 heures »)
+- Slide 25 (Équipe & entourage) : section-tag « Traversée du Canada » (ex « La traversée du Canada »)
 
-## v1.3 — 2026-10-29
-- Animation pyramide : correction du bug DOMContentLoaded + restructuration des slides
-- Slide s14 déplacée, slides s15/s23/s24 supprimées
-- Constante SEQUIPE_IDX 23 → 24
+## v4.35 — 2026-10-31
+- Slide 17 sprep : alignement entête corrigé (padding-top 32→52px, wrapper div standard)
 
-## v1.2 — 2026-10-28
-- Animation cible → pyramide : correction du bug DOMContentLoaded (click-to-pyramid)
+## v4.34 — 2026-10-31
+- Section-tags : slides 9-10-17-18 → Traversée du Canada — Planification
+- Slides 11-15 → Traversée du Canada — Préparation
 
-## v1.1 — 2026-10-27
+## v4.33 — 2026-10-30
+- Slide 24 (équipe SVG) : suppression du point jaune central (#sq-center) et du point au sommet de la pyramide
+- Animation cible → pyramide intégrée dans la présentation principale
+
+## v4.32 — 2026-10-30
+- Mockup Rock-A-Stack animé (cible à plat → pyramide, 8 beignets + peg + base)
+- Suppression des points jaunes sur le mockup
+
+## v4.31 — 2026-10-30
+- Slide 24 constante SEQUIPE_IDX 23 → 24 (correction après restructuration slides)
+
+## v4.30 — 2026-10-30
+- Slide 24 : couleurs de tuiles uniformes par rangée
+- Slide 24 : ajout tuile « 0 accident »
+- Slide 24 : suppression sous-phrase « 17 jours de vent de face »
+
+## v4.29 — 2026-10-29
 - Permutation R2 ↔ R3 dans la cible SVG
-- Label famille Clément
+- Label famille Clément · Chantal · Anne · Réal
 - Texte centre « défi PDG »
-- Lignes de repère non-croisantes
+- Lignes de repère non-croisantes (R1–R8)
 - Sous-titre Josée simplifié

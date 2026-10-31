@@ -1,4 +1,4 @@
-<!-- VERSION: 1.5 -->
+<!-- VERSION: 4.37 -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -1878,6 +1878,21 @@ body {
               .seq-pyramid-mode #sq-lbl-r7  { transform: translate(-281px, 20px) !important; opacity:1; }
               .seq-pyramid-mode #sq-lbl-r8  { transform: translate(-81px, -28px) !important; opacity:1; }
               .seq-pyramid-mode .sq-line-hint { opacity:0 !important; }
+              /* Ring anchor dots (cible mode only) — apparaissent avec sq-lbl.sq-go (sqFade), disparaissent en pyramide */
+              .seq-pyramid-mode .sq-ring-dot { opacity:0 !important; }
+              /* Pyramid shapes group */
+              #sq-pyramid-shapes { opacity:0; transition:opacity 0.4s ease 0.2s; pointer-events:none; }
+              .seq-pyramid-mode #sq-pyramid-shapes { opacity:1; }
+              .sq-beignet { opacity:0; transform:translateY(-28px); transition:opacity 0.5s ease, transform 0.65s cubic-bezier(.34,1.2,.64,1); }
+              .seq-pyramid-mode .sq-beignet { opacity:1; transform:translateY(0); }
+              .seq-pyramid-mode #sq-b8{transition-delay:.30s;} .seq-pyramid-mode #sq-b7{transition-delay:.36s;}
+              .seq-pyramid-mode #sq-b6{transition-delay:.42s;} .seq-pyramid-mode #sq-b5{transition-delay:.48s;}
+              .seq-pyramid-mode #sq-b4{transition-delay:.54s;} .seq-pyramid-mode #sq-b3{transition-delay:.60s;}
+              .seq-pyramid-mode #sq-b2{transition-delay:.66s;} .seq-pyramid-mode #sq-b1{transition-delay:.72s;}
+              #sq-peg-shape { opacity:0; transition:opacity .4s ease .85s; }
+              #sq-base-rect { opacity:0; transition:opacity .4s ease .90s; }
+              .seq-pyramid-mode #sq-peg-shape { opacity:1; }
+              .seq-pyramid-mode #sq-base-rect { opacity:1; }
               /* Pyramid connector lines */
               .sq-line-hint { opacity:0; transition: opacity 1s ease 0.6s; }
               /* Click hint pulse */
@@ -1949,6 +1964,16 @@ body {
             <line class="sq-lbl" x1="137"  y1="66"   x2="228" y2="110"  stroke="rgba(255,255,255,.18)" stroke-width=".7" style="--del:3.35s;"/>
             <line class="sq-lbl" x1="142"  y1="98.5" x2="228" y2="158"  stroke="rgba(255,255,255,.18)" stroke-width=".7" style="--del:3.8s;"/>
 
+            <!-- Ring anchor dots — visibles en mode cible, cachés en mode pyramide -->
+            <circle class="sq-lbl sq-ring-dot" cx="30"    cy="-23"  r="3.5" fill="#0f172a" stroke="rgba(255,255,255,.5)" stroke-width=".9" style="--del:.65s;"/>
+            <circle class="sq-lbl sq-ring-dot" cx="49.5"  cy="-28"  r="3.5" fill="#0f172a" stroke="rgba(255,255,255,.5)" stroke-width=".9" style="--del:1.1s;"/>
+            <circle class="sq-lbl sq-ring-dot" cx="71.5"  cy="-26"  r="3.5" fill="#0f172a" stroke="rgba(255,255,255,.5)" stroke-width=".9" style="--del:1.55s;"/>
+            <circle class="sq-lbl sq-ring-dot" cx="94"    cy="-14"  r="3.5" fill="#0f172a" stroke="rgba(255,255,255,.5)" stroke-width=".9" style="--del:2.0s;"/>
+            <circle class="sq-lbl sq-ring-dot" cx="113.8" cy="7"    r="3.5" fill="#0f172a" stroke="rgba(255,255,255,.5)" stroke-width=".9" style="--del:2.45s;"/>
+            <circle class="sq-lbl sq-ring-dot" cx="128"   cy="35"   r="3.5" fill="#0f172a" stroke="rgba(255,255,255,.5)" stroke-width=".9" style="--del:2.9s;"/>
+            <circle class="sq-lbl sq-ring-dot" cx="137"   cy="66"   r="3.5" fill="#0f172a" stroke="rgba(255,255,255,.5)" stroke-width=".9" style="--del:3.35s;"/>
+            <circle class="sq-lbl sq-ring-dot" cx="142"   cy="98.5" r="3.5" fill="#0f172a" stroke="rgba(255,255,255,.5)" stroke-width=".9" style="--del:3.8s;"/>
+
             <!-- Label R1: Josée -->
             <g id="sq-lbl-r1" class="sq-lbl" style="--del:.65s;">
               <circle cx="231" cy="-178" r="5" fill="#1e3a8a"/>
@@ -2004,6 +2029,32 @@ body {
               <text x="240" y="163" font-size="11.5" font-weight="700" fill="#dbeafe" font-family="Inter,system-ui,sans-serif">Communauté FB/IG</text>
               <text x="240" y="177" font-size="9" fill="rgba(255,255,255,.6)" font-family="Inter,system-ui,sans-serif">Posts &amp; réactions · Engagement quotidien</text>
             </g>
+
+          <!-- Pyramide beignets — visibles uniquement en mode pyramide -->
+          <g id="sq-pyramid-shapes" style="pointer-events:none;">
+            <defs>
+              <linearGradient id="sq-peg-grad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%"   stop-color="#475569"/>
+                <stop offset="40%"  stop-color="#cbd5e1"/>
+                <stop offset="100%" stop-color="#475569"/>
+              </linearGradient>
+              <linearGradient id="sq-base-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%"   stop-color="#cbd5e1"/>
+                <stop offset="100%" stop-color="#94a3b8"/>
+              </linearGradient>
+            </defs>
+            <!-- b8 = bas (plus grand), b1 = sommet (plus petit) — ordre SVG: bas en premier -->
+            <ellipse id="sq-b8" class="sq-beignet" cx="0" cy="68"   rx="108" ry="13" fill="#bfdbfe"/>
+            <ellipse id="sq-b7" class="sq-beignet" cx="0" cy="38"   rx="97"  ry="12" fill="#93c5fd"/>
+            <ellipse id="sq-b6" class="sq-beignet" cx="0" cy="9"    rx="86"  ry="12" fill="#60a5fa"/>
+            <ellipse id="sq-b5" class="sq-beignet" cx="0" cy="-19"  rx="75"  ry="11" fill="#3b82f6"/>
+            <ellipse id="sq-b4" class="sq-beignet" cx="0" cy="-46"  rx="64"  ry="11" fill="#2563eb"/>
+            <ellipse id="sq-b3" class="sq-beignet" cx="0" cy="-72"  rx="53"  ry="10" fill="#1d4ed8"/>
+            <ellipse id="sq-b2" class="sq-beignet" cx="0" cy="-97"  rx="42"  ry="10" fill="#1e40af"/>
+            <ellipse id="sq-b1" class="sq-beignet" cx="0" cy="-120" rx="30"  ry="9"  fill="#1e3a8a"/>
+            <rect id="sq-peg-shape" x="-3.5" y="-140" width="7" height="220" rx="3.5" fill="url(#sq-peg-grad)"/>
+            <rect id="sq-base-rect" x="-120" y="80" width="240" height="13" rx="6.5" fill="url(#sq-base-grad)"/>
+          </g>
 
           </svg>
         </div><!-- /flex SVG container -->
@@ -2084,6 +2135,79 @@ body {
     </div>
     <!-- notes: Pause. Regarder la salle. « Questions? » -->
 
+    <!-- ═══ S26 — FORMULE 4P + 2E = R ══════════════════════════ -->
+    <div class="slide dark" id="s26">
+      <div style="height:5px;background:var(--blue);"></div>
+      <div class="pad" style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:22px;">
+        <div style="text-align:center;">
+          <div style="font-size:9px;font-weight:800;letter-spacing:.15em;color:#60A5FA;text-transform:uppercase;margin-bottom:6px;">Équation de la réussite</div>
+          <h2 style="font-size:32px;font-weight:900;color:white;margin:0;letter-spacing:-.01em;">4P + 2E = R</h2>
+        </div>
+        <div style="display:flex;align-items:stretch;justify-content:center;gap:0;">
+          <!-- 4P -->
+          <div style="flex:1;background:rgba(30,58,138,.5);border:1px solid rgba(37,99,235,.5);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
+            <div style="background:#1e3a8a;padding:18px;text-align:center;">
+              <div style="font-size:40px;font-weight:900;color:white;letter-spacing:.05em;line-height:1;">4P</div>
+            </div>
+            <div id="s26-c1" style="padding:16px;flex:1;opacity:0;max-height:0;overflow:hidden;transition:opacity .45s ease, max-height .5s ease;">
+              <div style="display:flex;flex-direction:column;gap:9px;">
+                <div style="font-size:13px;font-weight:700;color:#93C5FD;border-left:3px solid #1d4ed8;padding-left:8px;">Planification</div>
+                <div style="font-size:13px;font-weight:700;color:#93C5FD;border-left:3px solid #1d4ed8;padding-left:8px;">Préparation</div>
+                <div style="font-size:13px;font-weight:700;color:#93C5FD;border-left:3px solid #1d4ed8;padding-left:8px;">Persévérance</div>
+                <div style="font-size:13px;font-weight:700;color:#93C5FD;border-left:3px solid #1d4ed8;padding-left:8px;">Pivotage</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;padding:0 14px;font-size:32px;font-weight:300;color:rgba(255,255,255,.3);">+</div>
+          <!-- 2E -->
+          <div style="flex:1;background:rgba(30,58,138,.5);border:1px solid rgba(37,99,235,.5);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
+            <div style="background:#1e40af;padding:18px;text-align:center;">
+              <div style="font-size:40px;font-weight:900;color:white;letter-spacing:.05em;line-height:1;">2E</div>
+            </div>
+            <div id="s26-c2" style="padding:16px;flex:1;opacity:0;max-height:0;overflow:hidden;transition:opacity .45s ease, max-height .5s ease;">
+              <div style="display:flex;flex-direction:column;gap:9px;">
+                <div style="font-size:13px;font-weight:700;color:#93C5FD;border-left:3px solid #2563eb;padding-left:8px;">Équipe</div>
+                <div style="font-size:13px;font-weight:700;color:#93C5FD;border-left:3px solid #2563eb;padding-left:8px;">Entourage</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;padding:0 14px;font-size:32px;font-weight:300;color:rgba(255,255,255,.3);">=</div>
+          <!-- R -->
+          <div style="flex:1;background:rgba(30,58,138,.5);border:1px solid rgba(96,165,250,.4);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
+            <div style="background:linear-gradient(135deg,#1d4ed8,#2563eb);padding:18px;text-align:center;">
+              <div style="font-size:40px;font-weight:900;color:#60A5FA;letter-spacing:.05em;line-height:1;">R</div>
+            </div>
+            <div id="s26-c3" style="padding:16px;flex:1;opacity:0;max-height:0;overflow:hidden;transition:opacity .45s ease, max-height .5s ease;">
+              <div style="display:flex;flex-direction:column;gap:9px;">
+                <div style="font-size:13px;font-weight:700;color:#60A5FA;border-left:3px solid #60a5fa;padding-left:8px;">Réussite <span style="font-size:11px;font-weight:500;color:rgba(255,255,255,.6)">(pour Desjardins)</span></div>
+                <div style="font-size:13px;font-weight:700;color:#93C5FD;border-left:3px solid #60a5fa;padding-left:8px;">Rétablissement <span style="font-size:11px;font-weight:500;color:rgba(255,255,255,.6)">pour les urologues</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="s26-hint" style="text-align:center;font-size:11px;color:rgba(255,255,255,.35);letter-spacing:.05em;">clic pour révéler →</div>
+      </div>
+    </div>
+    <!-- notes: 4P+2E=R. Trois clics pour révéler. Silence entre chaque concept. -->
+
+    <!-- ═══ S27 — TRAVERSÉE EN IMAGES ══════════════════════════ -->
+    <div class="slide dark" id="s27">
+      <div style="height:5px;background:var(--blue);"></div>
+      <div class="pad" style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:24px;">
+        <div>
+          <div style="font-size:9px;font-weight:800;letter-spacing:.15em;color:#60A5FA;text-transform:uppercase;margin-bottom:10px;">Traversée du Canada</div>
+          <h2 style="font-size:30px;font-weight:900;color:white;margin:0;letter-spacing:-.01em;">Revivons la traversée en images</h2>
+        </div>
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(37,99,235,.2);border:1px solid rgba(96,165,250,.4);display:flex;align-items:center;justify-content:center;">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </div>
+        <p style="font-size:13px;color:rgba(255,255,255,.45);letter-spacing:.04em;margin:0;">6 172 km · 31 jours · 1 mission</p>
+      </div>
+    </div>
+    <!-- notes: Laisser la vidéo tourner. Pas de narration. -->
+
   </div><!-- /slide-wrap -->
 
 
@@ -2133,8 +2257,8 @@ const notes = [
   "Un appel de 15 min peut changer une journée entière. Ce principe, je l'ai appliqué dans les deux sens.",
   "J'avais mentionné à Chantal que je n'avais pas reçu beaucoup de soutien de la famille pendant ma réhabilitation de 2009. Elle avait retenu ça.",
   "Pause. Regarder la salle. « Questions? »",
-  '',  // s28
-  '',  // s29
+  '4P+2E=R. Trois clics pour révéler. Silence entre chaque concept.',  // s26
+  'Revivons la traversée. Laisser la vidéo tourner.',  // s27
   '',  // s30
   '',  // s31 J32
   'VERSION: v3.47'  // s32 Leçons
@@ -2154,6 +2278,7 @@ const SONTARIO_IDX  = 20;
 const SQUEBEC_IDX   = 21;
 const SMARITIMES_IDX = 22;
   const SEQUIPE_IDX    = 24;
+  const S26_IDX        = 26;
   let s11PhotoShown = false;
 
 // ─── S4: Tile reveal + highlight ────────────────────────────
@@ -2581,6 +2706,7 @@ function show(n) {
   if (cur === S12_IDX) clkInit();
   if (cur === SPLAN_IDX) splanInit();
   if (cur === SEQUIPE_IDX)     seqPlay();
+  if (cur === S26_IDX)         s26Init();
 }
 
 
@@ -2637,6 +2763,24 @@ function show(n) {
     if (t2) { t2.style.opacity = '0'; t2.style.transform = 'translateY(18px)'; }
     if (t3) { t3.style.opacity = '0'; t3.style.transform = 'translateY(18px)'; }
   }
+  // ─── S26 : Formule 4P + 2E = R ────────────────────────────
+  var s26Step = 0;
+  function s26Init() {
+    s26Step = 0;
+    for (var i = 1; i <= 3; i++) {
+      var el = document.getElementById('s26-c' + i);
+      if (el) { el.style.opacity = '0'; el.style.maxHeight = '0'; }
+    }
+    var h = document.getElementById('s26-hint');
+    if (h) h.style.opacity = '1';
+  }
+  function s26Reveal(n) {
+    s26Step = n;
+    var el = document.getElementById('s26-c' + n);
+    if (el) { el.style.opacity = '1'; el.style.maxHeight = '200px'; }
+    if (n >= 3) { var h = document.getElementById('s26-hint'); if (h) h.style.opacity = '0'; }
+  }
+
   function splanReveal(n) {
     splanStep = n;
     if (n >= 1) {
@@ -2654,6 +2798,7 @@ function show(n) {
   if (dir > 0) {
     if (cur === S4_IDX  && !s4Tick())  return;
     if (cur === SPLAN_IDX && splanStep < 2) { splanReveal(splanStep + 1); return; }
+    if (cur === S26_IDX   && s26Step   < 3) { s26Reveal(s26Step + 1);    return; }
     if (cur === S12_IDX) {
       var ov12 = document.getElementById('s12-stats');
       if (!ov12.classList.contains('dismissed')) { ov12.classList.add('dismissed'); return; }
@@ -3081,6 +3226,8 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.37</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 26 : formule 4P+2E=R (3 clics) ; slide 27 : Revivons la traversée ; points d'ancrage sur cible ; animation pyramide beignets</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.36</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 24 : tuile « 8h / jour / en mouvement » (ex 231 heures) ; slide 25 section-tag « Traversée du Canada »</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.35</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 17 sprep : alignement entête corrigé (padding-top 32→52px, wrapper div standard)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.34</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Section-tags : slides 9-10-17-18 → Traversée du Canada — Planification ; slides 11-15 → Traversée du Canada — Préparation</div>
 <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.33</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slides 3-4-5 : section-tag « Introduction » → « Traversée du Canada — Introduction »</div>
