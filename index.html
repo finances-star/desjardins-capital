@@ -1880,6 +1880,11 @@ body {
               .seq-pyramid-mode .sq-line-hint { opacity:0 !important; }
               /* Ring anchor dots (cible mode only) — apparaissent avec sq-lbl.sq-go (sqFade), disparaissent en pyramide */
               .seq-pyramid-mode .sq-ring-dot { opacity:0 !important; }
+              /* En mode pyramide, cacher les lignes de la vue cible (garder les groupes label) */
+              .seq-pyramid-mode line.sq-lbl { opacity:0 !important; }
+              /* Lignes pyramide — partent du bord droit des beignets, visibles seulement en pyramide */
+              #sq-pyr-lines { opacity:0; transition:opacity 0.5s ease 0.8s; pointer-events:none; }
+              .seq-pyramid-mode #sq-pyr-lines { opacity:1; }
               /* Pyramid shapes group */
               #sq-pyramid-shapes { opacity:0; transition:opacity 0.4s ease 0.2s; pointer-events:none; }
               .seq-pyramid-mode #sq-pyramid-shapes { opacity:1; }
@@ -2055,6 +2060,27 @@ body {
             <rect id="sq-b1" class="sq-beignet" x="-30"  y="-178" width="60"  height="36" rx="18" fill="#1e3a8a"/>
           </g>
 
+          <!-- Lignes pyramide — bord droit de chaque beignet → point du label -->
+          <!-- b1: right=(30,-160) b2:(42,-118) b3:(54,-76) b4:(66,-34) b5:(78,8) b6:(90,50) b7:(102,92) b8:(114,134) -->
+          <g id="sq-pyr-lines">
+            <line x1="30"  y1="-160" x2="228" y2="-178" stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+            <circle cx="30"  cy="-160" r="3.5" fill="#1e3a8a" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
+            <line x1="42"  y1="-118" x2="228" y2="-130" stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+            <circle cx="42"  cy="-118" r="3.5" fill="#1e40af" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
+            <line x1="54"  y1="-76"  x2="228" y2="-82"  stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+            <circle cx="54"  cy="-76"  r="3.5" fill="#1d4ed8" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
+            <line x1="66"  y1="-34"  x2="228" y2="-34"  stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+            <circle cx="66"  cy="-34"  r="3.5" fill="#2563eb" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
+            <line x1="78"  y1="8"    x2="228" y2="14"   stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+            <circle cx="78"  cy="8"    r="3.5" fill="#3b82f6" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
+            <line x1="90"  y1="50"   x2="228" y2="62"   stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+            <circle cx="90"  cy="50"   r="3.5" fill="#60a5fa" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
+            <line x1="102" y1="92"   x2="228" y2="110"  stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+            <circle cx="102" cy="92"   r="3.5" fill="#93c5fd" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
+            <line x1="114" y1="134"  x2="228" y2="158"  stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+            <circle cx="114" cy="134"  r="3.5" fill="#bfdbfe" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
+          </g>
+
           </svg>
         </div><!-- /flex SVG container -->
       </div><!-- /pad -->
@@ -2078,7 +2104,7 @@ body {
             <div style="background:#1e3a8a;padding:18px;text-align:center;">
               <div style="font-size:48px;font-weight:900;color:white;letter-spacing:.05em;line-height:1;">4P</div>
             </div>
-            <div style="padding:18px;flex:1;display:flex;flex-direction:column;gap:12px;justify-content:center;">
+            <div id="s26-4p-body" style="padding:18px;flex:1;display:flex;flex-direction:column;gap:12px;justify-content:center;opacity:0;transition:opacity .5s ease;">
               <div style="font-size:16px;font-weight:700;color:#93C5FD;border-left:3px solid #1d4ed8;padding-left:10px;">Planification</div>
               <div style="font-size:16px;font-weight:700;color:#93C5FD;border-left:3px solid #1d4ed8;padding-left:10px;">Préparation</div>
               <div style="font-size:16px;font-weight:700;color:#93C5FD;border-left:3px solid #1d4ed8;padding-left:10px;">Persévérance</div>
@@ -2091,7 +2117,7 @@ body {
             <div style="background:#1e40af;padding:18px;text-align:center;">
               <div style="font-size:48px;font-weight:900;color:white;letter-spacing:.05em;line-height:1;">2E</div>
             </div>
-            <div style="padding:18px;flex:1;display:flex;flex-direction:column;gap:12px;justify-content:center;">
+            <div id="s26-2e-body" style="padding:18px;flex:1;display:flex;flex-direction:column;gap:12px;justify-content:center;opacity:0;transition:opacity .5s ease;">
               <div style="font-size:16px;font-weight:700;color:#93C5FD;border-left:3px solid #2563eb;padding-left:10px;">Équipe</div>
               <div style="font-size:16px;font-weight:700;color:#93C5FD;border-left:3px solid #2563eb;padding-left:10px;">Entourage</div>
             </div>
@@ -2102,9 +2128,9 @@ body {
             <div style="background:linear-gradient(135deg,#1d4ed8,#2563eb);padding:18px;text-align:center;">
               <div style="font-size:48px;font-weight:900;color:#60A5FA;letter-spacing:.05em;line-height:1;">R</div>
             </div>
-            <div style="padding:18px;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;">
-              <div style="font-size:80px;font-weight:900;color:rgba(96,165,250,.15);line-height:1;letter-spacing:-.02em;">R</div>
-              <div style="font-size:16px;font-weight:900;color:#93C5FD;letter-spacing:.06em;margin-top:-20px;">RÉTABLISSEMENT</div>
+            <div id="s26-r-body" style="padding:18px;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px;opacity:0;transition:opacity .5s ease;">
+              <div style="font-size:32px;font-weight:900;color:#60A5FA;letter-spacing:.02em;line-height:1.1;">Réussite</div>
+              <div style="font-size:17px;font-style:italic;color:#93C5FD;opacity:.85;">(Rétablissement)</div>
             </div>
           </div>
         </div>
@@ -2113,15 +2139,29 @@ body {
     <!-- notes: 4P+2E=R. La formule de la traversée — et de chaque projet de transformation. -->
 
     <!-- ═══ S27 — TRAVERSÉE EN IMAGES ══════════════════════════ -->
-    <div class="slide dark" id="s27">
+    <div class="slide light" id="s27">
       <div class="top-bar"></div>
-      <div class="pad" style="flex:1;display:flex;flex-direction:column;min-height:0;padding-bottom:0;">
+      <div class="pad" style="flex:1;display:flex;flex-direction:column;min-height:0;padding-bottom:20px;">
         <div class="section-tag">Traversée du Canada</div>
         <h2 class="slide-title">Revivons la traversée</h2>
-        <hr class="rule" style="width:60px;margin-bottom:12px;">
-        <div style="flex:1;position:relative;overflow:hidden;border-radius:8px;">
-          <iframe id="s27-vid" src="" allow="autoplay; fullscreen" allowfullscreen
-            style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>
+        <hr class="rule" style="width:60px;margin-bottom:16px;">
+        <!-- Tuile vidéo — cliquable pour agrandir -->
+        <div style="flex:1;min-height:0;display:flex;align-items:center;justify-content:center;">
+          <div id="s27-tile" style="position:relative;width:100%;max-width:760px;aspect-ratio:16/9;background:#0F172A;border-radius:14px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.25);cursor:pointer;" onclick="s27Expand()">
+            <iframe id="s27-vid" src="" allow="autoplay; fullscreen" allowfullscreen
+              style="position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none;"></iframe>
+            <!-- Bouton play/expand affiché avant lecture -->
+            <div id="s27-play-btn" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(15,23,42,.55);">
+              <div style="width:68px;height:68px;border-radius:50%;background:rgba(96,165,250,.9);display:flex;align-items:center;justify-content:center;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+              <div style="font-size:14px;color:rgba(255,255,255,.75);letter-spacing:.04em;">Cliquer pour lire</div>
+            </div>
+          </div>
+        </div>
+        <!-- Bouton agrandir en plein écran -->
+        <div style="text-align:center;margin-top:12px;">
+          <button onclick="s27Expand()" style="background:none;border:1.5px solid #1d4ed8;color:#1d4ed8;border-radius:8px;padding:8px 20px;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:.03em;">⛶ Plein écran</button>
         </div>
       </div>
     </div>
@@ -2197,7 +2237,8 @@ const SONTARIO_IDX  = 20;
 const SQUEBEC_IDX   = 21;
 const SMARITIMES_IDX = 22;
   const SEQUIPE_IDX    = 24;
-  const S27_IDX        = 27;
+  const S26_IDX = Array.from(document.querySelectorAll('.slide')).findIndex(function(s){return s.id==='s26';});
+  const S27_IDX = Array.from(document.querySelectorAll('.slide')).findIndex(function(s){return s.id==='s27';});
   let s11PhotoShown = false;
 
 // ─── S4: Tile reveal + highlight ────────────────────────────
@@ -2509,6 +2550,11 @@ function goNext() {
     show(cur + 1);           // retourne true = tous les blocs vus, avancer
     return;
   }
+  if (cur === S26_IDX) {
+    if (!s26Tick()) return;  // false = corps révélé, rester sur slide
+    show(cur + 1);
+    return;
+  }
   go(1);
 }
 
@@ -2554,8 +2600,47 @@ function s27Stop() {
 }
 
 function s27Init() {
-  const v = document.getElementById('s27-vid');
-  if (v) v.src = 'https://drive.google.com/file/d/175AOi9ALq_9YMpzHRjVodHkssrcyYp2B/preview?autoplay=1';
+  // Ne pas auto-lancer — attendre le clic de l'utilisateur
+}
+
+function s27Expand() {
+  const tile = document.getElementById('s27-tile');
+  const v    = document.getElementById('s27-vid');
+  const btn  = document.getElementById('s27-play-btn');
+  // Charger le src si pas encore fait
+  if (v && !v.src) {
+    v.src = 'https://drive.google.com/file/d/175AOi9ALq_9YMpzHRjVodHkssrcyYp2B/preview?autoplay=1';
+    v.style.pointerEvents = 'auto';
+    if (btn) btn.style.display = 'none';
+  }
+  // Tenter le plein écran sur la tuile
+  if (tile && tile.requestFullscreen) {
+    tile.requestFullscreen().catch(function(){});
+  } else if (tile && tile.webkitRequestFullscreen) {
+    tile.webkitRequestFullscreen();
+  }
+}
+
+// ─── S26 : 3-click reveal 4P + 2E = R ────────────────────────
+let s26Step = 0;
+
+function s26Init() {
+  s26Step = 0;
+  ['s26-4p-body','s26-2e-body','s26-r-body'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) el.style.opacity = '0';
+  });
+}
+
+function s26Tick() {
+  var bodies = ['s26-4p-body','s26-2e-body','s26-r-body'];
+  if (s26Step < bodies.length) {
+    var el = document.getElementById(bodies[s26Step]);
+    if (el) el.style.opacity = '1';
+    s26Step++;
+    return false; // rester sur la slide
+  }
+  return true; // tous révélés → avancer
 }
 
 function sprairiesStop() {
@@ -2636,6 +2721,7 @@ function show(n) {
   if (cur === S12_IDX) clkInit();
   if (cur === SPLAN_IDX) splanInit();
   if (cur === SEQUIPE_IDX)     seqPlay();
+  if (cur === S26_IDX)         s26Init();
   if (cur === S27_IDX)         s27Init();
 }
 
@@ -3138,6 +3224,7 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.44</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Pyramide : lignes depuis bord droit des beignets (pts de couleur) ; S26 3-clics révèle 4P, 2E, Réussite/(Rétablissement) ; S27 tuile vidéo + fond clair + S27_IDX corrigé</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.42</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Pyramide séquipe : beignets arrondis (pill/rect), tige et base supprimées, LP aussi en beigne</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.41</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 27 : titre « Revivons la traversée » ajouté</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.40</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 26 (4P+2E=R) : bande bleue supprimée, titre ajouté, texte agrandi ; slide « Trois leçons » supprimée ; légende pyramide fixe</div>
