@@ -1868,7 +1868,7 @@ body {
               .sq-lbl  { transition: opacity 0.8s ease, transform 1.2s ease; }
               #sq-center { transition: opacity 0.8s ease, transform 1.2s ease; }
               .seq-pyramid-mode .sq-ring { opacity:0 !important; stroke-dashoffset:0; }
-              .seq-pyramid-mode #sq-center  { transform: translate(0px,-155px)   !important; }
+              .seq-pyramid-mode #sq-center  { transform: translate(0px,-204px)   !important; }
               .seq-pyramid-mode #sq-lbl-r1,
               .seq-pyramid-mode #sq-lbl-r2,
               .seq-pyramid-mode #sq-lbl-r3,
@@ -1883,7 +1883,7 @@ body {
               /* Pyramid shapes group */
               #sq-pyramid-shapes { opacity:0; transition:opacity 0.4s ease 0.2s; pointer-events:none; }
               .seq-pyramid-mode #sq-pyramid-shapes { opacity:1; }
-              .sq-beignet { opacity:0; transform:translateY(-28px); transition:opacity 0.5s ease, transform 0.65s cubic-bezier(.34,1.2,.64,1); }
+              .sq-beignet { opacity:0; transform:translateY(-36px); transition:opacity 0.5s ease, transform 0.65s cubic-bezier(.34,1.2,.64,1); }
               .seq-pyramid-mode .sq-beignet { opacity:1; transform:translateY(0); }
               .seq-pyramid-mode #sq-b8{transition-delay:.30s;} .seq-pyramid-mode #sq-b7{transition-delay:.36s;}
               .seq-pyramid-mode #sq-b6{transition-delay:.42s;} .seq-pyramid-mode #sq-b5{transition-delay:.48s;}
@@ -2043,14 +2043,16 @@ body {
               </linearGradient>
             </defs>
             <!-- b8 = bas (plus grand), b1 = sommet (plus petit) — ordre SVG: bas en premier -->
-            <rect id="sq-b8" class="sq-beignet" x="-108" y="54"   width="216" height="28" rx="14" fill="#bfdbfe"/>
-            <rect id="sq-b7" class="sq-beignet" x="-97"  y="24"   width="194" height="28" rx="14" fill="#93c5fd"/>
-            <rect id="sq-b6" class="sq-beignet" x="-86"  y="-5"   width="172" height="28" rx="14" fill="#60a5fa"/>
-            <rect id="sq-b5" class="sq-beignet" x="-75"  y="-33"  width="150" height="28" rx="14" fill="#3b82f6"/>
-            <rect id="sq-b4" class="sq-beignet" x="-64"  y="-60"  width="128" height="28" rx="14" fill="#2563eb"/>
-            <rect id="sq-b3" class="sq-beignet" x="-53"  y="-86"  width="106" height="28" rx="14" fill="#1d4ed8"/>
-            <rect id="sq-b2" class="sq-beignet" x="-42"  y="-111" width="84"  height="28" rx="14" fill="#1e40af"/>
-            <rect id="sq-b1" class="sq-beignet" x="-30"  y="-134" width="60"  height="28" rx="14" fill="#1e3a8a"/>
+            <!-- Layout: b1 top=-178 (aligne Josée), b8 bottom=152 (aligne Communauté) -->
+            <!-- height=36, gap=6, width step=24 : b1=60, b8=228 -->
+            <rect id="sq-b8" class="sq-beignet" x="-114" y="116"  width="228" height="36" rx="18" fill="#bfdbfe"/>
+            <rect id="sq-b7" class="sq-beignet" x="-102" y="74"   width="204" height="36" rx="18" fill="#93c5fd"/>
+            <rect id="sq-b6" class="sq-beignet" x="-90"  y="32"   width="180" height="36" rx="18" fill="#60a5fa"/>
+            <rect id="sq-b5" class="sq-beignet" x="-78"  y="-10"  width="156" height="36" rx="18" fill="#3b82f6"/>
+            <rect id="sq-b4" class="sq-beignet" x="-66"  y="-52"  width="132" height="36" rx="18" fill="#2563eb"/>
+            <rect id="sq-b3" class="sq-beignet" x="-54"  y="-94"  width="108" height="36" rx="18" fill="#1d4ed8"/>
+            <rect id="sq-b2" class="sq-beignet" x="-42"  y="-136" width="84"  height="36" rx="18" fill="#1e40af"/>
+            <rect id="sq-b1" class="sq-beignet" x="-30"  y="-178" width="60"  height="36" rx="18" fill="#1e3a8a"/>
           </g>
 
           </svg>
