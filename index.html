@@ -179,6 +179,12 @@ body {
   background: var(--ink);
   border-color: transparent;
 }
+.stat-tile.tile-r1 { background: #1E3A8A; border-color: transparent; }
+.stat-tile.tile-r1 .stat-num { color: #60A5FA; }
+.stat-tile.tile-r1 .stat-label, .stat-tile.tile-r1 .stat-sub { color: rgba(255,255,255,.65); }
+.stat-tile.tile-r2 { background: #DBEAFE; border-color: #93C5FD; }
+.stat-tile.tile-r2 .stat-num { color: #1D4ED8; }
+.stat-tile.tile-r2 .stat-label, .stat-tile.tile-r2 .stat-sub { color: #1E40AF; }
 /* Flash Info blink */
 @keyframes fi-blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
@@ -1788,32 +1794,32 @@ body {
         <h2 class="slide-title">La traversée — les chiffres</h2>
         <hr class="rule" style="width:60px;margin-bottom:20px;">
         <div class="grid-stat" style="flex:1;gap:14px;">
-          <div class="stat-tile dark-tile">
+          <div class="stat-tile tile-r1">
             <div class="stat-num">6 172 km</div>
             <div class="stat-label">Vancouver → St. John's</div>
           </div>
-          <div class="stat-tile">
+          <div class="stat-tile tile-r1">
             <div class="stat-num">37 054 m</div>
             <div class="stat-label">Dénivelé positif</div>
           </div>
-          <div class="stat-tile">
+          <div class="stat-tile tile-r1">
             <div class="stat-num">231 heures</div>
             <div class="stat-label">Temps en mouvement</div>
           </div>
-          <div class="stat-tile">
+          <div class="stat-tile tile-r2">
             <div class="stat-num">31 étapes</div>
             <div class="stat-label">0 jour de repos prévu</div>
           </div>
-          <div class="stat-tile dark-tile">
+          <div class="stat-tile tile-r2">
             <div class="stat-num">17 / 31</div>
             <div class="stat-label">jours de vent de face</div>
           </div>
-          <div class="stat-tile">
+          <div class="stat-tile tile-r2">
             <div class="stat-num">14 / 31</div>
             <div class="stat-label">jours de pluie</div>
             <div class="stat-sub">zéro arrêt météo</div>
           </div>
-          <div class="stat-tile dark-tile">
+          <div class="stat-tile">
             <div class="stat-num">4</div>
             <div class="stat-label">crevaisons</div>
           </div>
@@ -1821,8 +1827,11 @@ body {
             <div class="stat-num">1</div>
             <div class="stat-label">chute</div>
           </div>
+          <div class="stat-tile">
+            <div class="stat-num">0</div>
+            <div class="stat-label">accident</div>
+          </div>
         </div>
-        <p style="font-size:12px;color:var(--ink-3);font-style:italic;margin-top:14px;text-align:center;">17 jours de vent de face sur 31 · 14 jours de pluie · 0 jour de repos prévu dans le plan</p>
       </div>
     </div>
     <!-- notes: Quand on parle de résilience, c'est ça la réalité terrain. -->
