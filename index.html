@@ -1780,6 +1780,53 @@ body {
     <!-- notes: Maritimes. N.-B., N.-É., T.-N. 4 points à remplir. MARITIMES.mp4 à ajouter sur GitHub. -->
 ══════ -->
 
+    <!-- ═══ S14 — LA TRAVERSÉE, LES CHIFFRES ════════════════ -->
+    <div class="slide light" id="s14">
+      <div class="top-bar"></div>
+      <div class="pad" style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+        <div class="section-tag">Traversée du Canada</div>
+        <h2 class="slide-title">La traversée — les chiffres</h2>
+        <hr class="rule" style="width:60px;margin-bottom:20px;">
+        <div class="grid-stat" style="flex:1;gap:14px;">
+          <div class="stat-tile dark-tile">
+            <div class="stat-num">6 172 km</div>
+            <div class="stat-label">Vancouver → St. John's</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-num">37 054 m</div>
+            <div class="stat-label">Dénivelé positif</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-num">231 heures</div>
+            <div class="stat-label">Temps en mouvement</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-num">31 étapes</div>
+            <div class="stat-label">0 jour de repos prévu</div>
+          </div>
+          <div class="stat-tile dark-tile">
+            <div class="stat-num">17 / 31</div>
+            <div class="stat-label">jours de vent de face</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-num">14 / 31</div>
+            <div class="stat-label">jours de pluie</div>
+            <div class="stat-sub">zéro arrêt météo</div>
+          </div>
+          <div class="stat-tile dark-tile">
+            <div class="stat-num">4</div>
+            <div class="stat-label">crevaisons</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-num">1</div>
+            <div class="stat-label">chute</div>
+          </div>
+        </div>
+        <p style="font-size:12px;color:var(--ink-3);font-style:italic;margin-top:14px;text-align:center;">17 jours de vent de face sur 31 · 14 jours de pluie · 0 jour de repos prévu dans le plan</p>
+      </div>
+    </div>
+    <!-- notes: Quand on parle de résilience, c'est ça la réalité terrain. -->
+
     <!-- ═══ SEQUIPE_ENTOURAGE — ÉQUIPE & ENTOURAGE (CIBLES) ═════════════════ -->
     <div class="slide dark" id="sequipe_entourage">
       <div class="top-bar"></div>
@@ -1811,16 +1858,16 @@ body {
               .sq-lbl  { transition: opacity 0.8s ease, transform 1.2s ease; }
               #sq-center { transition: opacity 0.8s ease, transform 1.2s ease; }
               .seq-pyramid-mode .sq-ring { opacity:0 !important; stroke-dashoffset:0; }
-              .seq-pyramid-mode #sq-center { transform: translate(0px,-175px) !important; }
-              .seq-pyramid-mode #sq-lbl-r1 { transform: translate(-105px, -105px) !important; opacity:1; }
-              .seq-pyramid-mode #sq-lbl-r2 { transform: translate(-220px, -35px) !important; opacity:1; }
-              .seq-pyramid-mode #sq-lbl-r3 { transform: translate(10px, -35px) !important; opacity:1; }
-              .seq-pyramid-mode #sq-lbl-r4 { transform: translate(-240px, 45px) !important; opacity:1; }
-              .seq-pyramid-mode #sq-lbl-r5 { transform: translate(-100px, 45px) !important; opacity:1; }
-              .seq-pyramid-mode #sq-lbl-r6 { transform: translate(40px, 45px) !important; opacity:1; }
-              .seq-pyramid-mode #sq-lbl-r7 { transform: translate(-180px, 125px) !important; opacity:1; }
-              .seq-pyramid-mode #sq-lbl-r8 { transform: translate(-20px, 125px) !important; opacity:1; }
-              .seq-pyramid-mode .sq-line-hint { opacity:1 !important; }
+              .seq-pyramid-mode #sq-center  { transform: translate(0px,-155px)   !important; }
+              .seq-pyramid-mode #sq-lbl-r1  { transform: translate(-111px, 98px) !important; opacity:1; }
+              .seq-pyramid-mode #sq-lbl-r2  { transform: translate(-321px,120px) !important; opacity:1; }
+              .seq-pyramid-mode #sq-lbl-r3  { transform: translate(-61px,  72px) !important; opacity:1; }
+              .seq-pyramid-mode #sq-lbl-r4  { transform: translate(-376px, 94px) !important; opacity:1; }
+              .seq-pyramid-mode #sq-lbl-r5  { transform: translate(-206px, 46px) !important; opacity:1; }
+              .seq-pyramid-mode #sq-lbl-r6  { transform: translate(-51px,  -2px) !important; opacity:1; }
+              .seq-pyramid-mode #sq-lbl-r7  { transform: translate(-281px, 20px) !important; opacity:1; }
+              .seq-pyramid-mode #sq-lbl-r8  { transform: translate(-81px, -28px) !important; opacity:1; }
+              .seq-pyramid-mode .sq-line-hint { opacity:0 !important; }
               /* Pyramid connector lines */
               .sq-line-hint { opacity:0; transition: opacity 1s ease 0.6s; }
               /* Click hint pulse */
@@ -1957,181 +2004,6 @@ body {
 
 
 
-    <div class="slide light" id="s15">
-      <div class="top-bar"></div>
-      <div class="pad" style="flex:1;display:flex;flex-direction:column;justify-content:center;">
-        <div class="section-tag">Défi PDG PROCURE</div>
-        <h2 class="slide-title">Chaque journée avait un nom</h2>
-        <hr class="rule">
-        <!-- Timeline line -->
-        <div style="position:relative;width:100%;margin:0 0 16px;">
-          <svg viewBox="0 -80 1100 165" style="width:100%;overflow:visible;" xmlns="http://www.w3.org/2000/svg">
-            <text transform="rotate(-45,0,35)" x="0" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Raymonde Léger</text>
-            <text transform="rotate(-45,35.5,35)" x="35.5" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Jean-François Letarte</text>
-            <text transform="rotate(-45,71.0,35)" x="71.0" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">André Mouton</text>
-            <text transform="rotate(-45,106.5,35)" x="106.5" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Michel Beaulieu</text>
-            <text transform="rotate(-45,141.9,35)" x="141.9" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Réjean Marquis</text>
-            <text transform="rotate(-45,177.4,35)" x="177.4" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Michael Flinker</text>
-            <text transform="rotate(-45,212.9,35)" x="212.9" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Jean Krashevski</text>
-            <text transform="rotate(-45,248.4,35)" x="248.4" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Daniel Ouellete</text>
-            <text transform="rotate(-45,283.9,35)" x="283.9" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Karl Blackburn</text>
-            <text transform="rotate(-45,319.4,35)" x="319.4" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Louis Marcotte</text>
-            <text transform="rotate(-45,354.8,35)" x="354.8" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Michel Salotti</text>
-            <text transform="rotate(-45,390.3,35)" x="390.3" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Karl Tremblay</text>
-            <text transform="rotate(-45,425.8,35)" x="425.8" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Stéphane Séguin</text>
-            <text transform="rotate(-45,461.3,35)" x="461.3" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Clément Bastien</text>
-            <text transform="rotate(-45,496.8,35)" x="496.8" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Marc Bonin</text>
-            <text transform="rotate(-45,532.3,35)" x="532.3" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Denis Petitclerc</text>
-            <text transform="rotate(-45,567.7,35)" x="567.7" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Marvyn Kussner</text>
-            <text transform="rotate(-45,603.2,35)" x="603.2" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Jean-Luc Trahan</text>
-            <text transform="rotate(-45,638.7,35)" x="638.7" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Jean Pagé</text>
-            <text transform="rotate(-45,674.2,35)" x="674.2" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Winston McQuade</text>
-            <text transform="rotate(-45,709.7,35)" x="709.7" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Franco Niro</text>
-            <text transform="rotate(-45,745.2,35)" x="745.2" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Richard Martineau</text>
-            <text transform="rotate(-45,780.6,35)" x="780.6" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Régis Labeaume</text>
-            <text transform="rotate(-45,816.1,35)" x="816.1" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Pierre Pagé</text>
-            <text transform="rotate(-45,851.6,35)" x="851.6" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Alain Lemaire</text>
-            <text transform="rotate(-45,887.1,35)" x="887.1" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Jacques Dorais</text>
-            <text transform="rotate(-45,922.6,35)" x="922.6" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Gaspard Fauteux</text>
-            <text transform="rotate(-45,958.1,35)" x="958.1" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Gary Krapish</text>
-            <text transform="rotate(-45,993.5,35)" x="993.5" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Pierre Bélanger</text>
-            <text transform="rotate(-45,1029.0,35)" x="1029.0" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Journée tampon</text>
-            <text transform="rotate(-45,1064.5,35)" x="1064.5" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Traversier</text>
-            <text transform="rotate(-45,1100,35)" x="1100" y="35" font-size="8" font-weight="600" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="start" letter-spacing=".01em">Proches aidants</text>
-            <line x1="0" y1="50" x2="1100" y2="50" stroke="rgba(37,99,235,.15)" stroke-width="4" stroke-linecap="round"/>
-            <line x1="0" y1="50" x2="1100" y2="50" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
-            <circle cx="35.5" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="71.0" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="106.5" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="141.9" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="177.4" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="212.9" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="248.4" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="283.9" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="319.4" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="354.8" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="390.3" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="425.8" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="461.3" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="496.8" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="532.3" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="567.7" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="603.2" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="638.7" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="674.2" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="709.7" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="745.2" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="780.6" cy="50" r="9" fill="#F59E0B" stroke="white" stroke-width="2.5"/>
-            <text x="780.6" y="75" font-size="9" font-weight="700" fill="#F59E0B" font-family="Inter,system-ui,sans-serif" text-anchor="middle" letter-spacing=".04em">LORRAINE</text>
-            <circle cx="816.1" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="851.6" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="887.1" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="922.6" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="958.1" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="993.5" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="1029.0" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="1064.5" cy="50" r="5" fill="rgba(37,99,235,.5)" stroke="rgba(37,99,235,.3)" stroke-width="2"/>
-            <circle cx="0" cy="50" r="10" fill="#2563EB" stroke="#e2e8f0" stroke-width="3"/>
-            <text x="0" y="75" font-size="10" font-weight="700" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" letter-spacing=".06em">VANCOUVER</text>
-            <circle cx="1100" cy="50" r="10" fill="#2563EB" stroke="#e2e8f0" stroke-width="3"/>
-            <text x="1100" y="75" font-size="10" font-weight="700" fill="var(--ink)" font-family="Inter,system-ui,sans-serif" text-anchor="end" letter-spacing=".06em">ST. JOHN'S</text>
-          </svg>
-        </div>
-        <p style="font-size:13px;color:var(--ink-3);text-align:center;margin-bottom:24px;">31 étapes · 31 hommes touchés par le cancer de la prostate · Leur histoire postée chaque matin</p>
-        <!-- Quote box -->
-        <div style="background:#1e3a8a;border:1px solid rgba(37,99,235,.4);border-radius:12px;padding:28px 36px;text-align:center;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;max-width:740px;margin:0 auto;">
-          <p style="font-size:22px;font-weight:700;font-style:italic;color:white;margin-bottom:14px;">« Je pédalais pour quelqu'un. Pas juste pour moi. »</p>
-          <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;">Mission PROCURE : ne laisser aucun homme seul face au cancer de la prostate.</p>
-        </div>
-        <p style="font-size:13px;color:#2563EB;font-style:italic;text-align:center;margin-top:16px;">Si tu connais quelqu'un qui vit une maladie — contacte-le.</p>
-      </div>
-    </div>
-    <!-- notes: La mission de PROCURE. -->
-
-    <!-- ═══ S16 — J2 PREMIER DOUTE ══════════════════════ -->
-    <div class="slide light" id="s14">
-      <div class="top-bar"></div>
-      <div class="pad" style="flex:1;display:flex;flex-direction:column;justify-content:center;">
-        <div class="section-tag">Défi PDG PROCURE</div>
-        <h2 class="slide-title">Le défi — les chiffres</h2>
-        <hr class="rule" style="width:60px;margin-bottom:20px;">
-        <div class="grid-stat" style="flex:1;gap:14px;">
-          <div class="stat-tile dark-tile">
-            <div class="stat-num">6 172 km</div>
-            <div class="stat-label">Vancouver → St. John's</div>
-          </div>
-          <div class="stat-tile">
-            <div class="stat-num">37 054 m</div>
-            <div class="stat-label">Dénivelé positif</div>
-          </div>
-          <div class="stat-tile">
-            <div class="stat-num">231 heures</div>
-            <div class="stat-label">Temps en mouvement</div>
-          </div>
-          <div class="stat-tile">
-            <div class="stat-num">31 étapes</div>
-            <div class="stat-label">0 jour de repos prévu</div>
-          </div>
-          <div class="stat-tile dark-tile">
-            <div class="stat-num">17 / 31</div>
-            <div class="stat-label">jours de vent de face</div>
-          </div>
-          <div class="stat-tile">
-            <div class="stat-num">14 / 31</div>
-            <div class="stat-label">jours de pluie</div>
-            <div class="stat-sub">zéro arrêt météo</div>
-          </div>
-        </div>
-        <p style="font-size:12px;color:var(--ink-3);font-style:italic;margin-top:14px;text-align:center;">17 jours de vent de face sur 31 · 14 jours de pluie · 0 jour de repos prévu dans le plan</p>
-      </div>
-    </div>
-    <!-- notes: Quand on parle de résilience, c'est ça la réalité terrain. -->
-
-    <div class="slide light" id="s23">
-      <div class="top-bar"></div>
-      <div class="pad" style="flex:1;display:flex;flex-direction:column;justify-content:center;">
-        <div class="section-tag">L\'équipe</div>
-        <h2 class="slide-title">15 minutes par jour. Chaque jour.</h2>
-        <hr class="rule" style="width:60px;margin-bottom:18px;">
-        <!-- Abonnés banner -->
-        <div style="background:var(--blue-lt);border:1px solid var(--blue);border-radius:10px;padding:14px 20px;margin-bottom:14px;display:flex;align-items:center;gap:16px;">
-          <div style="font-size:28px;font-weight:900;color:var(--blue);">47 000</div>
-          <div>
-            <div style="font-size:13px;font-weight:700;color:var(--ink);">Abonnés FB & Instagram</div>
-            <div style="font-size:12px;color:var(--ink-3);">Rétroaction quotidienne · Commentaires lus chaque soir · Source de carburant pour le lendemain</div>
-          </div>
-        </div>
-        <!-- Appels block -->
-        <div style="background:var(--ink);border-radius:10px;padding:22px;flex:1;display:flex;flex-direction:column;justify-content:center;">
-          <div style="font-size:11px;font-weight:700;letter-spacing:.1em;color:#60A5FA;text-transform:uppercase;margin-bottom:12px;">Les appels de 15 min</div>
-          <p style="font-size:13px;color:rgba(255,255,255,.8);line-height:1.8;font-style:italic;">« Chaque jour vers 15 h, Laurent apprécierait recevoir un appel.<br>Que ce soit pour l\'encourager, lui changer les idées ou simplement jaser.<br>Votre nom ne sera pas dévoilé avant l\'appel — ça sera une surprise.<br><br>Pour symboliser l\'appel qu\'un patient pourrait recevoir,<br>et que parfois on se retient pour ne pas déranger. »</p>
-        </div>
-      </div>
-      
-    </div>
-    <!-- notes: Un appel de 15 min peut changer une journée entière. Ce principe, je l\'ai appliqué dans les deux sens. -->
-
-
-    <!-- ═══ S24 — CHANTAL ══════════════════════════════ -->
-    <div class="slide dark" id="s24">
-      <div class="pad-lg" style="flex:1;display:flex;flex-direction:column;justify-content:center;">
-        <div class="section-tag">L'équipe</div>
-        <h2 style="font-size:26px;font-weight:800;color:white;margin-bottom:16px;">J32. Outer Cove Beach, Terre-Neuve.</h2>
-        <div class="photo-ph" style="flex:1;border-radius:12px;max-height:320px;">
-          <div class="ph-icon">📷</div>
-          <div>Arrivée Outer Cove Beach — Chantal + Laurent au fil d'arrivée</div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:6px;margin-top:16px;text-align:center;">
-          <p style="font-size:13px;color:rgba(255,255,255,.8);">60 minutes avant l'arrivée : appel des 5 membres de la fratrie.</p>
-          <p style="font-size:13px;color:rgba(255,255,255,.8);">Au fil d'arrivée : Chantal.</p>
-          <p style="font-size:12px;color:rgba(255,255,255,.4);font-style:italic;">Je ne faisais pas le lien qu'elle pouvait être à St. John's.</p>
-        </div>
-        <div style="background:var(--blue);border-radius:8px;padding:12px 24px;margin-top:12px;text-align:center;">
-          <p style="font-size:16px;font-weight:700;font-style:italic;color:white;">« Je pensais vivre ça seul avec ma conjointe. »</p>
-        </div>
-      </div>
-    </div>
-    <!-- notes: J'avais mentionné à Chantal... Elle avait retenu ça. -->
 
     <!-- ═══ S25 — TROIS LEÇONS ══════════════════════════ -->
     <div class="slide dark" id="s25">
@@ -2271,7 +2143,7 @@ const SPRAIRIES_IDX = 19;
 const SONTARIO_IDX  = 20;
 const SQUEBEC_IDX   = 21;
 const SMARITIMES_IDX = 22;
-  const SEQUIPE_IDX    = 23;
+  const SEQUIPE_IDX    = 24;
   let s11PhotoShown = false;
 
 // ─── S4: Tile reveal + highlight ────────────────────────────
@@ -2710,7 +2582,8 @@ function show(n) {
     // Wire click handler once (DOMContentLoaded déjà passé, on branche ici)
     if (!svg._clickBound) {
       svg._clickBound = true;
-      svg.addEventListener('click', function() {
+      svg.addEventListener('click', function(e) {
+        e.stopPropagation();
         if (!svg._pyramidReady) return;
         if (svg.classList.contains('seq-pyramid-mode')) {
           svg.classList.remove('seq-pyramid-mode');
@@ -3378,7 +3251,7 @@ document.addEventListener('DOMContentLoaded',function(){
   var STOP_IDS = ['click-prev','ver-badge','changelog-panel',
                   'modal-nutri','modal-nutri-close',
                      'counter','nav','slide-picker','picker-grid',
-                  's5-yt-wrap','s5-yt-player','quinn-modal'];
+                  's5-yt-wrap','s5-yt-player','quinn-modal','seq-svg'];
   var STOP_TAGS = ['BUTTON','A','INPUT','SELECT','TEXTAREA','IFRAME','VIDEO'];
   document.addEventListener('click', function(e){
     var qm = document.getElementById('quinn-modal');
