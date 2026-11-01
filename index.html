@@ -2110,7 +2110,7 @@ body {
               <div style="font-size:28px;font-weight:800;color:#93C5FD;border-left:4px solid #1d4ed8;padding-left:14px;">Pivotage</div>
             </div>
           </div>
-          <div style="display:flex;align-items:center;padding:0 16px;font-size:48px;font-weight:700;color:white;">+</div>
+          <div style="display:flex;align-items:center;align-self:flex-start;padding:0 16px;font-size:48px;font-weight:700;color:white;height:84px;">+</div>
           <!-- 2E -->
           <div id="s26-2e-card" style="flex:1;background:transparent;border:1px solid transparent;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
             <div style="background:#1e40af;padding:18px;text-align:center;">
@@ -2121,7 +2121,7 @@ body {
               <div style="font-size:28px;font-weight:800;color:#93C5FD;border-left:4px solid #2563eb;padding-left:14px;">Entourage</div>
             </div>
           </div>
-          <div style="display:flex;align-items:center;padding:0 16px;font-size:48px;font-weight:700;color:white;">=</div>
+          <div style="display:flex;align-items:center;align-self:flex-start;padding:0 16px;font-size:48px;font-weight:700;color:white;height:84px;">=</div>
           <!-- R -->
           <div id="s26-r-card" style="flex:1;background:transparent;border:1px solid transparent;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
             <div style="background:linear-gradient(135deg,#1d4ed8,#2563eb);padding:18px;text-align:center;">
@@ -2146,9 +2146,14 @@ body {
         <hr class="rule" style="width:60px;margin-bottom:16px;">
         <!-- Tuile vidéo — cliquable pour agrandir -->
         <div style="flex:1;min-height:0;display:flex;align-items:center;justify-content:center;">
-          <div id="s27-tile" style="position:relative;width:100%;max-width:760px;aspect-ratio:16/9;background:#0F172A;border-radius:14px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.25);">
-            <iframe id="s27-vid" src="" allow="autoplay; fullscreen" allowfullscreen
-              style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>
+          <div id="s27-tile" onclick="openVideoModal('https://drive.google.com/file/d/175AOi9ALq_9YMpzHRjVodHkssrcyYp2B/preview?autoplay=1')"
+            style="position:relative;width:100%;max-width:760px;aspect-ratio:16/9;background:#0F172A;border-radius:14px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.25);cursor:pointer;display:flex;align-items:center;justify-content:center;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:20px;pointer-events:none;">
+              <div style="width:88px;height:88px;background:rgba(37,99,235,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,99,235,.5);">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg>
+              </div>
+              <div style="color:rgba(255,255,255,.85);font-size:20px;font-weight:700;letter-spacing:.02em;">▶&nbsp;&nbsp;Visionner la traversée</div>
+            </div>
           </div>
         </div>
       </div>
@@ -2538,11 +2543,6 @@ function goNext() {
     show(cur + 1);           // retourne true = tous les blocs vus, avancer
     return;
   }
-  if (cur === S26_IDX) {
-    if (!s26Tick()) return;  // false = corps révélé, rester sur slide
-    show(cur + 1);
-    return;
-  }
   go(1);
 }
 
@@ -2583,14 +2583,11 @@ function s2Init() {
 }
 
 function s27Stop() {
-  const v = document.getElementById('s27-vid');
-  if (v) v.src = '';
+  var modal = document.getElementById('video-modal');
+  if (modal && modal.classList.contains('open')) closeVideoModal();
 }
 
-function s27Init() {
-  const v = document.getElementById('s27-vid');
-  if (v && !v.src) v.src = 'https://drive.google.com/file/d/175AOi9ALq_9YMpzHRjVodHkssrcyYp2B/preview';
-}
+function s27Init() { /* tile play — modal s'ouvre au clic */ }
 
 // ─── S26 : 3-click reveal 4P + 2E = R ────────────────────────
 let s26Step = 0;
@@ -2783,6 +2780,7 @@ function show(n) {
       if (!ov12.classList.contains('dismissed')) { ov12.classList.add('dismissed'); return; }
       if (!clkTick()) return;
     }
+    if (cur === S26_IDX && !s26Tick()) return;
   }
   show(cur + dir);
 }
@@ -2932,11 +2930,11 @@ window.addEventListener('load', scale);
 })();
 
   // ─── Video modal ─────────────────────────────────────────────────────────
-  function openVideoModal() {
+  function openVideoModal(url) {
     var modal = document.getElementById('video-modal');
     var vid   = document.getElementById('udm-video');
     modal.classList.add('open');
-    vid.src = 'https://drive.google.com/file/d/1lFCr5G6Hrqb-E_q-XQvnpHveC1Eyt8gn/preview?autoplay=1';
+    vid.src = url || 'https://drive.google.com/file/d/1lFCr5G6Hrqb-E_q-XQvnpHveC1Eyt8gn/preview?autoplay=1';
   }
 
   // ─── Agenda modal (slide 11 — plan de semaine) ──────────────────────
@@ -3205,7 +3203,8 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
-  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.49</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — S26 : tuiles même hauteur (stretch) ; fontes body 28px égales à Réussite ; + et = blancs gras</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.50</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — S26 : align-self:flex-start + height:84px sur + et = (alignés avec headers) + fix clic go() ; S27 : tuile play → modal plein écran (contrôles Drive natifs)</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.49</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — S26 : fix clic (go() manquait check S26) ; + et = alignés avec headers (align-self:flex-start)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.48</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — S13 : suppression fragment texte orphelin ══════ --&gt; visible en haut à gauche</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.47</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — S26 : état 0 affiche seulement headers (4P/2E/R), fond révélé au clic ; S27 : contrôles vidéo natifs, bouton plein écran retiré ; S25 : base pyramide descendue + beignets élargis (step 28px)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.46</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 1 : fix commentaire HTML non fermé (artefact ══════ --&gt;) ; Slide 25 : titre &amp; → et</div>
