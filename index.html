@@ -1868,7 +1868,7 @@ body {
               .sq-lbl  { transition: opacity 0.8s ease, transform 1.2s ease; }
               #sq-center { transition: opacity 0.8s ease, transform 1.2s ease; }
               .seq-pyramid-mode .sq-ring { opacity:0 !important; stroke-dashoffset:0; }
-              .seq-pyramid-mode #sq-center  { transform: translate(0px,-204px)   !important; }
+              .seq-pyramid-mode #sq-center  { transform: translate(0px,-186px)   !important; }
               .seq-pyramid-mode #sq-lbl-r1,
               .seq-pyramid-mode #sq-lbl-r2,
               .seq-pyramid-mode #sq-lbl-r3,
@@ -2048,37 +2048,37 @@ body {
               </linearGradient>
             </defs>
             <!-- b8 = bas (plus grand), b1 = sommet (plus petit) — ordre SVG: bas en premier -->
-            <!-- Layout: b1 top=-178 (aligne Josée), b8 bottom=152 (aligne Communauté) -->
-            <!-- height=36, gap=6, width step=24 : b1=60, b8=228 -->
-            <rect id="sq-b8" class="sq-beignet" x="-114" y="122"  width="228" height="36" rx="18" fill="#bfdbfe"/>
-            <rect id="sq-b7" class="sq-beignet" x="-102" y="74"   width="204" height="36" rx="18" fill="#93c5fd"/>
-            <rect id="sq-b6" class="sq-beignet" x="-90"  y="32"   width="180" height="36" rx="18" fill="#60a5fa"/>
-            <rect id="sq-b5" class="sq-beignet" x="-78"  y="-10"  width="156" height="36" rx="18" fill="#3b82f6"/>
-            <rect id="sq-b4" class="sq-beignet" x="-66"  y="-52"  width="132" height="36" rx="18" fill="#2563eb"/>
-            <rect id="sq-b3" class="sq-beignet" x="-54"  y="-94"  width="108" height="36" rx="18" fill="#1d4ed8"/>
-            <rect id="sq-b2" class="sq-beignet" x="-42"  y="-136" width="84"  height="36" rx="18" fill="#1e40af"/>
-            <rect id="sq-b1" class="sq-beignet" x="-30"  y="-178" width="60"  height="36" rx="18" fill="#1e3a8a"/>
+            <!-- Layout: b1 top=-160 (aligne Josée), b8 center=158 (aligne Communauté) -->
+            <!-- height=36, gap=6, width step=28 : b1=60, b8=256 -->
+            <rect id="sq-b8" class="sq-beignet" x="-128" y="140"  width="256" height="36" rx="18" fill="#bfdbfe"/>
+            <rect id="sq-b7" class="sq-beignet" x="-114" y="92"   width="228" height="36" rx="18" fill="#93c5fd"/>
+            <rect id="sq-b6" class="sq-beignet" x="-100" y="50"   width="200" height="36" rx="18" fill="#60a5fa"/>
+            <rect id="sq-b5" class="sq-beignet" x="-86"  y="8"    width="172" height="36" rx="18" fill="#3b82f6"/>
+            <rect id="sq-b4" class="sq-beignet" x="-72"  y="-34"  width="144" height="36" rx="18" fill="#2563eb"/>
+            <rect id="sq-b3" class="sq-beignet" x="-58"  y="-76"  width="116" height="36" rx="18" fill="#1d4ed8"/>
+            <rect id="sq-b2" class="sq-beignet" x="-44"  y="-118" width="88"  height="36" rx="18" fill="#1e40af"/>
+            <rect id="sq-b1" class="sq-beignet" x="-30"  y="-160" width="60"  height="36" rx="18" fill="#1e3a8a"/>
           </g>
 
           <!-- Lignes pyramide — bord droit de chaque beignet → point du label -->
-          <!-- b1: right=(30,-160) b2:(42,-118) b3:(54,-76) b4:(66,-34) b5:(78,8) b6:(90,50) b7:(102,92) b8:(114,134) -->
+          <!-- b1: right=(30,-142) b2:(44,-100) b3:(58,-58) b4:(72,-16) b5:(86,26) b6:(100,68) b7:(114,110) b8:(128,158) -->
           <g id="sq-pyr-lines">
-            <line x1="30"  y1="-160" x2="228" y2="-178" stroke="rgba(255,255,255,.4)" stroke-width="1"/>
-            <circle cx="30"  cy="-160" r="3.5" fill="#1e3a8a" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
-            <line x1="42"  y1="-118" x2="228" y2="-130" stroke="rgba(255,255,255,.4)" stroke-width="1"/>
-            <circle cx="42"  cy="-118" r="3.5" fill="#1e40af" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
-            <line x1="54"  y1="-76"  x2="228" y2="-82"  stroke="rgba(255,255,255,.4)" stroke-width="1"/>
-            <circle cx="54"  cy="-76"  r="3.5" fill="#1d4ed8" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
-            <line x1="66"  y1="-34"  x2="228" y2="-34"  stroke="rgba(255,255,255,.4)" stroke-width="1"/>
-            <circle cx="66"  cy="-34"  r="3.5" fill="#2563eb" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
-            <line x1="78"  y1="8"    x2="228" y2="14"   stroke="rgba(255,255,255,.4)" stroke-width="1"/>
-            <circle cx="78"  cy="8"    r="3.5" fill="#3b82f6" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
-            <line x1="90"  y1="50"   x2="228" y2="62"   stroke="rgba(255,255,255,.4)" stroke-width="1"/>
-            <circle cx="90"  cy="50"   r="3.5" fill="#60a5fa" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
-            <line x1="102" y1="92"   x2="228" y2="110"  stroke="rgba(255,255,255,.4)" stroke-width="1"/>
-            <circle cx="102" cy="92"   r="3.5" fill="#93c5fd" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
-            <line x1="114" y1="140"  x2="228" y2="158"  stroke="rgba(255,255,255,.4)" stroke-width="1"/>
-            <circle cx="114" cy="140"  r="3.5" fill="#bfdbfe" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
+            <line x1="30"  y1="-142" x2="228" y2="-178" stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+            <circle cx="30"  cy="-142" r="3.5" fill="#1e3a8a" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
+            <line x1="44"  y1="-100" x2="228" y2="-130" stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+            <circle cx="44"  cy="-100" r="3.5" fill="#1e40af" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
+            <line x1="58"  y1="-58"  x2="228" y2="-82"  stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+            <circle cx="58"  cy="-58"  r="3.5" fill="#1d4ed8" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
+            <line x1="72"  y1="-16"  x2="228" y2="-34"  stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+            <circle cx="72"  cy="-16"  r="3.5" fill="#2563eb" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
+            <line x1="86"  y1="26"   x2="228" y2="14"   stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+            <circle cx="86"  cy="26"   r="3.5" fill="#3b82f6" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
+            <line x1="100" y1="68"   x2="228" y2="62"   stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+            <circle cx="100" cy="68"   r="3.5" fill="#60a5fa" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
+            <line x1="114" y1="110"  x2="228" y2="110"  stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+            <circle cx="114" cy="110"  r="3.5" fill="#93c5fd" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
+            <line x1="128" y1="158"  x2="228" y2="158"  stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+            <circle cx="128" cy="158"  r="3.5" fill="#bfdbfe" stroke="rgba(255,255,255,.55)" stroke-width=".9"/>
           </g>
 
           </svg>
@@ -2098,9 +2098,9 @@ body {
         <div class="section-tag">Traversée du Canada</div>
         <h2 class="slide-title" style="color:white;font-size:clamp(20px,3vw,34px);">Formule&nbsp;: 4P + 2E = R &mdash; qu&rsquo;est-ce que cela veut dire&nbsp;?</h2>
         <hr class="rule" style="width:60px;margin-bottom:16px;">
-        <div style="flex:1;min-height:0;display:flex;align-items:stretch;justify-content:center;gap:0;">
+        <div style="flex:1;min-height:0;display:flex;align-items:flex-start;justify-content:center;gap:0;">
           <!-- 4P -->
-          <div style="flex:1;background:rgba(30,58,138,.5);border:1px solid rgba(37,99,235,.5);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
+          <div id="s26-4p-card" style="flex:1;background:transparent;border:1px solid transparent;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
             <div style="background:#1e3a8a;padding:18px;text-align:center;">
               <div style="font-size:48px;font-weight:900;color:white;letter-spacing:.05em;line-height:1;">4P</div>
             </div>
@@ -2111,9 +2111,9 @@ body {
               <div style="font-size:16px;font-weight:700;color:#93C5FD;border-left:3px solid #1d4ed8;padding-left:10px;">Pivotage</div>
             </div>
           </div>
-          <div style="display:flex;align-items:center;padding:0 16px;font-size:36px;font-weight:300;color:rgba(255,255,255,.3);">+</div>
+          <div style="display:flex;align-items:center;padding:0 16px;font-size:36px;font-weight:300;color:rgba(255,255,255,.3);height:84px;">+</div>
           <!-- 2E -->
-          <div style="flex:1;background:rgba(30,58,138,.5);border:1px solid rgba(37,99,235,.5);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
+          <div id="s26-2e-card" style="flex:1;background:transparent;border:1px solid transparent;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
             <div style="background:#1e40af;padding:18px;text-align:center;">
               <div style="font-size:48px;font-weight:900;color:white;letter-spacing:.05em;line-height:1;">2E</div>
             </div>
@@ -2122,9 +2122,9 @@ body {
               <div style="font-size:16px;font-weight:700;color:#93C5FD;border-left:3px solid #2563eb;padding-left:10px;">Entourage</div>
             </div>
           </div>
-          <div style="display:flex;align-items:center;padding:0 16px;font-size:36px;font-weight:300;color:rgba(255,255,255,.3);">=</div>
+          <div style="display:flex;align-items:center;padding:0 16px;font-size:36px;font-weight:300;color:rgba(255,255,255,.3);height:84px;">=</div>
           <!-- R -->
-          <div style="flex:1;background:rgba(30,58,138,.5);border:1px solid rgba(96,165,250,.4);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
+          <div id="s26-r-card" style="flex:1;background:transparent;border:1px solid transparent;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
             <div style="background:linear-gradient(135deg,#1d4ed8,#2563eb);padding:18px;text-align:center;">
               <div style="font-size:48px;font-weight:900;color:white;letter-spacing:.05em;line-height:1;">R</div>
             </div>
@@ -2147,21 +2147,10 @@ body {
         <hr class="rule" style="width:60px;margin-bottom:16px;">
         <!-- Tuile vidéo — cliquable pour agrandir -->
         <div style="flex:1;min-height:0;display:flex;align-items:center;justify-content:center;">
-          <div id="s27-tile" style="position:relative;width:100%;max-width:760px;aspect-ratio:16/9;background:#0F172A;border-radius:14px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.25);cursor:pointer;" onclick="s27Expand()">
+          <div id="s27-tile" style="position:relative;width:100%;max-width:760px;aspect-ratio:16/9;background:#0F172A;border-radius:14px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.25);">
             <iframe id="s27-vid" src="" allow="autoplay; fullscreen" allowfullscreen
-              style="position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none;"></iframe>
-            <!-- Bouton play/expand affiché avant lecture -->
-            <div id="s27-play-btn" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:rgba(15,23,42,.55);">
-              <div style="width:68px;height:68px;border-radius:50%;background:rgba(96,165,250,.9);display:flex;align-items:center;justify-content:center;">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-              <div style="font-size:14px;color:rgba(255,255,255,.75);letter-spacing:.04em;">Cliquer pour lire</div>
-            </div>
+              style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe>
           </div>
-        </div>
-        <!-- Bouton agrandir en plein écran -->
-        <div style="text-align:center;margin-top:12px;">
-          <button onclick="s27Expand()" style="background:none;border:1.5px solid #1d4ed8;color:#1d4ed8;border-radius:8px;padding:8px 20px;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:.03em;">⛶ Plein écran</button>
         </div>
       </div>
     </div>
@@ -2600,25 +2589,8 @@ function s27Stop() {
 }
 
 function s27Init() {
-  // Ne pas auto-lancer — attendre le clic de l'utilisateur
-}
-
-function s27Expand() {
-  const tile = document.getElementById('s27-tile');
-  const v    = document.getElementById('s27-vid');
-  const btn  = document.getElementById('s27-play-btn');
-  // Charger le src si pas encore fait
-  if (v && !v.src) {
-    v.src = 'https://drive.google.com/file/d/175AOi9ALq_9YMpzHRjVodHkssrcyYp2B/preview?autoplay=1';
-    v.style.pointerEvents = 'auto';
-    if (btn) btn.style.display = 'none';
-  }
-  // Tenter le plein écran sur la tuile
-  if (tile && tile.requestFullscreen) {
-    tile.requestFullscreen().catch(function(){});
-  } else if (tile && tile.webkitRequestFullscreen) {
-    tile.webkitRequestFullscreen();
-  }
+  const v = document.getElementById('s27-vid');
+  if (v && !v.src) v.src = 'https://drive.google.com/file/d/175AOi9ALq_9YMpzHRjVodHkssrcyYp2B/preview';
 }
 
 // ─── S26 : 3-click reveal 4P + 2E = R ────────────────────────
@@ -2630,13 +2602,23 @@ function s26Init() {
     var el = document.getElementById(id);
     if (el) { el.style.opacity = '0'; el.style.maxHeight = '0'; }
   });
+  ['s26-4p-card','s26-2e-card'].forEach(function(id){
+    var el = document.getElementById(id);
+    if (el) { el.style.background = 'transparent'; el.style.border = '1px solid transparent'; }
+  });
+  var rc = document.getElementById('s26-r-card');
+  if (rc) { rc.style.background = 'transparent'; rc.style.border = '1px solid transparent'; }
 }
 
 function s26Tick() {
   var bodies = ['s26-4p-body','s26-2e-body','s26-r-body'];
+  var cards  = ['s26-4p-card','s26-2e-card','s26-r-card'];
+  var borders= ['rgba(37,99,235,.5)','rgba(37,99,235,.5)','rgba(96,165,250,.4)'];
   if (s26Step < bodies.length) {
     var el = document.getElementById(bodies[s26Step]);
     if (el) { el.style.opacity = '1'; el.style.maxHeight = '500px'; }
+    var card = document.getElementById(cards[s26Step]);
+    if (card) { card.style.background = 'rgba(30,58,138,.5)'; card.style.border = '1px solid ' + borders[s26Step]; }
     s26Step++;
     return false; // rester sur la slide
   }
@@ -3224,6 +3206,7 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.47</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — S26 : état 0 affiche seulement headers (4P/2E/R), fond révélé au clic ; S27 : contrôles vidéo natifs, bouton plein écran retiré ; S25 : base pyramide descendue + beignets élargis (step 28px)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.46</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 1 : fix commentaire HTML non fermé (artefact ══════ --&gt;) ; Slide 25 : titre &amp; → et</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.45</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Slide 25 : fontes SVG grossies (14px/11px) ; base pyramide alignée avec Communauté FB/IG</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.44</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — Pyramide : lignes depuis bord droit des beignets (pts de couleur) ; S26 3-clics révèle 4P, 2E, Réussite/(Rétablissement) ; S27 tuile vidéo + fond clair + S27_IDX corrigé</div>
