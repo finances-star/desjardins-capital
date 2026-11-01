@@ -2146,7 +2146,7 @@ body {
         <hr class="rule" style="width:60px;margin-bottom:16px;">
         <!-- Tuile vidéo — cliquable pour agrandir -->
         <div style="flex:1;min-height:0;display:flex;align-items:center;justify-content:center;">
-          <div id="s27-tile" onclick="openVideoModal('https://www.youtube.com/embed/xokO5Ae8veI?autoplay=1&rel=0')"
+          <div id="s27-tile" onclick="openVideoModal('https://www.youtube.com/embed/xokO5Ae8veI?autoplay=1&rel=0&cc_load_policy=0')"
             style="position:relative;width:100%;max-width:760px;aspect-ratio:16/9;background:#0F172A;border-radius:14px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.25);cursor:pointer;display:flex;align-items:center;justify-content:center;">
             <div style="display:flex;flex-direction:column;align-items:center;gap:20px;pointer-events:none;">
               <div style="width:88px;height:88px;background:rgba(37,99,235,.85);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,99,235,.5);">
@@ -3203,6 +3203,7 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.53</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — S27 : CC désactivé (cc_load_policy=0)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.52</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — S27 : vidéo YouTube Shorts (qualité native) au lieu de Google Drive</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.51</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — S26 : texte tuiles blanc + font 36/40px ; S27 : overlay opaque (fix double fenêtre noire)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.50</span> <span style="color:rgba(200,200,216,.5);">2026-10-31</span> — S26 : align-self:flex-start + height:84px sur + et = (alignés avec headers) + fix clic go() ; S27 : tuile play → modal plein écran (contrôles Drive natifs)</div>
