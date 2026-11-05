@@ -1,4 +1,4 @@
-<!-- VERSION: 4.77 -->
+<!-- VERSION: 4.78 -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -1819,6 +1819,10 @@ body {
         <h2 class="slide-title">La traversée — les chiffres</h2>
         <hr class="rule" style="width:60px;margin-bottom:20px;">
         <div class="grid-stat" style="flex:1;gap:14px;">
+          <div class="stat-tile tile-r1" style="grid-column:1/-1;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:6px;">
+            <div class="stat-num" style="font-size:52px;">1 535 000 $</div>
+            <div class="stat-label">Recherche sur le cancer de la prostate</div>
+          </div>
           <div class="stat-tile tile-r1">
             <div class="stat-num">6 172 km</div>
             <div class="stat-label">Vancouver → St. John's</div>
@@ -3294,6 +3298,7 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.78</span> <span style="color:rgba(200,200,216,.5);">2026-11-04</span> — s24 : tuile pleine largeur « 1 535 000 $ » en tête de grille</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.77</span> <span style="color:rgba(200,200,216,.5);">2026-11-04</span> — s26 : clic entête tuile (4P/3E/R) révèle tous les mots de la tuile</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.76</span> <span style="color:rgba(200,200,216,.5);">2026-11-02</span> — s26 : stopPropagation sur clic barre (empêche avance de slide)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.75</span> <span style="color:rgba(200,200,216,.5);">2026-11-02</span> — s26 jeu audience : clic 1 → tuiles + barres bleues ; clic barre → révèle le mot</div>
