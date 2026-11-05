@@ -1,4 +1,4 @@
-<!-- VERSION: 4.76 -->
+<!-- VERSION: 4.77 -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -2125,7 +2125,7 @@ body {
         <div style="flex:1;min-height:0;display:flex;align-items:stretch;justify-content:center;gap:0;">
           <!-- 4P -->
           <div id="s26-4p-card" style="flex:1;background:transparent;border:1px solid transparent;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
-            <div style="background:#1e3a8a;padding:18px;text-align:center;">
+            <div onclick="s26RevealAll(event,'s26-4p-body')" style="background:#1e3a8a;padding:18px;text-align:center;cursor:pointer;">
               <div style="font-size:48px;font-weight:900;color:white;letter-spacing:.05em;line-height:1;">4P</div>
             </div>
             <div id="s26-4p-body" style="padding:20px;flex:1;display:flex;flex-direction:column;gap:16px;justify-content:center;max-height:0;overflow:hidden;opacity:0;transition:max-height .55s ease, opacity .4s ease .1s;">
@@ -2138,7 +2138,7 @@ body {
           <div style="display:flex;align-items:center;align-self:flex-start;padding:0 16px;font-size:48px;font-weight:700;color:white;height:84px;">+</div>
           <!-- 2E -->
           <div id="s26-2e-card" style="flex:1;background:transparent;border:1px solid transparent;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
-            <div style="background:#1e40af;padding:18px;text-align:center;">
+            <div onclick="s26RevealAll(event,'s26-2e-body')" style="background:#1e40af;padding:18px;text-align:center;cursor:pointer;">
               <div style="font-size:48px;font-weight:900;color:white;letter-spacing:.05em;line-height:1;">3E</div>
             </div>
             <div id="s26-2e-body" style="padding:20px;flex:1;display:flex;flex-direction:column;gap:16px;justify-content:center;max-height:0;overflow:hidden;opacity:0;transition:max-height .55s ease, opacity .4s ease .1s;">
@@ -2150,7 +2150,7 @@ body {
           <div style="display:flex;align-items:center;align-self:flex-start;padding:0 16px;font-size:48px;font-weight:700;color:white;height:84px;">=</div>
           <!-- R -->
           <div id="s26-r-card" style="flex:1;background:transparent;border:1px solid transparent;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;">
-            <div style="background:linear-gradient(135deg,#1d4ed8,#2563eb);padding:18px;text-align:center;">
+            <div onclick="s26RevealAll(event,'s26-r-body')" style="background:linear-gradient(135deg,#1d4ed8,#2563eb);padding:18px;text-align:center;cursor:pointer;">
               <div style="font-size:48px;font-weight:900;color:white;letter-spacing:.05em;line-height:1;">R</div>
             </div>
             <div id="s26-r-body" style="padding:20px;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;max-height:0;overflow:hidden;opacity:0;transition:max-height .55s ease, opacity .4s ease .1s;">
@@ -2631,6 +2631,15 @@ function s26Init() {
   });
 }
 
+function s26RevealAll(e, bodyId) {
+  e.stopPropagation();
+  var body = document.getElementById(bodyId);
+  if (!body) return;
+  body.querySelectorAll('.s26-word').forEach(function(w){
+    w.style.maxWidth = '600px';
+    w.style.opacity = '1';
+  });
+}
 function s26Reveal(e, el) {
   e.stopPropagation();
   var word = el.querySelector('.s26-word');
@@ -3285,6 +3294,7 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.77</span> <span style="color:rgba(200,200,216,.5);">2026-11-04</span> — s26 : clic entête tuile (4P/3E/R) révèle tous les mots de la tuile</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.76</span> <span style="color:rgba(200,200,216,.5);">2026-11-02</span> — s26 : stopPropagation sur clic barre (empêche avance de slide)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.75</span> <span style="color:rgba(200,200,216,.5);">2026-11-02</span> — s26 jeu audience : clic 1 → tuiles + barres bleues ; clic barre → révèle le mot</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.74</span> <span style="color:rgba(200,200,216,.5);">2026-11-02</span> — s15 sous-titre PAM : coupure sur 2 lignes (br)</div>
