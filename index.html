@@ -1,4 +1,4 @@
-<!-- VERSION: 4.87 -->
+<!-- VERSION: 4.88 -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -2275,58 +2275,62 @@ const SMARITIMES_IDX = 23;
 // Important tiles (indices in chronological grid): Boston, Ironman AZ, Berlin PR, Norseman, Traversée
 const S4_HIGHLIGHT = [2, 4, 7, 8]; // Boston 2010, Ironman AZ, Chicago, Norseman
 let s4Step = 0;
+let s4Animating = false;
 
 function s4Init() {
   s4Step = 0;
+  s4Animating = false;
   for (let i = 0; i < 12; i++) {
     const t = document.getElementById('s4t' + i);
     if (!t) continue;
-    t.classList.remove('s4-show', 's4-hl', 's4-white', 's4-blue');
+    t.classList.remove('s4-show', 's4-hl', 's4-white');
     t.style.opacity = '';
     t.style.transform = '';
-    if (i !== 1 && i !== 3 && S4_HIGHLIGHT.indexOf(i) === -1) t.classList.add('s4-white'); // blanches sauf cancer, Tour du courage, et les 4 tuiles sport (Boston, Ironman, Chicago, Norseman)
+    // Pré-assigner les couleurs finales : 4 bleu foncé, reste dans leur couleur HTML
+    if (S4_HIGHLIGHT.indexOf(i) !== -1) {
+      t.classList.add('s4-blue');
+    } else {
+      t.classList.remove('s4-blue');
+    }
   }
-  // Tuile 0 visible dès l'entrée
+  // Seule tuile 1 (t0 : Boston 2009) visible au chargement
   const t0 = document.getElementById('s4t0');
   if (t0) t0.classList.add('s4-show');
 }
 
 function s4Tick() {
-  // Groupes révélés à chaque clic
-  const groups = [
-    [1],           // clic 1 : cancer prostate
-    [2],           // clic 2 : Boston 2010 (3e position grille)
-    [3, 4],        // clic 3 : Tour du courage PROCURE + Ironman Arizona
-    [5, 6, 7],     // clic 4 : NY, Berlin, Chicago (3 marathons)
-    [8],           // clic 5 : Norseman
-    [9, 10, 11]    // clic 6 : Traversée, Demi-Everest, 380km
-  ];
+  // Bloquer les clics pendant l'animation auto
+  if (s4Animating) return false;
 
-  if (s4Step < groups.length) {
-    groups[s4Step].forEach(function(idx) {
-      const t = document.getElementById('s4t' + idx);
-      if (t) {
-        t.classList.add('s4-show');
-        if (S4_HIGHLIGHT.indexOf(idx) !== -1) t.classList.add('s4-blue');
+  if (s4Step === 0) {
+    // Clic 1 : révéler tuile 2 (t1 = Diagnostic cancer prostate, rouge)
+    const t1 = document.getElementById('s4t1');
+    if (t1) t1.classList.add('s4-show');
+    s4Step = 1;
+    return false;
+  }
+
+  if (s4Step === 1) {
+    // Clic 2 : animation auto, tuiles 3 à 12 (t2→t11), une par une à 300ms
+    s4Animating = true;
+    let idx = 2;
+    function revealNext() {
+      if (idx > 11) {
+        s4Animating = false;
+        s4Step = 2;
+        return;
       }
-    });
-    s4Step++;
-    return false;
-  }
-  if (s4Step === groups.length) {
-    // clic 6 : enlever le blanc, mettre en bleu les 4 tuiles spéciales
-    for (let i = 0; i < 12; i++) {
-      const t = document.getElementById('s4t' + i);
-      if (t) t.classList.remove('s4-white');
-    }
-    S4_HIGHLIGHT.forEach(function(idx) {
       const t = document.getElementById('s4t' + idx);
-      if (t) t.classList.add('s4-blue');
-    });
-    s4Step++;
+      if (t) t.classList.add('s4-show');
+      idx++;
+      setTimeout(revealNext, 300);
+    }
+    revealNext();
     return false;
   }
-  return true; // clic 7 → avancer à la slide suivante
+
+  // s4Step >= 2 : animation terminée, avancer à la slide suivante
+  return true;
 }
 
 // ─── S5: YouTube via iframe direct (injecté à l'arrivée, retiré au départ) ──
@@ -3310,6 +3314,7 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.88</span> <span style="color:rgba(200,200,216,.5);">2026-11-06</span> — s4 CV sportif : révélation en 3 états (load=t0, clic1=t1 rouge, clic2=animation auto t2→t11 à 300ms) → état final 4 bleu foncé + 7 bleu pâle + 1 rouge</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.87</span> <span style="color:rgba(200,200,216,.5);">2026-11-06</span> — sformule : nouvelle slide identique à s1 avec juste la formule 4P+3E=R, insérée après s2</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.86</span> <span style="color:rgba(200,200,216,.5);">2026-11-06</span> — s2 : suppression plein écran automatique — vidéo joue dans la slide normalement</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.85</span> <span style="color:rgba(200,200,216,.5);">2026-11-06</span> — s2 fullscreen : 1 seul clic quitte fullscreen ET avance (Spotlight sans Échap)</div>
