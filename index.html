@@ -1849,7 +1849,7 @@ body {
     <!-- notes: Maritimes. N.-B., N.-É., T.-N. 4 points à remplir. MARITIMES.mp4 à ajouter sur GitHub. -->
 
     <!-- ═══ S14 — LA TRAVERSÉE, LES CHIFFRES ════════════════ -->
-    <div class="slide light" id="s14" style="background:#EFF6FF;">
+    <div class="slide light" id="s14">
       <div class="top-bar"></div>
       <div class="pad" style="flex:1;display:flex;flex-direction:column;justify-content:center;">
         <div class="section-tag">Traversée du Canada</div>
@@ -1893,7 +1893,7 @@ body {
             <div class="stat-num">0</div>
             <div class="stat-label">accident</div>
           </div>
-          <div class="stat-tile" id="s14-bondant" style="grid-column:1/-1;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:6px;background:white;border:1.5px solid #BFDBFE;">
+          <div class="stat-tile" id="s14-bondant" style="grid-column:1/-1;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:6px;background:#EFF6FF;border:1.5px solid #BFDBFE;">
             <div class="stat-num" style="font-size:52px;color:#1D4ED8;">535 000 $</div>
             <div class="stat-label" style="color:#2563EB;">Recherche sur le cancer de la prostate</div>
           </div>
@@ -2662,9 +2662,6 @@ let seqStep = 0;
 
 function s14Init() {
   s14Step = 0;
-  // Slide background pale blue
-  var slide = document.getElementById('s14');
-  if (slide) slide.style.background = '#EFF6FF';
   // Rangée 1 (tile-r1) always visible
   // Hide rangée 2, 3, bondant
   document.querySelectorAll('#s14 .tile-r2').forEach(function(el){
