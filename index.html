@@ -1,4 +1,4 @@
-<!-- VERSION: 4.82 -->
+<!-- VERSION: 4.83 -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -470,6 +470,11 @@ body {
       </div>
     </div>
     <!-- notes: Laisser tourner sans parler. L'émotion fait le travail. -->
+
+    <!-- ═══ SFORMULE — FORMULE SEULE ════════════════════ -->
+    <div class="slide dark" id="sformule" style="display:flex;align-items:center;justify-content:center;">
+      <div style="font-size:110px;font-weight:900;color:white;letter-spacing:.06em;text-align:center;line-height:1;font-family:inherit;">4P + 3E = R</div>
+    </div>
 
     <!-- ═══ S3 — PROFIL ═══════════════════════════════ -->
     <div class="slide light" id="s3">
@@ -2246,18 +2251,18 @@ const notes = [
 
 // ─── Slide indices (0-based) ────────────────────────────────
 const S2_IDX  = 1;
-const S4_IDX  = 3;
-const S5_IDX  = 4;
-const S10_IDX = 9;   // sequipe_tf (musique slide 10)
-const S11_IDX = 12;
-const S12_IDX = 11;
-  const SPLAN_IDX = 8;
-const SCB_IDX = 18;
-const SPRAIRIES_IDX = 19;
-const SONTARIO_IDX  = 20;
-const SQUEBEC_IDX   = 21;
-const SMARITIMES_IDX = 22;
-  const SEQUIPE_IDX    = 24;
+const S4_IDX  = 4;
+const S5_IDX  = 5;
+const S10_IDX = 10;  // sequipe_tf (musique slide 10)
+const S11_IDX = 13;
+const S12_IDX = 12;
+  const SPLAN_IDX = 9;
+const SCB_IDX = 19;
+const SPRAIRIES_IDX = 20;
+const SONTARIO_IDX  = 21;
+const SQUEBEC_IDX   = 22;
+const SMARITIMES_IDX = 23;
+  const SEQUIPE_IDX    = 25;
   const S26_IDX = Array.from(document.querySelectorAll('.slide')).findIndex(function(s){return s.id==='s26';});
   const S27_IDX = Array.from(document.querySelectorAll('.slide')).findIndex(function(s){return s.id==='s27';});
   let s11PhotoShown = false;
@@ -2595,14 +2600,23 @@ function scbStop() {
   if (b) { b.style.display=''; b.style.opacity='1'; b.style.transform=''; b.style.transition=''; }
 }
 
+var s2ClickState = 0; // 0 = plein écran actif ; 1 = plein écran quitté, prochain clic → slide suivante
+
 function s2Stop() {
   const v = document.getElementById('s2-vid');
   if (v) v.src = '';
+  if (document.fullscreenElement) document.exitFullscreen().catch(function(){});
 }
 
 function s2Init() {
+  s2ClickState = 0;
   const v = document.getElementById('s2-vid');
   if (v) v.src = 'https://drive.google.com/file/d/1RMJhyueRaSfRCTchVIPjpOKoYe-n7v7U/preview?autoplay=1';
+  // Plein écran automatique à l'entrée de la slide
+  var s2el = document.getElementById('s2');
+  if (s2el && s2el.requestFullscreen) {
+    s2el.requestFullscreen().catch(function(){});
+  }
 }
 
 function s27Stop() {
@@ -2816,9 +2830,25 @@ function show(n) {
     }
   }
 
+var _goDebounce = false;
   function go(dir) {
+  // Anti-double-clic manette (400 ms)
+  if (_goDebounce) return;
+  _goDebounce = true;
+  setTimeout(function(){ _goDebounce = false; }, 400);
+
   if (_modalJustClosed || document.getElementById('modal-nutri').style.display !== 'none' || document.getElementById('video-modal').classList.contains('open')) return;
   if (dir > 0) {
+    // Slide 2 : gestion plein écran 3 états
+    if (cur === S2_IDX) {
+      if (s2ClickState === 0) {
+        // Clic 1 : quitter le plein écran, rester sur la slide
+        if (document.fullscreenElement) document.exitFullscreen().catch(function(){});
+        s2ClickState = 1;
+        return;
+      }
+      // Clic 2 (s2ClickState === 1) : avancer normalement, fall-through
+    }
     if (cur === S4_IDX  && !s4Tick())  return;
     if (cur === SPLAN_IDX && splanStep < 2) { splanReveal(splanStep + 1); return; }
 
@@ -3293,6 +3323,7 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.83</span> <span style="color:rgba(200,200,216,.5);">2026-11-06</span> — Nouvelle slide « 4P + 3E = R » (sformule) après s2 ; indices décalés +1 ; s2 : plein écran auto au chargement, clic 1 → quitte plein écran, clic 2 → slide suivante ; anti-double-clic manette 400 ms</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.82</span> <span style="color:rgba(200,200,216,.5);">2026-11-04</span> — Ironman : suppression fade 2:24, volume reste bas (5) de 2:12 à 2:27</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.81</span> <span style="color:rgba(200,200,216,.5);">2026-11-04</span> — s3 : titre → « Parcours » ; s4 : titre → « CV sportif »</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.80</span> <span style="color:rgba(200,200,216,.5);">2026-11-04</span> — s24 : correction montant 535 000 $ (retrait du « 1 »)</div>
