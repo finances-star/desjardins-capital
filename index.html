@@ -1,4 +1,4 @@
-<!-- VERSION: 4.96 -->
+<!-- VERSION: 4.97 -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -1523,11 +1523,12 @@ body {
               <div style="font-size:13px;font-weight:600;color:rgba(255,255,255,.7);letter-spacing:.08em;text-transform:uppercase;">Roger Federer</div>
               <div style="font-size:11px;font-weight:400;color:rgba(255,255,255,.45);letter-spacing:.05em;margin-top:4px;">Dartmouth · 9 juin 2024</div>
             </div>
-            <!-- Bouton reveal -->
-            <button id="federer-btn" onclick="event.stopPropagation();revealFederer()" style="background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:30px;padding:12px 20px;cursor:pointer;transition:all .3s ease;color:white;text-align:center;">
+            <!-- Indicateur reveal (toute la tuile est cliquable) -->
+            <div id="federer-btn" style="transition:all .4s ease;text-align:center;">
               <div style="font-size:13px;font-weight:700;color:white;letter-spacing:.03em;line-height:1.4;">Roger Federer</div>
               <div style="font-size:11px;color:rgba(255,255,255,.6);letter-spacing:.05em;margin-top:3px;">Dartmouth · 9 juin 2024</div>
-            </button>
+              <div style="font-size:10px;color:rgba(255,255,255,.35);letter-spacing:.08em;margin-top:10px;text-transform:uppercase;">— cliquer pour révéler —</div>
+            </div>
           </div>
           <script>
           function revealFederer(){
@@ -3105,7 +3106,7 @@ window.addEventListener('load', scale);
 
   <!-- ═══ AGENDA MODAL ══════════════════════════════════════════════ -->
   <div id="agenda-modal" onclick="closeAgendaModal()" style="display:none;position:fixed;inset:0;z-index:9500;background:rgba(0,0,0,.82);backdrop-filter:blur(12px);align-items:center;justify-content:center;">
-    <div onclick="event.stopPropagation()" style="background:white;border:1px solid #E2E8F0;border-radius:20px;padding:28px 32px;width:min(90vw,1600px);height:auto;max-height:85vh;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.7);overflow:hidden;min-width:0;">
+    <div onclick="event.stopPropagation()" style="background:white;border:1px solid #E2E8F0;border-radius:20px;padding:28px 32px;width:92vw;height:auto;max-height:85vh;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.7);overflow:hidden;min-width:0;">
 
       <!-- En-tête modal -->
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-shrink:0;">
