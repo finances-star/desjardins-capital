@@ -1,4 +1,4 @@
-<!-- VERSION: 4.88 -->
+<!-- VERSION: 4.90 -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -415,6 +415,28 @@ body {
   #video-modal.open { display:flex !important; }
   #agenda-modal { display:none; }
   #agenda-modal.open { display:flex !important; }
+  .agenda-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    flex: 1;
+    min-height: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  @media (max-width: 1100px) {
+    .agenda-grid { grid-template-columns: repeat(7, minmax(140px, 1fr)); }
+  }
+  .agenda-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: #F8FAFC;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #E2E8F0;
+    min-width: 140px;
+  }
 
 /* ─── SLIDE 13 STATS OVERLAY ─────────────────────────── */
 #s12-stats {
@@ -1026,7 +1048,7 @@ body {
               <div style="font-size:11px;font-weight:500;white-space:nowrap;color:#64748b;">Wup 10min @ 145W</div>
               <div style="font-size:20px;font-weight:900;white-space:nowrap;color:#0f172a;">2h40 @230-240W</div>
             </div>
-            <div style="font-size:15px;font-weight:700;padding:4px 12px;border-radius:5px;white-space:nowrap;flex-shrink:0;background:#1e293b;color:white;">~160 min</div>
+            <div style="font-size:20px;font-weight:700;padding:4px 12px;border-radius:5px;white-space:nowrap;flex-shrink:0;background:#1e293b;color:white;">170 min</div>
           </div>
         </div>
         <!-- MAR -->
@@ -1038,7 +1060,7 @@ body {
               <div style="font-size:11px;font-weight:500;white-space:nowrap;color:#64748b;">Wup 10min @ 145W</div>
               <div style="font-size:20px;font-weight:900;white-space:nowrap;color:#0f172a;">2h30 @230-240W</div>
             </div>
-            <div style="font-size:15px;font-weight:700;padding:4px 12px;border-radius:5px;white-space:nowrap;flex-shrink:0;background:#1e293b;color:white;">~155 min</div>
+            <div style="font-size:20px;font-weight:700;padding:4px 12px;border-radius:5px;white-space:nowrap;flex-shrink:0;background:#1e293b;color:white;">160 min</div>
           </div>
         </div>
         <!-- MER -->
@@ -1051,7 +1073,7 @@ body {
               <div style="font-size:20px;font-weight:900;white-space:nowrap;color:#0f172a;">2×(40min @240-250W)</div>
               <div style="font-size:11px;font-weight:500;white-space:nowrap;color:#64748b;">r:10min @120W &nbsp;·&nbsp; CD 30min @145W</div>
             </div>
-            <div style="font-size:15px;font-weight:700;padding:4px 12px;border-radius:5px;white-space:nowrap;flex-shrink:0;background:#1e293b;color:white;">~130 min</div>
+            <div style="font-size:20px;font-weight:700;padding:4px 12px;border-radius:5px;white-space:nowrap;flex-shrink:0;background:#1e293b;color:white;">130 min</div>
           </div>
         </div>
         <!-- JEU -->
@@ -1062,7 +1084,7 @@ body {
             <div style="flex:1;display:flex;flex-direction:column;gap:2px;min-width:0;">
               <div style="font-size:20px;font-weight:900;white-space:nowrap;color:#0f172a;">Force &amp; Technique</div>
             </div>
-            <div style="font-size:15px;font-weight:700;padding:4px 12px;border-radius:5px;white-space:nowrap;flex-shrink:0;background:#1e293b;color:white;">~60 min</div>
+            <div style="font-size:20px;font-weight:700;padding:4px 12px;border-radius:5px;white-space:nowrap;flex-shrink:0;background:#1e293b;color:white;">60 min</div>
           </div>
         </div>
         <!-- VEN -->
@@ -1082,7 +1104,7 @@ body {
               <div style="font-size:20px;font-weight:900;white-space:nowrap;color:#0f172a;">5×(6min @260-270W + 6min @290-300W)</div>
               <div style="font-size:11px;font-weight:500;white-space:nowrap;color:#64748b;">r:3min / R:6min &nbsp;·&nbsp; CD 30min @145W</div>
             </div>
-            <div style="font-size:15px;font-weight:700;padding:4px 12px;border-radius:5px;white-space:nowrap;flex-shrink:0;background:#1e293b;color:white;">~150 min</div>
+            <div style="font-size:20px;font-weight:700;padding:4px 12px;border-radius:5px;white-space:nowrap;flex-shrink:0;background:#1e293b;color:white;">140 min</div>
           </div>
         </div>
         <!-- DIM -->
@@ -1094,8 +1116,14 @@ body {
               <div style="font-size:11px;font-weight:500;white-space:nowrap;color:#64748b;">Wup 10min @145W</div>
               <div style="font-size:20px;font-weight:900;white-space:nowrap;color:#0f172a;">4h00 @210-220W</div>
             </div>
-            <div style="font-size:15px;font-weight:700;padding:4px 12px;border-radius:5px;white-space:nowrap;flex-shrink:0;background:#1e293b;color:white;">~250 min</div>
+            <div style="font-size:20px;font-weight:700;padding:4px 12px;border-radius:5px;white-space:nowrap;flex-shrink:0;background:#1e293b;color:white;">250 min</div>
           </div>
+        </div>
+        <!-- TOTAL -->
+        <div style="display:flex;align-items:center;background:#0f172a;border-radius:10px;padding:12px 14px;margin-top:4px;">
+          <div style="width:130px;flex-shrink:0;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#94a3b8;">TOTAL semaine</div>
+          <div style="flex:1;"></div>
+          <div style="font-size:22px;font-weight:900;color:white;letter-spacing:-.01em;">910 min &nbsp;=&nbsp; <span style="color:#60A5FA;">15h10</span></div>
         </div>
         </div><!-- /rangées -->
 
@@ -3077,7 +3105,7 @@ window.addEventListener('load', scale);
 
   <!-- ═══ AGENDA MODAL ══════════════════════════════════════════════ -->
   <div id="agenda-modal" style="display:none;position:fixed;inset:0;z-index:9500;background:rgba(0,0,0,.82);backdrop-filter:blur(12px);align-items:center;justify-content:center;">
-    <div style="background:white;border:1px solid #E2E8F0;border-radius:20px;padding:28px 32px;width:98vw;max-width:1520px;height:90vh;max-height:860px;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.7);overflow:hidden;">
+    <div style="background:white;border:1px solid #E2E8F0;border-radius:20px;padding:28px 32px;width:98vw;max-width:1520px;height:90vh;max-height:860px;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.7);overflow:hidden;min-width:0;">
 
       <!-- En-tête modal -->
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;flex-shrink:0;">
@@ -3089,10 +3117,10 @@ window.addEventListener('load', scale);
       </div>
 
       <!-- Grille calendrier 7 colonnes -->
-      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:10px;flex:1;min-height:0;overflow:hidden;">
+      <div class="agenda-grid">
 
         <!-- ─── LUNDI 10 ─── -->
-        <div style="display:flex;flex-direction:column;gap:0;background:#F8FAFC;border-radius:14px;overflow:hidden;border:1px solid #E2E8F0;">
+        <div class="agenda-col">
           <div style="background:#DBEAFE;padding:10px 12px;text-align:center;flex-shrink:0;">
             <div style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#1E40AF;text-transform:uppercase;">Lun</div>
             <div style="font-size:22px;font-weight:900;color:#1E3A5F;line-height:1.1;">10</div>
@@ -3122,7 +3150,7 @@ window.addEventListener('load', scale);
         </div>
 
         <!-- ─── MARDI 11 ─── -->
-        <div style="display:flex;flex-direction:column;gap:0;background:#F8FAFC;border-radius:14px;overflow:hidden;border:1px solid #E2E8F0;">
+        <div class="agenda-col">
           <div style="background:#DBEAFE;padding:10px 12px;text-align:center;flex-shrink:0;">
             <div style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#1E40AF;text-transform:uppercase;">Mar</div>
             <div style="font-size:22px;font-weight:900;color:#1E3A5F;line-height:1.1;">11</div>
@@ -3156,7 +3184,7 @@ window.addEventListener('load', scale);
         </div>
 
         <!-- ─── MERCREDI 12 ─── -->
-        <div style="display:flex;flex-direction:column;gap:0;background:#F8FAFC;border-radius:14px;overflow:hidden;border:1px solid #E2E8F0;">
+        <div class="agenda-col">
           <div style="background:#DBEAFE;padding:10px 12px;text-align:center;flex-shrink:0;">
             <div style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#1E40AF;text-transform:uppercase;">Mer</div>
             <div style="font-size:22px;font-weight:900;color:#1E3A5F;line-height:1.1;">12</div>
@@ -3186,7 +3214,7 @@ window.addEventListener('load', scale);
         </div>
 
         <!-- ─── JEUDI 13 ─── -->
-        <div style="display:flex;flex-direction:column;gap:0;background:#F8FAFC;border-radius:14px;overflow:hidden;border:1px solid #E2E8F0;">
+        <div class="agenda-col">
           <div style="background:#DBEAFE;padding:10px 12px;text-align:center;flex-shrink:0;">
             <div style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#1E40AF;text-transform:uppercase;">Jeu</div>
             <div style="font-size:22px;font-weight:900;color:#1E3A5F;line-height:1.1;">13</div>
@@ -3216,7 +3244,7 @@ window.addEventListener('load', scale);
         </div>
 
         <!-- ─── VENDREDI 14 ─── -->
-        <div style="display:flex;flex-direction:column;gap:0;background:#F8FAFC;border-radius:14px;overflow:hidden;border:1px solid #E2E8F0;">
+        <div class="agenda-col">
           <div style="background:#DBEAFE;padding:10px 12px;text-align:center;flex-shrink:0;">
             <div style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#1E40AF;text-transform:uppercase;">Ven</div>
             <div style="font-size:22px;font-weight:900;color:#1E3A5F;line-height:1.1;">14</div>
@@ -3250,7 +3278,7 @@ window.addEventListener('load', scale);
         </div>
 
         <!-- ─── SAMEDI 15 ─── -->
-        <div style="display:flex;flex-direction:column;gap:0;background:#F8FAFC;border-radius:14px;overflow:hidden;border:1px solid #E2E8F0;">
+        <div class="agenda-col">
           <div style="background:#DBEAFE;padding:10px 12px;text-align:center;flex-shrink:0;">
             <div style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#1E40AF;text-transform:uppercase;">Sam</div>
             <div style="font-size:22px;font-weight:900;color:#1E3A5F;line-height:1.1;">15</div>
@@ -3264,7 +3292,7 @@ window.addEventListener('load', scale);
         </div>
 
         <!-- ─── DIMANCHE 16 ─── -->
-        <div style="display:flex;flex-direction:column;gap:0;background:#F8FAFC;border-radius:14px;overflow:hidden;border:1px solid #E2E8F0;">
+        <div class="agenda-col">
           <div style="background:#DBEAFE;padding:10px 12px;text-align:center;flex-shrink:0;">
             <div style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#1E40AF;text-transform:uppercase;">Dim</div>
             <div style="font-size:22px;font-weight:900;color:#1E3A5F;line-height:1.1;">16</div>
@@ -3293,12 +3321,12 @@ window.addEventListener('load', scale);
   </div>
 
   <!-- ═══ VIDEO MODAL ══════════════════════════════════════════════════════ -->
-  <div id="video-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:#000;align-items:center;justify-content:center;flex-direction:column;gap:16px;">
-    <div style="position:relative;width:90vw;max-width:1100px;">
+  <div id="video-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:#000;align-items:center;justify-content:center;flex-direction:column;gap:20px;">
+    <div style="position:relative;width:min(94vw, calc(85vh * 16 / 9));">
       <div id="udm-video-wrap" style="width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.6);"><div id="udm-video" style="width:100%;height:100%;"></div></div>
     </div>
-    <button onclick="closeVideoModal()" style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:8px 20px;font-size:12px;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:background .2s;" onmouseenter="this.style.background='rgba(255,255,255,.2)'" onmouseleave="this.style.background='rgba(255,255,255,.12)'">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    <button onclick="closeVideoModal()" style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.14);color:white;border:1px solid rgba(255,255,255,.3);border-radius:10px;padding:12px 32px;font-size:16px;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:background .2s;" onmouseenter="this.style.background='rgba(255,255,255,.24)'" onmouseleave="this.style.background='rgba(255,255,255,.14)'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       FERMER (ESC)
     </button>
   </div>
@@ -3314,6 +3342,7 @@ window.addEventListener('load', scale);
 
 <div id="changelog-panel" style="display:none;position:fixed;bottom:42px;left:16px;z-index:9999;font-family:monospace;font-size:11px;background:#1a1d2e;color:#c8c8d8;border:1px solid rgba(100,100,140,.35);border-radius:8px;padding:12px 16px;min-width:320px;max-width:420px;max-height:55vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.5);">
   <div style="font-weight:700;margin-bottom:8px;color:#60A5FA;font-size:12px;">CHANGELOG</div>
+  <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.89</span> <span style="color:rgba(200,200,216,.5);">2026-11-06</span> — video-modal : responsive min(94vw, 85vh×16/9) sans max-width fixe; bouton FERMER agrandi (16px, padding 12×32)</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.88</span> <span style="color:rgba(200,200,216,.5);">2026-11-06</span> — s4 CV sportif : révélation en 3 états (load=t0, clic1=t1 rouge, clic2=animation auto t2→t11 à 300ms) → état final 4 bleu foncé + 7 bleu pâle + 1 rouge</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.87</span> <span style="color:rgba(200,200,216,.5);">2026-11-06</span> — sformule : nouvelle slide identique à s1 avec juste la formule 4P+3E=R, insérée après s2</div>
   <div style="margin-bottom:6px;"><span style="color:#60A5FA;">v4.86</span> <span style="color:rgba(200,200,216,.5);">2026-11-06</span> — s2 : suppression plein écran automatique — vidéo joue dans la slide normalement</div>
