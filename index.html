@@ -1,4 +1,4 @@
-<!-- VERSION: 4.97 -->
+<!-- VERSION: 4.98 -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -1849,7 +1849,7 @@ body {
     <!-- notes: Maritimes. N.-B., N.-É., T.-N. 4 points à remplir. MARITIMES.mp4 à ajouter sur GitHub. -->
 
     <!-- ═══ S14 — LA TRAVERSÉE, LES CHIFFRES ════════════════ -->
-    <div class="slide light" id="s14">
+    <div class="slide light" id="s14" style="background:#EFF6FF;">
       <div class="top-bar"></div>
       <div class="pad" style="flex:1;display:flex;flex-direction:column;justify-content:center;">
         <div class="section-tag">Traversée du Canada</div>
@@ -1881,19 +1881,19 @@ body {
             <div class="stat-label">jours de pluie</div>
             <div class="stat-sub">zéro arrêt météo</div>
           </div>
-          <div class="stat-tile">
+          <div class="stat-tile tile-r3" id="s14-r3a">
             <div class="stat-num">4</div>
             <div class="stat-label">crevaisons</div>
           </div>
-          <div class="stat-tile">
+          <div class="stat-tile tile-r3" id="s14-r3b">
             <div class="stat-num">1</div>
             <div class="stat-label">chute</div>
           </div>
-          <div class="stat-tile">
+          <div class="stat-tile tile-r3" id="s14-r3c">
             <div class="stat-num">0</div>
             <div class="stat-label">accident</div>
           </div>
-          <div class="stat-tile" style="grid-column:1/-1;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:6px;background:white;border:1.5px solid #BFDBFE;">
+          <div class="stat-tile" id="s14-bondant" style="grid-column:1/-1;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:6px;background:white;border:1.5px solid #BFDBFE;">
             <div class="stat-num" style="font-size:52px;color:#1D4ED8;">535 000 $</div>
             <div class="stat-label" style="color:#2563EB;">Recherche sur le cancer de la prostate</div>
           </div>
@@ -2298,7 +2298,9 @@ const SMARITIMES_IDX = 23;
   const SEQUIPE_IDX    = 25;
   const S26_IDX = Array.from(document.querySelectorAll('.slide')).findIndex(function(s){return s.id==='s26';});
   const S27_IDX = Array.from(document.querySelectorAll('.slide')).findIndex(function(s){return s.id==='s27';});
+  const S14_IDX = Array.from(document.querySelectorAll('.slide')).findIndex(function(s){return s.id==='s14';});
   let s11PhotoShown = false;
+  let s14Step = 0;
 
 // ─── S4: Tile reveal + highlight ────────────────────────────
 // Important tiles (indices in chronological grid): Boston, Ironman AZ, Berlin PR, Norseman, Traversée
@@ -2656,20 +2658,68 @@ function s27Init() { /* tile play — modal s'ouvre au clic */ }
 
 // ─── S26 : 3-click reveal 4P + 3E = R ────────────────────────
 let s26Step = 0;
+let seqStep = 0;
+
+function s14Init() {
+  s14Step = 0;
+  // Slide background pale blue
+  var slide = document.getElementById('s14');
+  if (slide) slide.style.background = '#EFF6FF';
+  // Rangée 1 (tile-r1) always visible
+  // Hide rangée 2, 3, bondant
+  document.querySelectorAll('#s14 .tile-r2').forEach(function(el){
+    el.style.opacity='0'; el.style.transform='translateY(16px)'; el.style.transition='opacity .5s ease, transform .5s ease';
+  });
+  document.querySelectorAll('#s14 .tile-r3').forEach(function(el){
+    el.style.opacity='0'; el.style.transform='translateY(16px)'; el.style.transition='opacity .5s ease, transform .5s ease';
+  });
+  var bondant = document.getElementById('s14-bondant');
+  if (bondant) { bondant.style.opacity='0'; bondant.style.transform='translateY(16px)'; bondant.style.transition='opacity .5s ease, transform .5s ease'; }
+}
+
+function s14Tick() {
+  if (s14Step === 0) {
+    // 1er clic → rangée 2
+    document.querySelectorAll('#s14 .tile-r2').forEach(function(el){
+      el.style.opacity='1'; el.style.transform='translateY(0)';
+    });
+    s14Step = 1; return false;
+  }
+  if (s14Step === 1) {
+    // 2e clic → rangée 3
+    document.querySelectorAll('#s14 .tile-r3').forEach(function(el){
+      el.style.opacity='1'; el.style.transform='translateY(0)';
+    });
+    s14Step = 2; return false;
+  }
+  if (s14Step === 2) {
+    // 3e clic → le bondant
+    var bondant = document.getElementById('s14-bondant');
+    if (bondant) { bondant.style.opacity='1'; bondant.style.transform='translateY(0)'; }
+    s14Step = 3; return false;
+  }
+  return true; // avancer
+}
 
 function s26Init() {
   s26Step = 0;
-  ['s26-4p-body','s26-2e-body','s26-r-body'].forEach(function(id){
-    var el = document.getElementById(id);
-    if (el) { el.style.opacity = '0'; el.style.maxHeight = '0'; }
-  });
-  ['s26-4p-card','s26-2e-card','s26-r-card'].forEach(function(id){
-    var el = document.getElementById(id);
-    if (el) { el.style.background = 'transparent'; el.style.border = '1px solid transparent'; }
-  });
+  // Reset words hidden
   document.querySelectorAll('#s26 .s26-word').forEach(function(w){
     w.style.maxWidth = '0'; w.style.opacity = '0';
   });
+  // Auto-reveal bodies (barres bleues visibles dès le chargement)
+  var configs = [
+    {body:'s26-4p-body',card:'s26-4p-card',bg:'rgba(30,58,138,.5)',border:'rgba(37,99,235,.5)'},
+    {body:'s26-2e-body',card:'s26-2e-card',bg:'rgba(30,64,175,.5)',border:'rgba(37,99,235,.5)'},
+    {body:'s26-r-body', card:'s26-r-card', bg:'rgba(29,78,216,.5)',border:'rgba(96,165,250,.4)'}
+  ];
+  configs.forEach(function(c){
+    var el = document.getElementById(c.body);
+    if (el) { el.style.opacity = '1'; el.style.maxHeight = '500px'; }
+    var card = document.getElementById(c.card);
+    if (card) { card.style.background = c.bg; card.style.border = '1px solid ' + c.border; }
+  });
+  s26Step = 1; // already in state 1; next nav tick advances
 }
 
 function s26RevealAll(e, bodyId) {
@@ -2790,6 +2840,7 @@ function show(n) {
   if (cur === S12_IDX) clkInit();
   if (cur === SPLAN_IDX) splanInit();
   if (cur === SEQUIPE_IDX)     seqPlay();
+  if (cur === S14_IDX)         s14Init();
   if (cur === S26_IDX)         s26Init();
   if (cur === S27_IDX)         s27Init();
 }
@@ -2798,39 +2849,32 @@ function show(n) {
 
   // ─── seqEntourage: cibles concentriques ─────────────────────────────────
   function seqPlay() {
+    seqStep = 0;
     var svg = document.getElementById('seq-svg');
     if (!svg) return;
-    // Wire click handler once (DOMContentLoaded déjà passé, on branche ici)
-    if (!svg._clickBound) {
-      svg._clickBound = true;
-      svg.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if (!svg._pyramidReady) return;
-        if (svg.classList.contains('seq-pyramid-mode')) {
-          svg.classList.remove('seq-pyramid-mode');
-          seqPlay();
-        } else {
-          svg.classList.add('seq-pyramid-mode');
-          var h = document.getElementById('seq-click-hint');
-          if (h) h.style.opacity = '0';
-        }
-      });
-    }
     // Reset pyramid mode
     svg.classList.remove('seq-pyramid-mode');
-    svg._pyramidReady = false;
     var hint = document.getElementById('seq-click-hint');
     if (hint) { hint.style.opacity = '0'; hint.style.animation = 'none'; }
     var els = svg.querySelectorAll('.sq-ring,.sq-lbl,#sq-center');
     els.forEach(function(el){ el.classList.remove('sq-go'); });
     void svg.getBoundingClientRect();   // force reflow so animations restart
     els.forEach(function(el){ el.classList.add('sq-go'); });
-    // After animation completes (~4.5s), enable click-to-pyramid
-    if (svg._pyramidTimeout) clearTimeout(svg._pyramidTimeout);
-    svg._pyramidTimeout = setTimeout(function() {
-      svg._pyramidReady = true;
-      if (hint) { hint.style.opacity = ''; hint.style.animation = ''; void hint.getBoundingClientRect(); hint.style.animation = 'hintPulse 2s ease 0s 3 forwards'; }
-    }, 4500);
+  }
+
+  function seqTick() {
+    if (seqStep === 0) {
+      // 1er clic/nav → affiche la pyramide immédiatement
+      var svg = document.getElementById('seq-svg');
+      if (svg) {
+        svg.classList.add('seq-pyramid-mode');
+        var h = document.getElementById('seq-click-hint');
+        if (h) h.style.opacity = '0';
+      }
+      seqStep = 1;
+      return false; // reste sur la slide
+    }
+    return true; // avancer
   }
   function seqStop() {
     var svg = document.getElementById('seq-svg');
@@ -2877,6 +2921,8 @@ var _goDebounce = false;
       if (!ov12.classList.contains('dismissed')) { ov12.classList.add('dismissed'); return; }
       if (!clkTick()) return;
     }
+    if (cur === S14_IDX && !s14Tick()) return;
+    if (cur === SEQUIPE_IDX && !seqTick()) return;
     if (cur === S26_IDX && !s26Tick()) return;
   }
   show(cur + dir);
@@ -3322,14 +3368,16 @@ window.addEventListener('load', scale);
   </div>
 
   <!-- ═══ VIDEO MODAL ══════════════════════════════════════════════════════ -->
-  <div id="video-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:#000;align-items:center;justify-content:center;flex-direction:column;gap:20px;">
-    <div style="position:relative;width:min(94vw, calc(85vh * 16 / 9));">
+  <div id="video-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:#000;align-items:center;justify-content:center;flex-direction:row;gap:0;padding:0 16px;">
+    <div style="position:relative;flex:1;max-height:92vh;display:flex;align-items:center;">
       <div id="udm-video-wrap" style="width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.6);"><div id="udm-video" style="width:100%;height:100%;"></div></div>
     </div>
-    <button onclick="closeVideoModal()" style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.14);color:white;border:1px solid rgba(255,255,255,.3);border-radius:10px;padding:12px 32px;font-size:16px;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:background .2s;" onmouseenter="this.style.background='rgba(255,255,255,.24)'" onmouseleave="this.style.background='rgba(255,255,255,.14)'">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      FERMER (ESC)
-    </button>
+    <div style="display:flex;align-items:center;justify-content:center;padding:0 20px;flex-shrink:0;">
+      <button onclick="closeVideoModal()" style="display:flex;flex-direction:column;align-items:center;gap:10px;background:rgba(255,255,255,.14);color:white;border:1px solid rgba(255,255,255,.3);border-radius:12px;padding:20px 18px;font-size:14px;font-weight:700;letter-spacing:.08em;cursor:pointer;transition:background .2s;" onmouseenter="this.style.background='rgba(255,255,255,.24)'" onmouseleave="this.style.background='rgba(255,255,255,.14)'">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        FERMER<br>(ESC)
+      </button>
+    </div>
   </div>
 
 
@@ -3570,7 +3618,7 @@ document.addEventListener('DOMContentLoaded',function(){
   var STOP_IDS = ['click-prev','ver-badge','changelog-panel',
                   'modal-nutri','modal-nutri-close',
                      'counter','nav','slide-picker','picker-grid',
-                  's5-yt-wrap','s5-yt-player','quinn-modal','seq-svg'];
+                  's5-yt-wrap','s5-yt-player','quinn-modal'];
   var STOP_TAGS = ['BUTTON','A','INPUT','SELECT','TEXTAREA','IFRAME','VIDEO'];
   document.addEventListener('click', function(e){
     var qm = document.getElementById('quinn-modal');
